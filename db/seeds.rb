@@ -65,12 +65,12 @@ end
 
 puts '  Creating artworks for each artist...'
 User.where(is_artist: true).each do |artist|
-  (2..5).times do
+  rand(2..5).times do
     Artwork.create!(
       user: artist,
       title: Faker::Lorem.sentence(word_count: 3),
       description: Faker::Lorem.paragraph_by_chars(number: 300),
-      style: Artworks::STYLES.sample
+      style: Artwork::STYLES.sample
     )
   end
 end
@@ -86,23 +86,51 @@ end
 
 puts '  Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
-  (1..3).times do
+  rand(1..3).times do
     Event.create!(
       user: artist,
       title: Faker::Lorem.sentence(word_count: 3),
       description: Faker::Lorem.paragraph_by_chars(number: 300),
       location: Faker::Address.city,
       start_date: Date.today,
-      end_date: Date.today,
+      end_date: Date.today + 1,
       is_private: [true, false].sample
     )
   end
 end
 
-puts 'Creating event attendances...'
+puts '    Creating event attendances...'
 10.times do
   EventAttendance.create!(
     user: User.where(is_artist: false).sample,
     event: Event.all.sample
   )
 end
+
+puts 'Creating subscriptions...'
+20.times do
+  Subscription.create!(
+    buyer: User.where(is_artist: false).sample,
+    artist: User.where(is_artist: true).sample
+  )
+end
+
+puts 'Creating conversations...'
+Subscription.all.each do |subscription|
+  Conversation.create!(
+    buyer: subscription.buyer,
+    artist: subscription.artist
+  )
+end
+
+puts '  Creating messages for each conversation...'
+Conversation.all.each do |conversation|
+  rand(1..5).times do
+    Message.create!(
+      conversation: conversation,
+      content: Faker::Lorem.paragraph_by_chars(number: 100)
+    )
+  end
+end
+
+puts 'Finished!'
