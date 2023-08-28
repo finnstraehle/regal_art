@@ -75,12 +75,12 @@ User.where(is_artist: true).each do |artist|
   end
 end
 
-puts '    Creating art details for each artwork...'
+puts 'Creating art details for each artwork...'
 Artwork.all.each do |artwork|
   ArtDetail.create!(
     artwork: artwork,
     title: Faker::Lorem.sentence(word_count: 2),
-    description: Faker::Lorem.paragraph_by_chars(number: 100),
+    description: Faker::Lorem.paragraph_by_chars(number: 100)
   )
 end
 
