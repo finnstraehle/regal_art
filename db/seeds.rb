@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 puts 'Cleaning database...'
 User.destroy_all
@@ -12,13 +13,16 @@ Conversation.destroy_all
 Message.destroy_all
 
 puts 'Creating 4 buyers...'
-User.create!(
+user = User.new(
   email: 'a@a.com',
   password: '111111',
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   is_artist: false,
 )
+file = asset_url('user1_avatar.jpg')
+user.avatar.attach(io: file, filename: user.first_name.to_s, content_type: 'image/jpg')
+user.save!
 User.create!(
   email: 'b@b.com',
   password: '111111',
