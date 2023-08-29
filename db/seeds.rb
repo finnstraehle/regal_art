@@ -12,38 +12,17 @@ Subscription.destroy_all
 Conversation.destroy_all
 Message.destroy_all
 
-puts 'Creating 4 buyers...'
-user = User.new(
-  email: 'a@a.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-file = asset_url('user1_avatar.jpg')
-user.avatar.attach(io: file, filename: user.first_name.to_s, content_type: 'image/jpg')
-user.save!
-User.create!(
-  email: 'b@b.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-User.create!(
-  email: 'c@c.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-User.create!(
-  email: 'd@d.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
+puts 'Creating 10 buyers...'
+10.times do |i|
+  letter = ('a'..'z').to_a[i]
+  User.create!(
+    email: "#{letter}@regalart.com",
+    password: '111111',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    is_artist: false
+  )
+end
 
 puts '  Creating a preference for each buyer...'
 User.where(is_artist: false).each do |buyer|
@@ -53,9 +32,9 @@ User.where(is_artist: false).each do |buyer|
   )
 end
 
-puts 'Creating artists...'
-10.times do
-  User.create!(
+puts 'Creating 5 artists...'
+5.times do |i|
+  user = User.new(
     email: Faker::Internet.email,
     password: '111111',
     first_name: Faker::Name.first_name,
@@ -65,6 +44,9 @@ puts 'Creating artists...'
     short_bio: Faker::Marketing.buzzwords,
     long_bio: Faker::Lorem.paragraph_by_chars(number: 300)
   )
+  file = asset_url("user_avatar#{i + 1}.jpg")
+  user.avatar.attach(io: file, filename: user.first_name.to_s, content_type: 'image/jpg')
+  user.save!
 end
 
 puts '  Creating artworks for each artist...'
