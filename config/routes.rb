@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
-  get "/discovery", to: "pages#discovery", as: :discovery
+  get "/discover", to: "pages#discover", as: :discover
 
   resources :events, only: %i[index show new create edit update destroy]
   resources :subscriptions, only: %i[index create destroy]
