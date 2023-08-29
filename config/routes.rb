@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_scope :user do
+    get 'users/artist_sign_up', to: 'devise/registrations#new_artist'
+  end
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   get "/discover", to: "pages#discover", as: :discover
