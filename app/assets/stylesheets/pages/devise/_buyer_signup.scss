@@ -2,7 +2,7 @@
 .container-devise h2 {
   color: black;
   text-align: center;
-  font-family: $body-font;
+  font-family: $headers-font;
   font-size: 31px;
   font-style: normal;
   font-weight: 400;
@@ -12,7 +12,7 @@
 
 .container-devise .devise-inputs {
   color: black;
-  font-family: Jost;
+  font-family: $body-font;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
