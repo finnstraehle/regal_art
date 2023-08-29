@@ -4,12 +4,26 @@
   flex-shrink: 0;
   border-radius: 50px;
   background: $aubergine;
-  color: #fff;
+  color: #fff !important;
   text-align: center;
   padding: 5px 35px;
+  &:hover {
+    background: $lavander;
+  }
+}
+
+.button-devise {
+  width: fit-content !important;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: $aubergine;
+  color: #fff !important;
+  text-align: center;
+  padding: 5px 35px;
+  margin-top: 20px;
 
   &:hover {
     background: $lavander;
-
   }
 }

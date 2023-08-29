@@ -1,3 +1,4 @@
+
 .container-devise h2 {
   color: black;
   text-align: center;
@@ -6,6 +7,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 40px;
 }
 
 .container-devise .devise-inputs {
@@ -15,4 +17,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.devise-center {
+  display: flex;
+  justify-content: center;
+}
+
+.forgot-pwd {
+  margin-top: 30px;
 }
