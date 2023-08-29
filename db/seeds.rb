@@ -16,7 +16,7 @@ puts 'Creating 10 buyers...'
 10.times do |i|
   letter = ('a'..'z').to_a[i]
   User.create!(
-    email: "#{letter}@regalart.com",
+    email: "#{letter}@duck.com",
     password: '111111',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -34,8 +34,9 @@ end
 
 puts 'Creating 5 artists...'
 5.times do |i|
+  letter = ('a'..'z').to_a[i]
   user = User.new(
-    email: Faker::Internet.email,
+    email: "#{letter}@regalart.com",
     password: '111111',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
