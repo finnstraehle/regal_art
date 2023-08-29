@@ -1,17 +1,5 @@
-
-.sign-up-page {
-  background: linear-gradient(90deg, #000 0%, #2D2639 100%);
-}
-
-
-.devise-container {
-  padding: 100px;
-  margin-top: 50px;
-
-}
-
-.devise-container h2 {
-  color: #000;
+.container-devise h2 {
+  color: black;
   text-align: center;
   font-family: $body-font;
   font-size: 31px;
@@ -20,8 +8,8 @@
   line-height: normal;
 }
 
-.devise-inputs {
-  color: #B9B8B8;
+.container-devise .devise-inputs {
+  color: black;
   font-family: Jost;
   font-size: 16px;
   font-style: normal;
