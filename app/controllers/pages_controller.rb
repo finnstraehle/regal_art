@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def discover
+    @artists = User.where(is_artist: true)
+  end
 end

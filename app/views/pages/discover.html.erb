@@ -1,0 +1,7 @@
+<h1>Discover</h1>
+<% @artists.each do |artist| %>
+  <div class="d-flex">
+    <%= cl_image_tag artist.avatar.key, class: "avatar-square" %>
+    <%= artist.first_name %>
+  </div>
+<% end %>
