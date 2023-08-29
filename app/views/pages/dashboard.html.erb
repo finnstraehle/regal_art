@@ -2,28 +2,22 @@
   <h1>Dashboard</h1>
   <div class="dashboard-grid">
     <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Wishlist</h4>
-      <p>See your wishlist</p>
-    <% end %>
-    <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Bookings</h4>
-      <p>See all your bookings</p>
-    <% end %>
-    <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Listings</h4>
-      <p>See all your listings</p>
-    <% end %>
-    <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
       <h4>Profile</h4>
-      <p>Edit your profile</p>
-    <% end %> <!-- change to logged in user -->
+    <% end %>
+    <%= link_to users_path, class: "dashboard-card dashboard-button" do %>
+      <h4>Followers</h4>
+    <% end %>
+    <%= link_to events_path, class: "dashboard-card dashboard-button" do %>
+      <h4>Events</h4>
+    <% end %>
     <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
       <h4>Messages</h4>
-      <p>See your messages</p>
+    <% end %> <!-- change to logged in user -->
+    <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
+      <h4>Analytics</h4>
     <% end %>
     <%= link_to dashboard_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Payment Methods</h4>
-      <p>See your payment methods</p>
+      <h4>Settings</h4>
     <% end %>
   </div>
 </div>
