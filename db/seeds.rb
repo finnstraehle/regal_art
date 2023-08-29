@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 puts 'Cleaning database...'
 User.destroy_all
@@ -11,37 +12,19 @@ Subscription.destroy_all
 Conversation.destroy_all
 Message.destroy_all
 
-puts 'Creating 4 buyers...'
-User.create!(
-  email: 'a@a.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-User.create!(
-  email: 'b@b.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-User.create!(
-  email: 'c@c.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
-User.create!(
-  email: 'd@d.com',
-  password: '111111',
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  is_artist: false,
-)
+puts 'Creating 10 buyers...'
+10.times do |i|
+  letter = ('a'..'z').to_a[i]
+  User.create!(
+    email: "#{letter}@regalart.com",
+    password: '111111',
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    is_artist: false
+  )
+end
 
-puts '  Creating a preference for each buyer...'
+puts '>Creating a preference for each buyer...'
 User.where(is_artist: false).each do |buyer|
   Preference.create!(
     user: buyer,
@@ -49,9 +32,9 @@ User.where(is_artist: false).each do |buyer|
   )
 end
 
-puts 'Creating artists...'
-10.times do
-  User.create!(
+puts 'Creating 5 artists...'
+5.times do |i|
+  user = User.new(
     email: Faker::Internet.email,
     password: '111111',
     first_name: Faker::Name.first_name,
@@ -61,9 +44,12 @@ puts 'Creating artists...'
     short_bio: Faker::Marketing.buzzwords,
     long_bio: Faker::Lorem.paragraph_by_chars(number: 300)
   )
+  file = File.open("app/assets/images/user#{i + 1}_avatar.jpg")
+  user.avatar.attach(io: file, filename: user.first_name.to_s, content_type: 'image/jpg')
+  user.save!
 end
 
-puts '  Creating artworks for each artist...'
+puts '>Creating artworks for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(2..5).times do
     Artwork.create!(
@@ -75,7 +61,7 @@ User.where(is_artist: true).each do |artist|
   end
 end
 
-puts 'Creating art details for each artwork...'
+puts '>>Creating art details for each artwork...'
 Artwork.all.each do |artwork|
   ArtDetail.create!(
     artwork: artwork,
@@ -84,10 +70,10 @@ Artwork.all.each do |artwork|
   )
 end
 
-puts '  Creating Events for each artist...'
+puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(1..3).times do
-    Event.create!(
+    event = Event.new(
       user: artist,
       title: Faker::Lorem.sentence(word_count: 3),
       description: Faker::Lorem.paragraph_by_chars(number: 300),
@@ -96,10 +82,13 @@ User.where(is_artist: true).each do |artist|
       end_date: Date.today + 1,
       is_private: [true, false].sample
     )
+    file = URI.open('https://source.unsplash.com/300x300/?portrait')
+    event.photos.attach(io: file, filename: event.title, content_type: 'image/png')
+    event.save!
   end
 end
 
-puts '    Creating event attendances...'
+puts '>>Creating event attendances...'
 10.times do
   EventAttendance.create!(
     user: User.where(is_artist: false).sample,
@@ -123,7 +112,7 @@ Subscription.all.each do |subscription|
   )
 end
 
-puts '  Creating messages for each conversation...'
+puts '>Creating messages for each conversation...'
 Conversation.all.each do |conversation|
   rand(1..5).times do
     Message.create!(

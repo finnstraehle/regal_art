@@ -12,4 +12,11 @@ class User < ApplicationRecord
   has_many :received_subscriptions, foreign_key: :artist_id, class_name: 'Subscription', dependent: :destroy
   has_many :conversations, foreign_key: :buyer_id, class_name: 'Conversation', dependent: :destroy
   has_many :received_conversations, foreign_key: :artist_id, class_name: 'Conversation', dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :is_artist, inclusion: { in: [true, false] }
+
+  has_one_attached :avatar
+  has_one_attached :banner
 end
