@@ -1,43 +1,38 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to discovery_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_white.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <%# <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", discovery_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Artists", artists_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Events", events_path, class: "nav-link" %>
+<div class="navbar">
+  <div class="navbar-top">
+    <div class="navbar-logo">
+      <%= link_to discovery_path do %>
+        <%= image_tag "logo_white.png" %>
+      <% end %>
+    </div>
+    <div class="navbar-bar">
+      <ul>
+        <li class="nav-item">
+            <%= link_to "Home", "#" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Artists", "#" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= link_to "User", "#", class: "nav-link gold" %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Your artists", subscriptions_path, class: "dropdown-item" %>
-              <%= link_to "Your events", "#", class: "dropdown-item" %>
-              <%= link_to "Your preferences", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <li class="nav-item">
+            <%= link_to "Events", "#" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#" %>
+          </li>
+
+          <li class="nav-item dropdown" data-controller="reveal" >
+            <%= link_to "User", "#", data: {action: "mouseover->reveal#display"} %>
+            <div class="dropdown-m" data-reveal-target="item" >
+              <%= link_to "Your artists", subscriptions_path %><br>
+              <%= link_to "Your events", "#" %><br>
+              <%= link_to "Preferences", "#" %><br>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "font-weight-bold" %>
             </div>
           </li>
-        <%# <% else %>
-          <%# <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li>
-        <% end %>
       </ul>
     </div>
+  </div>
+  <div class="navbar-heading">
+    <h1><%= title %></h1>
   </div>
 </div>
