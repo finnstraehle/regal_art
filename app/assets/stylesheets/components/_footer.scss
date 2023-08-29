@@ -1,0 +1,21 @@
+footer {
+  background-color: $deep-aubergine;
+  width: 100%;
+}
+
+footer .footer-container {
+  padding: 20px 80px;
+}
+
+footer .footer-container p {
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}

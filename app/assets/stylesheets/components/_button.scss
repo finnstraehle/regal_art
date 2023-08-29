@@ -1,0 +1,15 @@
+.button {
+  width: fit-content !important;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: $aubergine;
+  color: #fff;
+  text-align: center;
+  padding: 5px 35px;
+
+  &:hover {
+    background: $lavander;
+
+  }
+}
