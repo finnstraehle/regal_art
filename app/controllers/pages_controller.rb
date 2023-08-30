@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @title = "Recommended artists"
+    @user = current_user.last_name
   end
 
   def dashboard

@@ -21,7 +21,7 @@
           </li>
 
           <li class="nav-item dropdown" data-controller="reveal" >
-            <%= link_to "User", "#", data: {action: "mouseover->reveal#display"} %>
+            <%= link_to @user, "#", data: {action: "mouseover->reveal#display"} %>
             <div class="dropdown-m" data-reveal-target="item" >
               <%= link_to "Your artists", subscriptions_path %><br>
               <%= link_to "Your events", "#" %><br>
@@ -33,6 +33,6 @@
     </div>
   </div>
   <div class="navbar-heading">
-    <h1><%#= title %></h1>
+    <h1><%= @title %></h1>
   </div>
 </div>

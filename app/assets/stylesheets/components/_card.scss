@@ -1,0 +1,69 @@
+.event-sm {
+  width: 200px;
+  height: 245px;
+  border-radius: 5px;
+  background: $aubergine;
+  color: $white;
+  text-align: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-btn {
+  align-self: center;
+}
+
+
+// .event-lg {
+//   width: 600px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   border-radius: 5px;
+//   background: $aubergine;
+//   .event-lg img {
+//     width: 400px;
+//     text-align: right;
+//   }
+// }
+
+// .artpiece-sm-minimal {
+//   width: 260px;
+//   height: 305px;
+//   flex-shrink: 0;
+//   border-radius: 5px;
+//   background: $aubergine;
+//   .artpiece-sm-minimal img {
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 5px;
+//   }
+// }
+
+.artist-card {
+  width: 1000px;
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  background: $warm-gray;
+  color: $black;
+  margin-bottom: 20px;
+}
+
+.artist-card img {
+  width: 280px;
+  height: 280px;
+  border-radius: 5px 0 0 5px;
+  object-fit: contain;
+}
+
+.artist-card-text {
+  margin: 40px;
+  p {
+    padding-top: 10px;
+  }
+}
