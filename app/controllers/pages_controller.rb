@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @title = "Recommended artists"
-    @user = current_user.last_name
+    @user = ""
+    @user = current_user.last_name unless current_user.nil?
   end
 
   def dashboard
