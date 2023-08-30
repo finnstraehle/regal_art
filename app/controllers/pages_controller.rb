@@ -5,13 +5,16 @@ class PagesController < ApplicationController
     @title = "Recommended artists"
     @user = "" # remove once login stuff works
     @user = current_user.last_name unless current_user.nil?
+    @banner = "user1_avatar.jpg"
   end
 
   def dashboard
+    @banner = "user1_avatar.jpg"
   end
 
   def discover
     @title = "Discover"
-    @artists = User.where(is_artist: true)
+    @banner = "user1_avatar.jpg"
+    @artists = User.where(is_artist: true).shuffle
   end
 end

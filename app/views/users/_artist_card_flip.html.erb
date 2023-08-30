@@ -1,7 +1,9 @@
-<div class="artist-card-flip">
+<%= link_to user_path(artist), class: "artist-card flip" do %>
   <div class="text">
-    <h2>John Smith</h2>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
+    <h2><%= artist.first_name %></h2>
+    <p><%= artist.long_bio %></p>
   </div>
-  <%= image_tag "user2_avatar.jpg" %>
-</div>
+  <div class="artist-card-img">
+    <%= cl_image_tag artist.avatar.key %>
+  </div>
+<% end %>

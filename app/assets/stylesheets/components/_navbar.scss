@@ -1,8 +1,8 @@
 .navbar {
   width: 100%;
   height: 300px;
-  background: rgb(65, 65, 65);
-  padding: 0 90px;
+  padding: 40px 70px 15px 70px;
+  margin-bottom: 20px;
 }
 
 .navbar-top {
@@ -12,18 +12,22 @@
   justify-content: space-between;
   align-self: flex-start;
   height: 90px;
-  padding-top: 30px;
 }
 
-.navbar-logo img{
-  width: 130px;
+.navbar-logo {
+  color: #a69f89;
+  font-size: 14px;
+  line-height: 16px;
+  img {
+    width: 130px;
+    margin-bottom: 14px;
+  }
 }
 
 .navbar-heading {
   color: #fff;
   text-align: right;
   align-self: flex-end;
-  padding-bottom: 30px;
   width: 100%;
 }
 
@@ -31,7 +35,7 @@
   background-color: #000;
   width: 550px;
   height: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .navbar-bar ul {

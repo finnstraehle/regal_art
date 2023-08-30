@@ -5,6 +5,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @title = "Events"
+    @events = Event.all
+    @banner = "user1_avatar.jpg"
   end
 
   def new

@@ -1,24 +1,6 @@
 <div class="container-m">
-  <% @artists.each do |artist| %>
-    <%= link_to user_path(artist), class: "artist-card" do %>
-      <div class="artist-card-img">
-        <%= cl_image_tag artist.avatar.key %>
-      </div>
-      <div class="text">
-        <h2><%= artist.first_name %></h2>
-        <p><%= artist.long_bio %></p>
-      </div>
-    <% end %>
-  <% end %>
-  <% @artists.each do |artist| %>
-    <%= link_to user_path(artist), class: "artist-card-flip" do %>
-      <div class="text">
-        <h2><%= artist.first_name %></h2>
-        <p><%= artist.long_bio %></p>
-      </div>
-      <div class="artist-card-img">
-        <%= cl_image_tag artist.avatar.key %>
-      </div>
-    <% end %>
+  <% @artists.each_with_index do |artist, index| %>
+    <% if index.even? %><%= render "users/artist_card", artist: artist %><% end %>
+    <% if index.odd? %><%= render "users/artist_card_flip", artist: artist %><% end %>
   <% end %>
 </div>

@@ -1,29 +1,46 @@
-
-.container-devise h2 {
-  color: black;
-  text-align: center;
-  font-family: $headers-font;
-  font-size: 31px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 40px;
+.container-devise {
+  padding: 10px 100px;
+  background-color: $warm-gray;
+  border-radius: 5px 5px 0 0;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px 200px 0 0;
+  height: 93vh;
+  h2 {
+    margin-bottom: 40px;
+    margin-top: 60px;
+    text-align: center;
+  }
 }
 
-.container-devise .devise-inputs {
-  color: black;
-  font-family: $body-font;
+.devise-link {
+  color: $warm-gray;
+  text-decoration: none;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  &:hover {
+    color: $lavander;
+    text-decoration: none;
+  }
 }
 
 .devise-center {
   display: flex;
   justify-content: center;
+  margin-top: 15px;
+  a {
+    color: $aubergine;
+    text-decoration: none;
+    margin: 0 10px;
+    &:hover {
+      color: $lavander;
+      text-decoration: none;
+    }
+  }
 }
 
-.forgot-pwd {
-  margin-top: 30px;
+.margin-left {
+  margin-left: 70px;
 }
+
+// .forgot-pwd {
+//   margin-top: 30px;
+// } haha
