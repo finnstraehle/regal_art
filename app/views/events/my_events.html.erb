@@ -1,0 +1,17 @@
+<div class="container-l">
+  <h1>My Events</h1>
+    <div class="events-box">
+    <% @events.each_with_index do |event, index| %>
+        <div class="event-card">
+          <%= link_to "<i class='fa-regular fa-circle-xmark'></i>".html_safe, event_path(event), data: {turbo_method: :delete, turbo_confirm: "This event has #{event.event_attendances.count} confirmed attendants. Are you sure you want to cancel this event?"}, class:"delete-btn" %>
+          <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        <div class="text">
+          <h4><%= event.title %></h4>
+          <p>Special and cool</p>
+          <%= link_to "More info", "#", class: "event-link" %>
+        </div>
+        <div class="white-button event-btn">Details</div>
+      </div>
+    <% end %>
+  </div>
+</div>
