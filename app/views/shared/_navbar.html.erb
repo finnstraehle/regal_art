@@ -1,31 +1,28 @@
 <div class="navbar veil">
   <div class="navbar-top">
     <div class="navbar-logo">
-      <%= link_to  do %>
+      <%= link_to discover_path do %>
         <%= image_tag "logo_white.png" %>
       <% end %>
     </div>
     <div class="navbar-bar">
       <ul>
         <li class="nav-item">
-            <%= link_to "Home", "#" %>
+            <%= link_to "Discover", discover_path %>
           </li>
           <li class="nav-item">
-            <%= link_to "Artists", "#" %>
+            <%= link_to "Artists", users_path %>
           </li>
           <li class="nav-item">
-            <%= link_to "Events", "#" %>
+            <%= link_to "Events", events_path %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#" %>
-          </li>
-
           <li class="nav-item dropdown" data-controller="reveal" data-action="mouseout->reveal#hide">
             <%= link_to @user, "#", data: {action: "mouseover->reveal#display"} %>
             <div class="dropdown-m" data-reveal-target="item" >
-              <%= link_to "Your artists", subscriptions_path %><br>
-              <%= link_to "Your events", "#" %><br>
+              <%= link_to "My Artists", subscriptions_path %><br>
+              <%= link_to "My Events", "#" %><br>
               <%= link_to "Preferences", "#" %><br>
+              <%= link_to "Conversations", conversations_path %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "font-weight-bold" %>
             </div>
           </li>
