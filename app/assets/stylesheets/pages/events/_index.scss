@@ -1,5 +1,7 @@
 .events-box {
+  gap: 35px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row dense;
   margin-top: 30px;
 }

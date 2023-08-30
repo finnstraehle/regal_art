@@ -1,0 +1,12 @@
+.delete-btn {
+  color: $white;
+  font-size: 25px;
+  z-index: 1;
+  width: 375px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+}
