@@ -62,18 +62,41 @@
   background: $warm-gray;
   color: $black;
   margin-bottom: 20px;
+  img {
+    width: 280px;
+    height: 280px;
+    border-radius: 5px 0 0 5px;
+    object-fit: contain;
+  }
+  .text {
+    margin: 40px;
+    p {
+      padding-top: 10px;
+    }
+  }
 }
 
-.artist-card img {
-  width: 280px;
+.artist-card-flip {
+  width: 1000px;
   height: 280px;
-  border-radius: 5px 0 0 5px;
-  object-fit: contain;
-}
-
-.artist-card-text {
-  margin: 40px;
-  p {
-    padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  background: $warm-gray;
+  color: $black;
+  margin-bottom: 20px;
+  img {
+    width: 280px;
+    height: 280px;
+    border-radius: 0 5px 5px 0;
+    object-fit: contain;
+  }
+  .text {
+    margin: 40px;
+    text-align: right;
+    p {
+      padding-top: 10px;
+    }
   }
 }

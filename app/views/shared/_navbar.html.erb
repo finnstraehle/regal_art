@@ -20,7 +20,7 @@
             <%= link_to "Messages", "#" %>
           </li>
 
-          <li class="nav-item dropdown" data-controller="reveal" >
+          <li class="nav-item dropdown" data-controller="reveal" data-action="mouseout->reveal#hide">
             <%= link_to @user, "#", data: {action: "mouseover->reveal#display"} %>
             <div class="dropdown-m" data-reveal-target="item" >
               <%= link_to "Your artists", subscriptions_path %><br>
