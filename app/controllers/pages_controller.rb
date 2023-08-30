@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @title = "Recommended artists"
     @user = "" # remove once login stuff works
     @user = current_user.last_name unless current_user.nil?
+    @hide_nav_footer = true
   end
 
   def dashboard
