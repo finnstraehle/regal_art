@@ -1,11 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @title = "Events"
-    @events = Event.all
+    @events = Event.all.shuffle
   end
 
   def show
-    @event = Event.find_by(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -15,6 +14,16 @@ class EventsController < ApplicationController
   def create
     event = Event.create(event_params)
     redirect_to event_path(event)
+  end
+
+  def my_events
+    @events = current_user.events
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    # redirect_to my_events_path, status: :see_other
   end
 
   private
