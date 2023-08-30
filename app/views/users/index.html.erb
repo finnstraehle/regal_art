@@ -1,4 +1,4 @@
-<div class="container-m">
+<div class="container-l">
   <% @artists.each_with_index do |artist, index| %>
     <% if index.even? %><%= render "users/artist_card", artist: artist %><% end %>
     <% if index.odd? %><%= render "users/artist_card_flip", artist: artist %><% end %>
