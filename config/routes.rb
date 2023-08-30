@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   get "/discover", to: "pages#discover", as: :discover
 
-  resources :events, only: %i[index show new create edit update destroy] # Pati, maybe check this
+  resources :events, only: %i[index new create edit update destroy] # Pati, maybe check this
   resources :subscriptions, only: %i[index create destroy]
   resources :users, only: %i[index show]
   resources :messages # please check this
