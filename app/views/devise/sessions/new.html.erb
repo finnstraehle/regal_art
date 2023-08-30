@@ -1,5 +1,8 @@
-<div class="background-gradient">
-  <h2 class="regal-art-title">Regal Art.</h2>
+<div class="background-gradient devise-flex">
+  <div class="navbar-logo margin-left">
+    <%= image_tag "logo_white.png" %>
+    <p>captivating narratives<br>that lie behind each <br>art piece</p>
+  </div>
   <div class="container-s container-devise">
     <h2>Log in</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -21,7 +24,9 @@
       </div>
     <% end %>
     <div class="devise-center">
-      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "forgot-pwd" %><br />
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      <p> or </p>
+      <%= link_to "Sign up",  new_user_registration_path %>
     </div>
   </div>
 </div>
