@@ -12,7 +12,9 @@ export default class extends Controller {
     this.itemTarget.style.display = "block"
   }
 
-  displaynone() {
-    this.itemTarget.style.display = "none"
+  hide(event) {
+    if (!this.element.contains(event.relatedTarget)) {
+      this.itemTarget.style.display = "none"
+    }
   }
 }
