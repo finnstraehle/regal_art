@@ -16,15 +16,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :is_artist, inclusion: { in: [true, false] }
+  validates :location, if: :is_artist?, presence: true
+  validates :short_bio, if: :is_artist?, presence: true
+  validates :long_bio, if: :is_artist?, presence: true
 
   has_one_attached :avatar
   has_one_attached :banner
-
-  attr_reader :is_artist
-
-  with_options if: :is_artist? do |artist|
-    artist.validates :location, presence: true
-    artist.validates :short_bio, presence: true
-    artist.validates :long_bio, presence: true
-  end
 end

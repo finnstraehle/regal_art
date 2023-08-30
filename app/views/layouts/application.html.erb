@@ -12,8 +12,7 @@
 
   <body>
     <div class="body-container">
-      <div>
-        <%= render "shared/navbar", title: @title unless @hide_nav_footer %>
+        <%= render "shared/navbar", title: @title, banner: @banner unless @hide_nav_footer %>
         <%= render "shared/flashes" %>
       </div>
 

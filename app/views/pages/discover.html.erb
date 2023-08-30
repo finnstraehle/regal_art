@@ -1,9 +1,6 @@
 <div class="container-m">
-  <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete} %>
-  <% @artists.each do |artist| %>
-    <div class="d-flex">
-      <%= cl_image_tag artist.avatar.key, class: "avatar-square" %>
-      <%= artist.first_name %>
-    </div>
+  <% @artists.each_with_index do |artist, index| %>
+    <% if index.even? %><%= render "users/artist_card", artist: artist %><% end %>
+    <% if index.odd? %><%= render "users/artist_card_flip", artist: artist %><% end %>
   <% end %>
 </div>
