@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @title = "Recommended artists"
-    @user = ""
+    @user = "" # remove once login stuff works
     @user = current_user.last_name unless current_user.nil?
   end
 
@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def discover
+    @title = "Discover"
     @artists = User.where(is_artist: true)
   end
 end

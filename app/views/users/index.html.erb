@@ -1,3 +1,13 @@
 <div class="container-m">
-  <h1><% @artists %></h1>
+  <% @artists.each do |artist| %>
+    <%= link_to user_path(artist), class: "artist-card" do %>
+      <div class="artist-card-img">
+        <%= cl_image_tag artist.avatar.key %>
+      </div>
+      <div class="artist-card-text">
+        <h2><%= artist.first_name %></h2>
+        <p><%= artist.long_bio %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>

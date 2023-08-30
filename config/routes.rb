@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :events, only: %i[index show new create edit update destroy] # Pati, maybe check this
   resources :subscriptions, only: %i[index create destroy]
   resources :users, only: %i[index show]
-  resources :messages # please check this
+  resources :conversations # please check this
 end

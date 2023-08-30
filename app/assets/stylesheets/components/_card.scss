@@ -62,16 +62,34 @@
   background: $warm-gray;
   color: $black;
   margin-bottom: 20px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.6s ease;
+  overflow: hidden;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  &:hover .artist-card-img img {
+    transform: scale(1.08)
+  }
 }
 
-.artist-card img {
+.artist-card-img {
   width: 280px;
   height: 280px;
   border-radius: 5px 0 0 5px;
-  object-fit: contain;
+  overflow: hidden;
+  img {
+    width: 280px;
+    height: 280px;
+    transition: 5s ease;
+    object-fit: cover;
+  }
 }
 
 .artist-card-text {
+  width: 720px;
   margin: 40px;
   p {
     padding-top: 10px;
