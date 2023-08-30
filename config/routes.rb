@@ -1,21 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_scope :user do
+    get 'users/artist_sign_up', to: 'devise/registrations#new_artist'
+  end
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
-  get "/discovery", to: "pages#discovery", as: :discovery
+  get "/discover", to: "pages#discover", as: :discover
 
-  resources :subscriptions, only: [:index, :create]
-
-  resources :artists, only: [:index, :show] do
-    resources :artworks, only: [:index, :show]
-      resources :art_details, only: [:index, :show]
-  end
-
-  resources :events, only: [:index, :show, :new, :create, :delete, :edit] do
-    resources :event_attendances, only: [:create]
-  end
-
-  resources :conversations, only: :show do
-    resources :messages, only: :create
-  end
+  resources :events, only: %i[index show new create edit update destroy]
+  resources :subscriptions, only: %i[index create destroy]
+  resources :users, only: %i[index show]
 end

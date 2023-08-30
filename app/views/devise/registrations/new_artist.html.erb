@@ -1,7 +1,8 @@
-<div class="background-gradient">
+<div class="background-gradient"> <!-- change to specific artist sign up -->
   <h2 class="regal-art-title">Regal Art.</h2>
   <div class="container-s container-devise">
-    <h2>Create an Account</h2>
+    <h2>Create an Artist-Account</h2>
+      <% resource = User.new(is_artist: true) %>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
