@@ -90,7 +90,7 @@ User.where(is_artist: true).each do |artist|
 end
 
 puts '>>Creating event attendances...'
-10.times do
+20.times do
   EventAttendance.create!(
     user: User.where(is_artist: false).sample,
     event: Event.all.sample
