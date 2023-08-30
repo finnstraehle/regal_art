@@ -13,7 +13,7 @@
   <body>
     <div class="body-container">
       <div>
-        <%= render "shared/navbar" %>
+        <%= render "shared/navbar", title: @title, banner: @banner %>
         <%= render "shared/flashes" %>
       </div>
         <%= yield %>

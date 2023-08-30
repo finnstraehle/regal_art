@@ -2,10 +2,12 @@ class EventsController < ApplicationController
   def index
     @title = "Events"
     @events = Event.all
+    @banner = "user1_avatar.jpg"
   end
 
   def show
     @event = Event.find_by(params[:id])
+    @banner = "user1_avatar.jpg"
   end
 
   def new
