@@ -19,12 +19,4 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_one_attached :banner
-
-  attr_reader :is_artist
-
-  with_options if: :is_artist? do |artist|
-    artist.validates :location, presence: true
-    artist.validates :short_bio, presence: true
-    artist.validates :long_bio, presence: true
-  end
 end
