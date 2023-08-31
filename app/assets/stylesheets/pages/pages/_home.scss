@@ -1,1 +1,128 @@
 // Specific CSS for your home-page
+
+// Homepage cards
+.homepage-card {
+  width: 97%;
+  height: 350px;
+  color: $white;
+  background-color: $aubergine;
+  border-radius: 5px;
+  margin-top: 10px;
+  img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+
+// Main container
+.homepage-container {
+  position: relative;
+  z-index: -1;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(to top, #000, #fff);
+  overflow: hidden;
+}
+
+// Cards container, one columns + top margins
+.homepage-col {
+  position: relative;
+  z-index: 1;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-20 {
+  top: -20px;
+}
+
+.top-120 {
+  top: -120px;
+}
+
+.top-200 {
+  top: -200px;
+}
+
+.top-150 {
+  top: -150px;
+}
+
+.top-90 {
+  top: -90px;
+}
+
+// Logo and button, on top of everything else
+.homepage-logo {
+  position: absolute;
+  z-index: 10;
+  margin: 50px 0 0 50px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 16px;
+  img {
+    width: 130px;
+    margin-bottom: 14px;
+  }
+}
+
+.homepage-btn{
+  position: absolute;
+  z-index: 10;
+  margin: 72vh auto;
+  color: #fff;
+  align-self: center;
+  text-align: center;
+  transition: transform 1s ease;
+  h1 {
+    margin-bottom: 30px;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    transform: scale(1.03);
+  }
+}
+
+.login-signup-box {
+  position: absolute;
+  z-index: 10;
+  margin: 85vh auto;
+  color: #fff;
+  align-self: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.signup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+// Purple veil
+.purple-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, #000, #16003dae, #16003d48);
+}
