@@ -15,10 +15,9 @@
         <div class="event-card-sm">
         <div class="text">
           <h4><%= event.title %></h4>
-          <p>Special and cool</p>
-          <%= link_to "More info", "#", class: "event-link" %>
+          <p><%= truncate(event.description, length: 300) %></p>
         </div>
-        <div class="white-button event-btn">Details</div>
+        <div class="white-button"><%= link_to "Details", event_path(event), style: "text-decoration:none;"%></div>
       </div>
       <% end %>
     <% end %>

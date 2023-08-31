@@ -1,4 +1,5 @@
 <div class="container-l">
+  <div class="white-button"><%= link_to "+ add event", new_event_path, style: "text-decoration: none;"%></div>
   <div class="events-box">
     <% @events.each_with_index do |event, index| %>
         <div class="event-card">
@@ -6,10 +7,13 @@
           <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
         <div class="text">
           <h4><%= event.title %></h4>
-          <p>Special and cool</p>
-          <%= link_to "More info", "#", class: "event-link" %>
+          <div class="my-artist-name">
+            <p>By</p>
+            <p><%= event.user.first_name %></p>
+            <p><%= event.user.last_name %></p>
+          </div>
         </div>
-        <div class="white-button event-btn">Details</div>
+        <div class="white-button"><%= link_to "Details", event_path(event), style: "text-decoration:none;"%></div>
       </div>
     <% end %>
   </div>

@@ -1,1 +1,40 @@
-<h1>Event Details</h1>
+<div class="container-l">
+  <div class="event-deets-container">
+    <div class="event-contents">
+      <div class="event-top-img">
+        <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      </div>
+      <div class="event-title-desc">
+        <h1><%= @event.title %></h1>
+        <p><%= @event.description %></p>
+      </div>
+      <hr>
+      <div class="event-artist-card">
+        <div class="event-artist-name">
+          <h2><%= @event.user.first_name %></h2>
+          <h2><%= @event.user.last_name %></h2>
+        </div>
+        <div class="event-artist-text">
+          <div class="event-artist-img">
+            <img src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80" alt="artist photo">
+          </div>
+          <div class="event-artist-description">
+            <p><%= @event.user.long_bio %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="event-contents-2">
+     <div class="event-details">
+        <p>Location: <%= @event.location %></p>
+        <p><%= @event.start_date %></p>
+        <div class="white-button"><%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;"%></div>
+    </div>
+    <div style="width: 100%; height: 100%; border-radius: 5px"
+      data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
+</div>
+</div>

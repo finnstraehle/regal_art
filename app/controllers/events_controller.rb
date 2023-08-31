@@ -10,6 +10,14 @@ class EventsController < ApplicationController
     @title = @event.title
     @events = Event.all
     @banner = "user1_avatar.jpg"
+
+    @markers = [
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        marker_html: render_to_string(partial: "marker")
+      }
+    ]
   end
 
   def new
@@ -18,8 +26,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(event_params)
-    redirect_to event_path(event)
+    @event = Event.new(event_params)
+    @event.user = current_user
+    if @event.save
+      redirect_to my_events_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def my_events
