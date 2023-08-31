@@ -1,6 +1,5 @@
 <div class="container-l">
-  <h1>My Events</h1>
-    <div class="events-box">
+  <div class="events-box">
     <% @events.each_with_index do |event, index| %>
         <div class="event-card">
           <%= link_to "<i class='fa-regular fa-circle-xmark'></i>".html_safe, event_path(event), data: {turbo_method: :delete, turbo_confirm: "This event has #{event.event_attendances.count} confirmed attendants. Are you sure you want to cancel this event?"}, class:"delete-btn" %>

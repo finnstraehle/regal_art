@@ -2,17 +2,19 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.shuffle
     @banner = "user1_avatar.jpg"
+    @title = "Events"
   end
 
   def show
     @event = Event.find(params[:id])
-    @title = "Events"
+    @title = @event.title
     @events = Event.all
     @banner = "user1_avatar.jpg"
   end
 
   def new
     @event = Event.new
+    @title = "New Event"
   end
 
   def create
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
   def my_events
     @events = current_user.events
     @banner = "user1_avatar.jpg"
+    @title = "My Events"
   end
 
   def destroy

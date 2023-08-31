@@ -1,4 +1,13 @@
-<div class="navbar" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= banner.nil? ? image_url("user1_avatar.jpg") : image_url(banner) %>)">
+<% if banner.nil? %>
+  <% img = image_url("user1_avatar.jpg") %>
+<% end %>
+<% if banner.class == String %>
+  <% img = image_url(banner) %>
+<% end %>
+<% if banner.class == ActiveStorage::Attached::Many %>
+  <% img = cl_image_path(banner.last.key) %>
+<% end %>
+<div class="navbar" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= img %>)">
   <div class="navbar-top">
     <div class="navbar-logo">
       <%= link_to discover_path do %>
@@ -29,7 +38,7 @@
       </ul>
     </div>
   </div>
-  <div class="navbar-heading">
+  <div class="navbar-heading" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
     <h1><%= title %></h1>
   </div>
 </div>

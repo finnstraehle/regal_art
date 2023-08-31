@@ -15,7 +15,7 @@ class PagesController < ApplicationController
 
   def discover
     @title = "Discover"
-    @banner = "user1_avatar.jpg"
+    @banner = "user3_avatar.jpg"
     @artists = User.where(is_artist: true).shuffle
   end
 end
