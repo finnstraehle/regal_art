@@ -10,3 +10,11 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
   text-decoration: none;
 }
+
+.my-artist-name {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
