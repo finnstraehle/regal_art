@@ -21,5 +21,5 @@ class User < ApplicationRecord
   validates :long_bio, if: :is_artist?, presence: true
 
   has_one_attached :avatar
-  has_one_attached :banner
+  has_many_attached :banners
 end
