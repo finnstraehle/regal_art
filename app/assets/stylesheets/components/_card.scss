@@ -1,3 +1,4 @@
+// Event cards
 .event-card {
   display: flex;
   flex-direction: column;
@@ -64,6 +65,7 @@
   }
 }
 
+// Artist cards
 .artist-card {
   height: 280px;
   width: 80%;
@@ -110,6 +112,7 @@
   }
 }
 
+//Artpiece cards
 .artpiece-card {
   width: 550px;
   height: 300px;
@@ -162,5 +165,66 @@
     p {
       padding-top: 10px;
     }
+  }
+}
+
+
+// Conversation cards
+.conv-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: $gray;
+  border-radius: 5px;
+  object-fit: cover;
+  // border: 3px solid $white;
+}
+
+.conv-text {
+  margin-left: 6px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: $light-lavander;
+  h5 {
+    font-weight: 500;
+    font-family: $body-font;
+    margin-bottom: 5px;
+  }
+}
+
+.conv-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: 80px;
+}
+
+// Class to add to messages
+.message-1 {
+  h5 {
+    font-weight: 500;
+    font-family: $body-font;
+    margin: 0 0 5px 10px;
+  }
+  p {
+    background-color: $light-lavander;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 400px;
+  }
+}
+
+.message-2 {
+  h5 {
+    font-weight: 500;
+    font-family: $body-font;
+    margin: 0 0 5px 10px;
+  }
+  p {
+    background-color: $warm-gray;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 400px;
   }
 }

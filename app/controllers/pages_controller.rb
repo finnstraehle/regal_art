@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @user = "" # remove once login stuff works
     @user = current_user.last_name unless current_user.nil?
     @banner = "user1_avatar.jpg"
+    @hide_nav_footer = true
   end
 
   def dashboard
