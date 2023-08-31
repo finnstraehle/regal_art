@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all.shuffle
+    @banner = "user1_avatar.jpg"
   end
 
   def show
@@ -21,6 +22,7 @@ class EventsController < ApplicationController
 
   def my_events
     @events = current_user.events
+    @banner = "user1_avatar.jpg"
   end
 
   def destroy
