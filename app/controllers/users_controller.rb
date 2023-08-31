@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   def show
     @artist = User.find(params[:id])
     @title = "#{@artist.first_name} #{@artist.last_name}"
-    @banner = "user1_avatar.jpg"
+    @banner = @artist.banners
   end
 end

@@ -14,11 +14,15 @@
   <body>
     <div class="body-container">
       <div>
-        <%= render "shared/navbar", title: @title, banner: @banner %>
+        <% unless @hide_nav_footer %>
+          <%= render "shared/navbar", title: @title, banner: @banner %>
+        <% end %>
         <%= render "shared/flashes" %>
       </div>
-        <%= yield %>
-      <%= render "shared/footer" %>
+      <%= yield %>
+      <% unless @hide_nav_footer %>
+        <%= render "shared/footer" %>
+      <% end %>
     </div>
   </body>
 </html>

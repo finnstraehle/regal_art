@@ -45,8 +45,14 @@ puts 'Creating 5 artists...'
     short_bio: Faker::Marketing.buzzwords,
     long_bio: Faker::Lorem.paragraph_by_chars(number: 300)
   )
-  file = File.open("app/assets/images/user#{i + 1}_avatar.jpg")
-  user.avatar.attach(io: file, filename: user.first_name.to_s, content_type: 'image/jpg')
+  avatar = File.open("app/assets/images/user#{i + 1}_avatar.jpg")
+  user.avatar.attach(io: avatar, filename: user.first_name.to_s, content_type: 'image/jpg')
+  banner1 = File.open("app/assets/images/user#{i + 1}_1.png")
+  user.banners.attach(io: banner1, filename: user.first_name.to_s, content_type: 'image/png')
+  banner2 = File.open("app/assets/images/user#{i + 1}_2.png")
+  user.banners.attach(io: banner2, filename: user.first_name.to_s, content_type: 'image/png')
+  banner3 = File.open("app/assets/images/user#{i + 1}_3.png")
+  user.banners.attach(io: banner3, filename: user.first_name.to_s, content_type: 'image/png')
   user.save!
 end
 
