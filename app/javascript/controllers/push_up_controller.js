@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="push-up"
 export default class extends Controller {
-  static targets = [ "journey", "loginSignup" ]
+  static targets = [ "journey", "loginSignup", "blackveil" ]
 
   connect() {
     console.log("Hello, Stimulus!", this.element)
@@ -10,9 +10,10 @@ export default class extends Controller {
 
   hideAndPush(event) {
     if (!this.element.contains(event.relatedTarget)) {
-      this.journeyTarget.style.display = "none"
-      this.loginSignupTarget.style.top = parseInt(this.loginSignupTarget.style.top) + 100 + "px"
-      // this.loginSignupTarget.style.display = "block"
+      this.journeyTarget.style.opacity = 0
+      const boxtop = parseInt(getComputedStyle(this.loginSignupTarget).top.replace('px',''))
+      this.loginSignupTarget.style.top = `${boxtop - 120}px`
+      this.loginSignupTarget.style.opacity = 1
     }
   }
 }
