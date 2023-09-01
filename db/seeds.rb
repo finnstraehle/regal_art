@@ -42,8 +42,8 @@ puts 'Creating 5 artists...'
     last_name: Faker::Name.last_name,
     is_artist: true,
     location: Faker::Address.city,
-    short_bio: Faker::Marketing.buzzwords,
-    long_bio: Faker::Lorem.paragraph_by_chars(number: 300)
+    short_bio: Faker::Marketing.buzzwords, # CHHHHHHHAAAAAANGEEEEEE
+    long_bio: Faker::Lorem.paragraph_by_chars(number: 300) # CHHHHHHHAAAAAANGEEEEEE
   )
   avatar = File.open("app/assets/images/user#{i + 1}_avatar.jpg")
   user.avatar.attach(io: avatar, filename: user.first_name.to_s, content_type: 'image/jpg')
@@ -59,12 +59,15 @@ end
 puts '>Creating artworks for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(2..5).times do
-    Artwork.create!(
+    artwork = Artwork.new(
       user: artist,
-      title: Faker::Lorem.sentence(word_count: 3),
-      description: Faker::Lorem.paragraph_by_chars(number: 300),
+      title: Faker::Lorem.sentence(word_count: 3), # CHHHHHHHAAAAAANGEEEEEE
+      description: Faker::Lorem.paragraph_by_chars(number: 300), # CHHHHHHHAAAAAANGEEEEEE
       style: Artwork::STYLES.sample
     )
+    file = URI.open('https://source.unsplash.com/900x900/?abstract')
+    artwork.photo.attach(io: file, filename: artwork.title, content_type: 'image/png')
+    artwork.save!
   end
 end
 
@@ -72,24 +75,24 @@ puts '>>Creating art details for each artwork...'
 Artwork.all.each do |artwork|
   ArtDetail.create!(
     artwork: artwork,
-    title: Faker::Lorem.sentence(word_count: 2),
-    description: Faker::Lorem.paragraph_by_chars(number: 100)
+    title: Faker::Lorem.sentence(word_count: 2), # CHHHHHHHAAAAAANGEEEEEE
+    description: Faker::Lorem.paragraph_by_chars(number: 100) # CHHHHHHHAAAAAANGEEEEEE
   )
 end
 
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
-  rand(1..3).times do
+  rand(4..9).times do
     event = Event.new(
       user: artist,
-      title: Faker::Lorem.sentence(word_count: 3),
-      description: Faker::Lorem.paragraph_by_chars(number: 300),
-      location: Faker::Address.city,
-      start_date: Date.today,
-      end_date: Date.today + 1,
+      title: Event::TITLES.sample,
+      description: Event::DESCRIPTIONS.sample,
+      location: Event::CITIES.sample,
+      start_date: DateTime.now,
+      end_date: DateTime.now + 1,
       is_private: [true, false].sample
     )
-    file = URI.open('https://source.unsplash.com/300x300/?portrait')
+    file = URI.open('https://source.unsplash.com/900x900/?art-gallery')
     event.photos.attach(io: file, filename: event.title, content_type: 'image/png')
     event.save!
   end
@@ -99,7 +102,9 @@ puts '>>Creating event attendances...'
 20.times do
   EventAttendance.create!(
     user: User.where(is_artist: false).sample,
-    event: Event.all.sample
+    event: Event.all.sample,
+    message: EventAttendance::MESSAGES.sample,
+    attendees: rand(1..5)
   )
 end
 
@@ -124,7 +129,7 @@ Conversation.all.each do |conversation|
   rand(1..5).times do
     Message.create!(
       conversation: conversation,
-      content: Faker::Lorem.paragraph_by_chars(number: 100)
+      content: Faker::Lorem.paragraph_by_chars(number: 100) # CHHHHHHHAAAAAANGEEEEEE
     )
   end
 end
