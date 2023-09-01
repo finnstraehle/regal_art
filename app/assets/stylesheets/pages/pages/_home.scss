@@ -76,59 +76,60 @@
 .wrapper-btns {
   position: absolute;
   z-index: 10;
-  margin: 72vh auto;
+  margin: 71vh auto;
   color: #fff;
   align-self: center;
   text-align: center;
 }
 
 .homepage-btn{
-  // position: absolute;
-  // z-index: 10;
-  // margin: 72vh auto;
-  // color: #fff;
-  // align-self: center;
-  // text-align: center;
-  transition: transform 1s ease;
+  transition: opacity 5s ease;
+  top: 10px;
+  opacity: 1;
+  cursor: pointer;
   h1 {
     margin-bottom: 30px;
   }
   &:hover {
+    text-shadow: #c2bca9 0px 0px 6px;
     transform: translateY(-3px);
     transform: scale(1.03);
+    transition: transform 1s ease-in-out;
   }
 }
 
 .login-signup-box {
   position: relative;
-  // z-index: 10;
-  // overflow: hidden;
-  // margin: 82vh auto;
-  // color: #fff;
-  // align-self: center;
-  // text-align: center;
+  top: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 500px;
-  // display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  transition: top 1s ease;
+  a {
+    color: #fff !important;
+    &:hover{
+      transform: translateY(-3px);
+      transform: scale(1.03);
+      transition: transform 1s ease-in-out;
+      text-shadow: #c2bca9 0px 0px 6px;
+    }
+  }
 }
 
 .signup-btn {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .login-btn {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
-// Purple veil
+// Veil
 .purple-veil {
   position: absolute;
   top: 0;
@@ -137,4 +138,30 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(to top, #000, #16003dae, #16003d48);
+}
+
+// Black veil and black wrapper
+.black-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 500px;
+  overflow: hidden;
+}
+
+.black-veil {
+  position: absolute;
+  top: 0;
+  // left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, #000, #000);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
