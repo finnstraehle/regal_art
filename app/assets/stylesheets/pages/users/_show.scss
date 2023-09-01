@@ -1,0 +1,16 @@
+.container-artist-bio {
+  display: flex;
+  .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  .long-bio {
+    width: 100%;
+    p {
+      padding-top: 10px;
+    }
+  }
+}

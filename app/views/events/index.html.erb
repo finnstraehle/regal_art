@@ -3,13 +3,13 @@
     <% @events.each_with_index do |event, index| %>
       <% if index.odd? %>
        <div class="event-card">
-          <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
-        <div class="text">
-          <h4><%= event.title %></h4>
-          <div class="my-artist-name">
-            <p>By</p>
-            <p><%= event.user.first_name %></p>
-            <p><%= event.user.last_name %></p>
+          <%= cl_image_tag event.photos.first.key %>
+          <div class="text">
+            <h4><%= event.title %></h4>
+            <div class="my-artist-name">
+              <p>By</p>
+              <p><%= event.user.first_name %></p>
+              <p><%= event.user.last_name %></p>
           </div>
         </div>
         <div class="event-btn"><%= link_to "Details", event_path(event), style: "text-decoration:none;"%></div>

@@ -1,2 +1,15 @@
 <div class="container-m">
+  <div class="container-artist-bio">
+    <%= cl_image_tag @artist.avatar.key, class: "avatar" %>
+    <div class="long-bio">
+      <p><%= @artist.long_bio %></p>
+    </div>
+  </div>
+  <div class="artworks-grid">
+    <% @artist.artworks.each do |artwork| %>
+      <div class="artwork-card">
+        <%= cl_image_tag artwork.photo.key, class: "artwork-card-img" %>
+      </div>
+    <% end %>
+  </div>
 </div>
