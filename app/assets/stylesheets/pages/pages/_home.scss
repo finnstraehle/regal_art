@@ -91,7 +91,7 @@
     margin-bottom: 30px;
   }
   &:hover {
-    text-shadow: $warm-gray 0px 0px 6px;
+    text-shadow: #c2bca9 0px 0px 6px;
     transform: translateY(-3px);
     transform: scale(1.03);
     transition: transform 1s ease-in-out;
@@ -114,7 +114,7 @@
       transform: translateY(-3px);
       transform: scale(1.03);
       transition: transform 1s ease-in-out;
-      text-shadow: $warm-gray 0px 0px 6px;
+      text-shadow: #c2bca9 0px 0px 6px;
     }
   }
 }
@@ -138,4 +138,30 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(to top, #000, #16003dae, #16003d48);
+}
+
+// Black veil and black wrapper
+.black-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 500px;
+  overflow: hidden;
+}
+
+.black-veil {
+  position: absolute;
+  top: 0;
+  // left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, #000, #000);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }

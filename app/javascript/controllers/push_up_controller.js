@@ -12,8 +12,9 @@ export default class extends Controller {
     if (!this.element.contains(event.relatedTarget)) {
       this.journeyTarget.style.opacity = 0
       const boxtop = parseInt(getComputedStyle(this.loginSignupTarget).top.replace('px',''))
-      this.loginSignupTarget.style.top = `${boxtop - 120}px`
+      this.loginSignupTarget.style.top = `${boxtop - 360}px`
       this.loginSignupTarget.style.opacity = 1
+      this.blackveilTarget.style.opacity = 1
     }
   }
 }
