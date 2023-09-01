@@ -2,7 +2,8 @@
   <div class="event-deets-container">
     <div class="event-contents">
       <div class="event-top-img">
-        <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <%= cl_image_tag @event.photos.first.key %>
+        <%# <img src="https://plus.unsplash.com/premium_photo-1664272436668-78437b92929e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"> %>
       </div>
       <div class="event-title-desc">
         <h1><%= @event.title %></h1>
@@ -26,8 +27,12 @@
     </div>
     <div class="event-contents-2">
      <div class="event-details">
-        <p>Location: <%= @event.location %></p>
-        <p><%= @event.start_date %></p>
+        <h4><%= @event.title %> - <%= @event.user.first_name %> <%= @event.user.last_name %></h4>
+        <hr>
+        <p><i class="fa-solid fa-location-dot">&nbsp&nbsp</i><%= @event.location %></p>
+        <% date_str = Time.parse((@event.start_date).to_s) %>
+        <p><i class="fa-regular fa-calendar-days">&nbsp&nbsp</i><%= date_str.strftime("%A, %B %d, %Y") %></p>
+        <p><i class="fa-solid fa-clock">&nbsp&nbsp</i><%= @event.start_date.strftime("%I:%M %p") %> - <%= @event.end_date.strftime("%I:%M %p") %></p>
         <div class="white-button"><%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;"%></div>
     </div>
     <div style="width: 100%; height: 100%; border-radius: 5px"
