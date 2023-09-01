@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get "/discover", to: "pages#discover", as: :discover
   get "/my_events", to: "events#my_events", as: :my_events
 
-  resources :events
+  resources :events do
+    resources :event_attendances, only: %i[new create]
+  end
+  resources :event_attendances, only: %i[index show]
   resources :subscriptions, only: %i[index create destroy]
   resources :users, only: %i[index show]
   resources :conversations # please check this
