@@ -12,6 +12,21 @@
   }
 }
 
+// .move-up {
+//   animation-name: move-up;
+//   animation-duration: 4s;
+//   animation-fill-mode: forwards;
+// }
+
+// @keyframes move-up {
+//   from {
+//     transform: translateY(0);
+//   }
+//   to {
+//     transform: translateY(-120%);
+//   }
+// }
+
 .devise-link {
   color: $warm-gray;
   text-decoration: none;
@@ -35,6 +50,11 @@
       text-decoration: none;
     }
   }
+}
+
+.container-s {
+  height: 100vh;
+  overflow: hidden; 
 }
 
 .margin-left {
