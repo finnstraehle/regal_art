@@ -42,8 +42,8 @@ puts 'Creating 5 artists...'
     last_name: Faker::Name.last_name,
     is_artist: true,
     location: Faker::Address.city,
-    short_bio: Faker::Marketing.buzzwords, # CHHHHHHHAAAAAANGEEEEEE
-    long_bio: Faker::Lorem.paragraph_by_chars(number: 300) # CHHHHHHHAAAAAANGEEEEEE
+    short_bio: User::SHORT_BIOS[i],
+    long_bio: User::LONG_BIOS[i],
   )
   avatar = File.open("app/assets/images/user#{i + 1}_avatar.jpg")
   user.avatar.attach(io: avatar, filename: user.first_name.to_s, content_type: 'image/jpg')
@@ -61,8 +61,8 @@ User.where(is_artist: true).each do |artist|
   rand(2..5).times do
     artwork = Artwork.new(
       user: artist,
-      title: Faker::Lorem.sentence(word_count: 3), # CHHHHHHHAAAAAANGEEEEEE
-      description: Faker::Lorem.paragraph_by_chars(number: 300), # CHHHHHHHAAAAAANGEEEEEE
+      title: Artwork::TITLES.sample,
+      description: Artwork::DESCRIPTIONS.sample,
       style: Artwork::STYLES.sample
     )
     file = URI.open('https://source.unsplash.com/900x900/?abstract')
@@ -73,11 +73,13 @@ end
 
 puts '>>Creating art details for each artwork...'
 Artwork.all.each do |artwork|
-  ArtDetail.create!(
-    artwork: artwork,
-    title: Faker::Lorem.sentence(word_count: 2), # CHHHHHHHAAAAAANGEEEEEE
-    description: Faker::Lorem.paragraph_by_chars(number: 100) # CHHHHHHHAAAAAANGEEEEEE
-  )
+  rand(2..5).times do
+    ArtDetail.create!(
+      artwork: artwork,
+      title: ArtDetail::TITLES.sample,
+      description: ArtDetail::DESCRIPTIONS.sample
+    )
+  end
 end
 
 puts '>Creating Events for each artist...'
@@ -129,7 +131,7 @@ Conversation.all.each do |conversation|
   rand(1..5).times do
     Message.create!(
       conversation: conversation,
-      content: Faker::Lorem.paragraph_by_chars(number: 100) # CHHHHHHHAAAAAANGEEEEEE
+      content: Message::CONTENTS.sample
     )
   end
 end

@@ -4,6 +4,6 @@
   </div>
   <div class="text">
     <h2><%= artist.first_name %></h2>
-    <p><%= artist.long_bio %></p>
+    <p><%= artist.long_bio.truncate(300) %></p>
   </div>
 <% end %>

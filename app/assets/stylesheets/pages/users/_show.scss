@@ -1,16 +1,32 @@
 .container-artist-bio {
   display: flex;
+  margin: 50px 0;
   .avatar {
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 70px;
   }
-  .long-bio {
+  .bio {
     width: 100%;
-    p {
-      padding-top: 10px;
+    h2 {
+      margin-bottom: 30px;
     }
+    p {
+      column-count: 2;
+      column-gap: 20px;
+      color: 16px;
+    }
+  }
+}
+
+.artist-buttons {
+  display: flex;
+  margin-bottom: 30px;
+  .btn-artist {
+    margin-right: 10px;
+    width: 160px;
+    background: $lavander;
   }
 }
