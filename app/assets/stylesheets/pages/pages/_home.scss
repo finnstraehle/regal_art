@@ -75,60 +75,65 @@
 
 .wrapper-btns {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   z-index: 10;
-  margin: 72vh auto;
   color: #fff;
   align-self: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .homepage-btn{
-  // position: absolute;
-  // z-index: 10;
-  // margin: 72vh auto;
-  // color: #fff;
-  // align-self: center;
-  // text-align: center;
-  transition: transform 1s ease;
+  margin: 71vh auto;
+  transition: opacity 5s ease;
+  opacity: 1;
+  cursor: pointer;
   h1 {
     margin-bottom: 30px;
   }
   &:hover {
+    text-shadow: $warm-gray 0px 0px 6px;
     transform: translateY(-3px);
     transform: scale(1.03);
+    transition: transform 1s ease-in-out;
   }
 }
 
 .login-signup-box {
   position: relative;
-  // z-index: 10;
-  // overflow: hidden;
-  // margin: 82vh auto;
-  // color: #fff;
-  // align-self: center;
-  // text-align: center;
+  top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 500px;
-  // display: none;
+  width: 700px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  transition: top 1s ease;
+  a {
+    color: #fff !important;
+    &:hover{
+      transform: translateY(-3px);
+      transform: scale(1.03);
+      transition: transform 1s ease-in-out;
+      text-shadow: $warm-gray 0px 0px 6px;
+    }
+  }
 }
 
 .signup-btn {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .login-btn {
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
-// Purple veil
+// Veils
 .purple-veil {
   position: absolute;
   top: 0;
@@ -137,4 +142,15 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(to top, #000, #16003dae, #16003d48);
+}
+
+.black-veil {
+  position: absolute;
+  top: -60vh;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, #000000ec, #000);
+  opacity: 0;
 }
