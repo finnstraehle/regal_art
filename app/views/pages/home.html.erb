@@ -65,22 +65,23 @@
   </div>
 </div>
 
-<div class="homepage-btn">
-  <h1>Start your journey</h1>
-  <i class="fa-solid fa-angle-down fa-2xl"></i>
-</div>
+<div class="wrapper-btns" data-controller="push-up">
 
-<div class="login-signup-btn"></div>
-
-<div class="login-signup-box">
-  <div class="signup-btn">
-    <i class="fa-solid fa-angle-down fa-rotate-90 fa-2xl"></i>
-    <h2>Sign up</h2>
+  <div class="homepage-btn" data-push-up-target="journey" data-action="click->push-up#hideAndPush">
+    <h1>Start your journey</h1>
+    <i class="fa-solid fa-angle-down fa-2xl"></i>
   </div>
-  <div class="login-btn">
-    <h2>Log in</h2>
-    <i class="fa-solid fa-angle-down fa-rotate-270 fa-2xl"></i>
-  </div>
-</div>
 
+  <div class="login-signup-box" data-push-up-target="loginSignup">
+    <div class="signup-btn">
+      <i class="fa-solid fa-angle-down fa-rotate-90 fa-2xl"></i>
+      <h2>Sign up</h2>
+    </div>
+    <div class="login-btn">
+      <h2>Log in</h2>
+      <i class="fa-solid fa-angle-down fa-rotate-270 fa-2xl"></i>
+    </div>
+  </div>
+
+</div>
 <div class="purple-veil"></div>
