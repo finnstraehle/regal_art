@@ -21,6 +21,7 @@
   position: relative;
   z-index: -1;
   margin: 0 auto;
+  padding-left: 5px;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -72,13 +73,22 @@
   }
 }
 
-.homepage-btn{
+.wrapper-btns {
   position: absolute;
   z-index: 10;
   margin: 72vh auto;
   color: #fff;
   align-self: center;
   text-align: center;
+}
+
+.homepage-btn{
+  // position: absolute;
+  // z-index: 10;
+  // margin: 72vh auto;
+  // color: #fff;
+  // align-self: center;
+  // text-align: center;
   transition: transform 1s ease;
   h1 {
     margin-bottom: 30px;
@@ -90,29 +100,31 @@
 }
 
 .login-signup-box {
-  position: absolute;
-  z-index: 10;
-  margin: 85vh auto;
-  color: #fff;
-  align-self: center;
-  text-align: center;
+  position: relative;
+  // z-index: 10;
+  // overflow: hidden;
+  // margin: 82vh auto;
+  // color: #fff;
+  // align-self: center;
+  // text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 500px;
+  // display: none;
 }
 
 .signup-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   gap: 20px;
 }
 
 .login-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   gap: 20px;
 }
 
