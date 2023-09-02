@@ -128,9 +128,10 @@ end
 
 puts '>Creating messages for each conversation...'
 Conversation.all.each do |conversation|
-  rand(1..5).times do
+  rand(2..7).times do
     Message.create!(
       conversation: conversation,
+      user: [conversation.buyer, conversation.artist].sample,
       content: Message::CONTENTS.sample
     )
   end

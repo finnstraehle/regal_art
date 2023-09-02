@@ -26,7 +26,7 @@
             <%= link_to "Events", events_path %>
           </li>
           <li class="nav-item dropdown" data-controller="reveal" data-action="mouseout->reveal#hide">
-            <%= link_to @user, "#", data: {action: "mouseover->reveal#display"} %>
+            <%= link_to "#", "#", data: {action: "mouseover->reveal#display"} %>
             <div class="dropdown-m" data-reveal-target="item" >
               <%= link_to "Dashboard", dashboard_path %><br>
               <%= link_to "Conversations", conversations_path %>

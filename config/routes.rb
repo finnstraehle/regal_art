@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :event_attendances, only: %i[new create]
   end
   resources :event_attendances, only: %i[index show]
-  resources :subscriptions, only: %i[index create destroy]
+  resources :subscriptions, only: %i[index]
   resources :users, only: %i[index show]
-  resources :conversations # please check this
+  resources :conversations, only: %i[index show create] do
+    resources :messages, only: %i[create]
+  end
 end

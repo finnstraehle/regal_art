@@ -1,8 +1,12 @@
-<div class="container-l">
+<div class="container-m">
   <% @messages.each do |message| %>
-    <%= render "conversations/message-1", message: message %>
+    <% if message.user != current_user %><%= render "conversations/message-1", message: message %><% end %>
+    <% if message.user == current_user %><%= render "conversations/message-2", message: message %><% end %>
   <% end %>
-  <% @messages.each do |message| %>
-    <%= render "conversations/message-2", message: message %>
+  <%= simple_form_for [@conversation, @message] do |f| %>
+    <%= f.input :content %>
+    <div class="form-group" style="display: flex;">
+      <%= f.button :submit, "SEND", class: "button", style: "margin-top: 20px;"%>
+    </div>
   <% end %>
 </div>
