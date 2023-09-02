@@ -100,7 +100,7 @@
   margin: auto auto 60px 0;
   text-decoration: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: 0.6s ease;
+  transition: 0.5s ease;
   overflow: hidden;
   .text {
     margin: 40px;
@@ -136,8 +136,8 @@
   }
 }
 
-//Artpiece cards
-.artpiece-card {
+//Artwork cards
+.artwork-card {
   width: 550px;
   height: 300px;
   border-radius: 5px;
@@ -146,6 +146,7 @@
   justify-content: space-between;
   background: $aubergine;
   color: $white;
+  transition: 0.5s ease;
   img {
     width: 300px;
     height: 300px;
@@ -167,31 +168,6 @@
     transform: scale(1.03)
   }
 }
-
-.artpiece-card {
-  width: 550px;
-  height: 300px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background: $aubergine;
-  color: $white;
-  img {
-    width: 300px;
-    height: 300px;
-    border-radius: 5px 0 0 5px;
-    object-fit: contain;
-  }
-  .text {
-    margin: 40px;
-    width: 250px;
-    p {
-      padding-top: 10px;
-    }
-  }
-}
-
 
 // Conversation cards
 .conv-box {

@@ -1,6 +1,6 @@
 .container-artist-bio {
   display: flex;
-  margin: 100px 0;
+  height: calc(100vh - 300px);
   align-items: center;
   .avatar {
     width: 350px;
@@ -35,4 +35,10 @@
       background: $aubergine;
     }
   }
+}
+
+.artworks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 30px;
 }
