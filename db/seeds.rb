@@ -85,13 +85,15 @@ end
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(4..9).times do
+    month = rand(8..12)
+    day = rand(1..30)
     event = Event.new(
       user: artist,
       title: Event::TITLES.sample,
       description: Event::DESCRIPTIONS.sample,
       location: Event::CITIES.sample,
-      start_date: DateTime.now,
-      end_date: DateTime.now + 1,
+      start_date: DateTime.new(2023, month, day, rand(8..10), [0, 30].sample),
+      end_date: DateTime.new(2023, month, day, rand(11..18), [0, 30].sample),
       is_private: [true, false].sample
     )
     file = URI.open('https://source.unsplash.com/900x900/?art-gallery')

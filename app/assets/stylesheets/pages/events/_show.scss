@@ -53,19 +53,16 @@
   }
 }
 
-.event-artist-name {
+.event-artist-card .artist-header {
   display: flex;
-  gap: 10px;
-}
-
-.event-artist-text {
-  display: flex;
-  margin-top: 10px;
-  text-justify: inter-word;
-}
-
-.event-artist-img {
-  margin-top: 5px;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 }
 
 .event-title-desc {
