@@ -33,13 +33,12 @@
         <p><i class="fa-regular fa-calendar-days">&nbsp&nbsp</i><%= date_str.strftime("%A, %B %d, %Y") %></p>
         <p><i class="fa-solid fa-clock">&nbsp&nbsp</i><%= @event.start_date.strftime("%I:%M %p") %> - <%= @event.end_date.strftime("%I:%M %p") %></p>
 
-
         <div data-controller="pop-up">
-          <div class="white-button" data-action="click->pop-up#showPopup" >
+          <div data-action="click->pop-up#showPopup" >
             <% if EventAttendance.find_by(user: current_user, event: @event) %>
-              <%= link_to "Joined", event_path(@event), style: "text-decoration:none;" %>
+              <%= link_to "Joined <i class='fa-solid fa-check'></i>".html_safe, event_path(@event), style: "text-decoration:none;", class: "join-btn" %>
             <% else %>
-              <%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;" %>
+              <%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;", class: "white-button" %>
             <% end %>
           </div>
           <div class="popup" data-pop-up-target="box">
@@ -57,8 +56,6 @@
             <span class="close" data-action="click->pop-up#closePopup">&times;</span>
           </div>
         </div>
-
-
 
     </div>
     <div style="width: 100%; height: 100%; border-radius: 5px"

@@ -11,6 +11,8 @@
               <p><%= event.user.first_name %></p>
               <p><%= event.user.last_name %></p>
           </div>
+          <% date_str = Time.parse((event.start_date).to_s) %>
+          <p class="event-date"><%= date_str.strftime("%A, %B %d, %Y") %></p>
         </div>
         <div class="event-btn"><%= link_to "Details", event_path(event), style: "text-decoration:none;"%></div>
       </div>
@@ -23,6 +25,8 @@
             <p><%= event.user.first_name %></p>
             <p><%= event.user.last_name %></p>
           </div>
+            <% date_str = Time.parse((event.start_date).to_s) %>
+            <p class="event-date"><%= date_str.strftime("%A, %B %d, %Y") %></p>
         </div>
         <div class="event-btn"><%= link_to "Details", event_path(event), style: "text-decoration:none;"%></div>
       </div>
