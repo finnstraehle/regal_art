@@ -122,11 +122,23 @@
 .signup-btn {
   display: flex;
   gap: 30px;
+  h2 {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .login-btn {
   display: flex;
   gap: 30px;
+  h2 {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 // Veil
