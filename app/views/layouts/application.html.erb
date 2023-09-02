@@ -16,7 +16,8 @@
     <div class="body-container">
       <div>
         <% unless @hide_nav_footer %>
-          <%= render "shared/navbar", title: @title, banner: @banner %>
+        <% if current_user.is_artist? %><%= render "shared/navbar_artist", title: @title, banner: @banner %><% end %>
+          <% if current_user.is_artist == false %><%= render "shared/navbar_buyer", title: @title, banner: @banner %><% end %>
         <% end %>
         <%= render "shared/flashes" %>
       </div>

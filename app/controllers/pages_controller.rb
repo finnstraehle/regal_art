@@ -10,7 +10,11 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @banner = "user1_avatar.jpg"
+    @title = "Dashboard"
+  end
+
+  def artist_dashboard
+    @title = "Dashboard"
   end
 
   def discover
