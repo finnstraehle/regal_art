@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @title = @event.title
     @events = Event.all
     @banner = "user1_avatar.jpg"
+    @event_attendance = EventAttendance.new
 
     @markers = [
       {

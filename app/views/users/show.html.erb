@@ -1,2 +1,20 @@
-<div class="container-m">
+<div class="container-l">
+  <div class="container-artist-bio">
+    <%= cl_image_tag @artist.avatar.key, class: "avatar" %>
+    <div class="bio">
+      <div class="artist-buttons">
+        <%= link_to "Artist Journey", user_path(@artist), class: "button btn-artist" %>
+        <%= link_to "Connect", user_path(@artist), class: "button btn-artist" %>
+      </div>
+      <h2><%= @artist.short_bio %></h2>
+      <p><%= @artist.long_bio %></p>
+    </div>
+  </div>
+  <div class="artworks-grid">
+    <% @artist.artworks.each do |artwork| %>
+      <div class="artwork-card">
+        <%= cl_image_tag artwork.photo.key, class: "artwork-card-img" %>
+      </div>
+    <% end %>
+  </div>
 </div>
