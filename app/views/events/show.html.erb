@@ -10,17 +10,12 @@
       </div>
       <hr>
       <div class="event-artist-card">
-        <div class="event-artist-name">
-          <h2><%= @event.user.first_name %></h2>
-          <h2><%= @event.user.last_name %></h2>
-        </div>
-        <div class="event-artist-text">
-          <div class="event-artist-img">
-            <%= cl_image_tag @event.user.avatar.key %>
+        <div class="artist-header">
+          <div class="artist-name">
+            <h2><%= "#{@event.user.first_name} #{@event.user.last_name}" %></h2>
+            <span><%= @event.user.short_bio %></span>
           </div>
-          <div class="event-artist-description">
-            <p><%= @event.user.long_bio %></p>
-          </div>
+          <%= cl_image_tag @event.user.avatar.key %>
         </div>
       </div>
     </div>
