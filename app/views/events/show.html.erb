@@ -37,14 +37,16 @@
             <% end %>
           </div>
           <div class="popup" data-pop-up-target="box">
-            <h4>Event Registration</h4>
-            <p>Thank you for your interest in this event. Please fill out the form below to register.</p>
+            <div style="text-align: center; padding: 25px 0;">
+              <h4>Reservation</h4>
+              <p>Thank you for your interest in this event. Please fill out the form below to register.</p>
+            </div>
             <div>
               <%= simple_form_for [@event, @event_attendance] do |f| %>
                 <%= f.input :message %>
                 <%= f.input :attendees %>
-              <div class="form-group" style="display: flex;">
-                <%= f.button :submit, "Confirm", class: "button", style: "margin-top: 20px;"%>
+              <div class="form-group" style="display: flex; margin: 25px 0;">
+                <%= f.button :submit, "Confirm Reservation", class: "button", style: "margin: 20px auto 0 auto;"%>
               </div>
               <% end %>
             </div>
