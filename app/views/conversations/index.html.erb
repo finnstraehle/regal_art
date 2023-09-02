@@ -1,0 +1,5 @@
+<div class="container-m">
+  <% @conversations.each do |conversation| %>
+    <%= render "conversations/conversation_card", conversation: conversation %>
+  <% end %>
+</div>

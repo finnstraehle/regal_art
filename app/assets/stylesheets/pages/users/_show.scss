@@ -1,6 +1,7 @@
 .container-artist-bio {
   display: flex;
-  margin: 50px 0;
+  margin: 100px 0;
+  align-items: center;
   .avatar {
     width: 350px;
     height: 350px;
@@ -23,10 +24,15 @@
 
 .artist-buttons {
   display: flex;
-  margin-bottom: 30px;
+  position: absolute;
+  right: 70px; // same margin as navbar and title
+  top: 15px;
   .btn-artist {
-    margin-right: 10px;
-    width: 160px;
+    margin-left: 20px;
+    width: 180px;
     background: $lavander;
+    &:hover {
+      background: $aubergine;
+    }
   }
 }

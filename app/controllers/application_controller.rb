@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_)
     current_user.is_artist? ? dashboard_path : discover_path
   end
 end
