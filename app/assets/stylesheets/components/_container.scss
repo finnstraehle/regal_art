@@ -15,8 +15,15 @@
   width: 1200px !important;
   margin: 0 auto;
   padding: 20px 0;
-  z-index: 1;
 }
+
+.container-full {
+  width: 100vw;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
 
 .devise-flex {
   display: flex;

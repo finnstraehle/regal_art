@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
+  get "/artist_dashboard", to: "pages#artist_dashboard", as: :artist_dashboard
   get "/discover", to: "pages#discover", as: :discover
   get "/my_events", to: "events#my_events", as: :my_events
 

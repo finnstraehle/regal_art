@@ -1,7 +1,13 @@
 class ConversationsController < ApplicationController
   def index
     @title = "Conversations"
-    @conversations = Conversation.all # change to only the users's conversations
-    @banner = "user1_avatar.jpg"
+    @conversations = Conversation.where(artist: current_user) if current_user.is_artist?
+    @conversations = Conversation.where(buyer: current_user) if current_user.is_artist == false
+  end
+
+  def show
+    @conversation = Conversation.find(params[:id])
+    @messages = @conversation.messages
+    @title = "Conversation"
   end
 end
