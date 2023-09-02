@@ -8,13 +8,22 @@ $headers-font: 'Headland One', serif;
 // Define links style
 a {
   text-decoration: none !important;
+  color: #3a3a3a;
+  p {
+    color: #3a3a3a;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #3a3a3a;
+  }
 }
 
 a:hover {
   text-decoration: none !important;
-  color: black;
-}
-
-p {
-  color: #3a3a3a;;
+  color: #3a3a3a;
+  p {
+    color: #3a3a3a;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #3a3a3a;
+  }
 }
