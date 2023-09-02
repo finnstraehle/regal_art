@@ -28,10 +28,17 @@
   }
 }
 
-.white-button.joined {
-  background: $lavander !important;
-  color: #fff !important;
-  border: 1px solid $lavander !important;
+.join-btn {
+  width: fit-content !important;
+  height: 35px;
+  border-radius: 50px;
+  background: $lavander;
+  color: $aubergine !important;
+  text-align: center;
+  padding: 5px 35px;
+  border: 1px solid $lavander;
+  transition: 0.5s ease;
+  pointer-events: none;
 }
 
 .style-button {

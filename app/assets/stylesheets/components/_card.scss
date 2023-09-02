@@ -4,14 +4,14 @@
   flex-direction: column;
   align-items: center;
   background-color: $aubergine;
-  color: $white !important;
+  color: $white;
   width: 375px;
   height: 500px;
   border-radius: 5px;
   grid-column: auto / span 1;
   grid-row: auto / span 2;
   p {
-    color: white !important;
+    color: white;
   }
   img {
     width: 100%;
