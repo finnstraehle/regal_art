@@ -5,6 +5,7 @@ class Artwork < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :user, presence: true
+  validates :has_details, inclusion: { in: [true, false] }
 
   has_one_attached :photo
   has_many_attached :details_photos

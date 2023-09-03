@@ -6,7 +6,7 @@
 </div>
 <div class="container-l">
   <div class="container-artist-bio">
-    <%= cl_image_tag @artist.avatar.key, class: "avatar" %>
+    <%= cl_image_tag @artist.avatar.key, class: "avatar", style: "opacity: 0.3;" %>
     <div class="bio">
       <h2><%= @artist.short_bio %></h2>
       <p><%= @artist.long_bio %></p>
@@ -16,7 +16,7 @@
 <div class="banner-aubergine">
   <div class="container-l">
     <div class="artworks-grid">
-      <% @artist.artworks.each do |artwork| %>
+      <% @artist.artworks.where(has_details: false).each do |artwork| %>
         <div class="artwork-card">
           <%= cl_image_tag artwork.photo.key %>
           <div class="text">
@@ -25,5 +25,16 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+<div class="container-l">
+  <h2>Explore an Artwork</h2>
+</div>
+<div class="container-m" style="padding: 0 0 120px 0;">
+  <div class="artwork-map-container">
+    <%= cl_image_tag @artist.artworks.where(has_details: true).first.photo.key, style: "position: relative", class: "artwork-map" %>
+    <% @artist.artworks.where(has_details: true).first.art_details.each do |art_detail| %>
+      <%= render "users/art_detail_marker", art_detail: art_detail %>
+    <% end %>
   </div>
 </div>
