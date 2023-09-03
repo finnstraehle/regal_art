@@ -1,0 +1,24 @@
+<div class="carousel-box" data-controller="carousel">
+  <div class="carousel-container-nb" data-carousel-target="container">
+    <div class="carousel-slide-nb" data-carousel-target="slide">
+      <% @artist.artworks.each do |artwork| %>
+        <%= cl_image_tag artwork.photo.key %>
+      <% end %>
+    </div>
+    <%# <div class="carousel-slide-nb"> %>
+      <%#= image_tag('user2_1.png') %>
+    <%# </div>
+    <div class="carousel-slide-nb"> %>
+      <%#= image_tag('user3_1.png') %>
+    <%# </div> %>
+  </div>
+
+  <div class="carousel-btns">
+    <button data-action="click->carousel#previous">
+      <i class="fa-solid fa-angle-down fa-rotate-90 fa-2xl"></i>
+    </button>
+    <button data-action="click->carousel#next">
+      <i class="fa-solid fa-angle-down fa-rotate-270 fa-2xl"></i>
+    </button>
+  </div>
+</div>
