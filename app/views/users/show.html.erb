@@ -1,7 +1,16 @@
-<div class="artist-btn-box">
-  <div class="artist-btn">Artist Journey</div>
-  <div class="artist-btn">Connect</div>
-</div>
+<% unless @hide_artist_buttons %>
+  <div class="artist-btn-box">
+    <div class="artist-btn">Artist Journey</div>
+    <% if Subscription.find_by(buyer: current_user, artist: @artist) %>
+      <%= link_to "Connected <i class='fa-solid fa-check'></i>".html_safe, root_path, class: "artist-btn" %>
+    <% else %>
+      <!-- does not work, check on monday -->
+      <%= simple_form_for @subscription, url: user_subscriptions_path(@artist), method: :post do |f| %>
+        <%= f.button :submit, "Connect", class: "artist-btn" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
 
 <%# <div class="container-full">
   <div class="artist-buttons"> %>
@@ -11,7 +20,7 @@
 <%# </div> %>
 <div class="container-l">
   <div class="container-artist-bio">
-    <%= cl_image_tag @artist.avatar.key, class: "avatar", style: "opacity: 0.3;" %>
+    <%= cl_image_tag @artist.avatar.key, class: "avatar", style: "opacity: 1;" %>
     <div class="bio">
       <h2><%= @artist.short_bio %></h2>
       <p><%= @artist.long_bio %></p>
@@ -19,6 +28,7 @@
   </div>
 </div>
 
+<!-- make this a shared component? -->
 <div class="video-box">
   <%= video_tag("video_1.mp4", id: "video-background", controls: false, autoplay: true, muted: true, loop: true) %>
   <div class="video-card">
@@ -27,6 +37,7 @@
   </div>
 </div>
 
+<!-- make this a shared component? -->
 <div class="container-l">
   <%# Adding Bootstrap carousel in a box %>
   <div class="carousel-box">
@@ -57,26 +68,13 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
- </div>   
-<div class="banner-aubergine">
-  <div class="container-l">
-    <div class="artworks-grid">
-      <% @artist.artworks.where(has_details: false).each do |artwork| %>
-        <div class="artwork-card">
-          <%= cl_image_tag artwork.photo.key %>
-          <div class="text">
-            <p><%= artwork.description %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
   </div>
 </div>
-    
+
+<%= render "users/banner_aubergine", artworks: @artist.artworks.where(has_details: false) %>
 <div class="container-l">
   <h2>Explore an Artwork</h2>
 </div>
-    
 <div class="container-m" style="padding: 0 0 120px 0;">
   <div class="artwork-map-container">
     <%= cl_image_tag @artist.artworks.where(has_details: true).first.photo.key, style: "position: relative", class: "artwork-map" %>

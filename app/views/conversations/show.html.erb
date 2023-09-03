@@ -4,8 +4,8 @@
     <% if message.user == current_user %><%= render "conversations/message-2", message: message %><% end %>
   <% end %>
   <%= simple_form_for [@conversation, @message] do |f| %>
-    <%= f.input :content %>
-    <div class="form-group" style="display: flex;">
+    <div style="display: flex">
+      <%= f.input :content %>
       <%= f.button :submit, "SEND", class: "button", style: "margin-top: 20px;"%>
     </div>
   <% end %>

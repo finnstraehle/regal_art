@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   get "/artist_dashboard", to: "pages#artist_dashboard", as: :artist_dashboard
   get "/discover", to: "pages#discover", as: :discover
+  get "/analytics", to: "pages#analytics", as: :analytics
+  get "/subscribers", to: "pages#subscribers", as: :subscribers
   get "/my_events", to: "events#my_events", as: :my_events
 
   resources :events do
@@ -14,7 +16,9 @@ Rails.application.routes.draw do
   end
   resources :event_attendances, only: %i[index show]
   resources :subscriptions, only: %i[index]
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    resources :subscriptions, only: %i[create destroy]
+  end
   resources :conversations, only: %i[index show create] do
     resources :messages, only: %i[create]
   end
