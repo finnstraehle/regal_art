@@ -1,0 +1,7 @@
+<%= link_to user_path(subscription.artist), class: "card-subscription" do %>
+  <div class="card-subscription-info">
+    <h2><%= "#{subscription.artist.first_name} #{subscription.artist.last_name}" %></h2>
+    <p><%= subscription.artist.short_bio %></p>
+  </div>
+  <%= cl_image_tag subscription.artist.avatar.key, class: "card-subscription-avatar" %>
+<% end %>

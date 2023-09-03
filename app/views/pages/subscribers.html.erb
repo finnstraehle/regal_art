@@ -1,0 +1,5 @@
+<div class="container-m">
+  <% @received_subscriptions.each do |subscription| %>
+    <li><%= "#{subscription.buyer.first_name} #{subscription.buyer.last_name}" %></li>
+  <% end %>
+</div>

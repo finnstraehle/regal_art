@@ -1,0 +1,14 @@
+<div class="banner-aubergine">
+  <div class="container-l">
+    <div class="artworks-grid">
+      <% artworks.each do |artwork| %>
+        <div class="artwork-card">
+          <%= cl_image_tag artwork.photo.key %>
+          <div class="text">
+            <p><%= artwork.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

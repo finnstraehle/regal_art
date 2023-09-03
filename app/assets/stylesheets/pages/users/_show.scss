@@ -1,6 +1,7 @@
 .container-artist-bio {
   display: flex;
-  height: calc(100vh - 300px);
+  height: calc(100vh - 370px);
+  min-height: 400px;
   align-items: center;
 
   .avatar {
@@ -20,6 +21,30 @@
       column-gap: 20px;
       color: 16px;
     }
+  }
+}
+
+.artist-btn-box {
+  background-color: $light-warm-gray;
+  color: $dark-gray;
+  display: flex;
+  justify-content: right;
+  padding-right: 70px;
+  cursor: pointer;
+}
+
+.artist-btn {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 5px 35px;
+  width: fit-content;
+  border-radius: 5px;
+  // border: $light-warm-gray 1px solid;
+  margin: 10px 0 10px 5px;
+  &:hover {
+    background: #0000006d;
+    color: #fff;
   }
 }
 

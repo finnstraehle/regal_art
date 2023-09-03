@@ -1,5 +1,4 @@
 class EventAttendancesController < ApplicationController
-
   def index
     @event_attendances = EventAttendance.all
   end

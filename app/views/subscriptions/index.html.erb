@@ -1,5 +1,7 @@
 <div class="container-m">
-  <% @subscriptions.each do |subscription| %>
-    <li><%= subscription.buyer.first_name %></li>
-  <% end %>
+  <div class ="grid-subscriptions">
+    <% current_user.subscriptions.each do |subscription| %>
+      <%= render "subscriptions/card_subscription", subscription: subscription %>
+    <% end %>
+  </div>
 </div>
