@@ -5,7 +5,7 @@
   </div>
   <div class="conv-text">
     <% if current_user.is_artist? %><h5><%= "#{conversation.buyer.first_name} #{conversation.buyer.last_name}" %></h5><% end %>
-    <% if current_user.is_artist == false %><h5><%= "#{conversation.artist.first_name} #{conversation.buyer.last_name}" %></h5><% end %>
-    <p>The many interesting things we talks about</p>
+    <% if current_user.is_artist == false %><h5><%= "#{conversation.artist.first_name} #{conversation.artist.last_name}" %></h5><% end %>
+    <p><%= conversation.messages.last.content %></p>
   </div>
 <% end %>

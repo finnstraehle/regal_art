@@ -28,10 +28,17 @@
   }
 }
 
-.white-button.joined {
-  background: $lavander !important;
-  color: #fff !important;
-  border: 1px solid $lavander !important;
+.join-btn {
+  width: fit-content !important;
+  height: 35px;
+  border-radius: 50px;
+  background: $lavander;
+  color: $aubergine !important;
+  text-align: center;
+  padding: 5px 35px;
+  border: 1px solid $lavander;
+  transition: 0.5s ease;
+  pointer-events: none;
 }
 
 .style-button {
@@ -69,7 +76,6 @@
   }
 }
 
-
 // On artist's profile page
 .artist-btn-box {
   width: 100%;
@@ -94,5 +100,20 @@
   &:hover {
     background: #0000006d;
     color: #fff;
+  }
+}
+
+.white-marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);;
+  box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.6);
+  border: 1px solid $white;
+  transition: 0.5s ease;
+  &:hover {
+    background-color: rgba($aubergine-dark, 0.6);
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
+    transform: scale(1.2);
   }
 }

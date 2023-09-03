@@ -1,6 +1,6 @@
 .container-artist-bio {
   display: flex;
-  margin: 35px auto;
+  height: calc(100vh - 300px);
   align-items: center;
 
   .avatar {
@@ -35,5 +35,19 @@
     &:hover {
       background: $aubergine;
     }
+  }
+}
+
+.artworks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 50px;
+}
+
+.artwork-map-container {
+  position: relative;
+  display: flex;
+  .artwork-map {
+    width: 100%;
   }
 }

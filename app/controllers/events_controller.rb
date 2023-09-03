@@ -47,6 +47,17 @@ class EventsController < ApplicationController
     # redirect_to my_events_path, status: :see_other
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+
+    redirect_to event_path(@event)
+  end
+
   private
 
   def event_params

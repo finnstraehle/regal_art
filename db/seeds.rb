@@ -58,12 +58,13 @@ end
 
 puts '>Creating artworks for each artist...'
 User.where(is_artist: true).each do |artist|
-  rand(2..5).times do
+  rand(2..6).times do
     artwork = Artwork.new(
       user: artist,
       title: Artwork::TITLES.sample,
       description: Artwork::DESCRIPTIONS.sample,
-      style: Artwork::STYLES.sample
+      style: Artwork::STYLES.sample,
+      has_details: false,
     )
     file = URI.open('https://source.unsplash.com/900x900/?abstract')
     artwork.photo.attach(io: file, filename: artwork.title, content_type: 'image/png')
@@ -71,13 +72,25 @@ User.where(is_artist: true).each do |artist|
   end
 end
 
-puts '>>Creating art details for each artwork...'
-Artwork.all.each do |artwork|
-  rand(2..5).times do
+puts '>>Creating art details for one artwork...'
+User.where(is_artist: true).each do |artist|
+  artwork = Artwork.new(
+    user: artist,
+    title: Artwork::TITLES.sample,
+    description: Artwork::DESCRIPTIONS.sample,
+    style: Artwork::STYLES.sample,
+    has_details: true
+  )
+  file = File.open("app/assets/images/user#{[1, 3].sample}_#{rand(1..3)}.png")
+  artwork.photo.attach(io: file, filename: artwork.title, content_type: 'image/png')
+  artwork.save!
+  rand(5..9).times do
     ArtDetail.create!(
       artwork: artwork,
       title: ArtDetail::TITLES.sample,
-      description: ArtDetail::DESCRIPTIONS.sample
+      description: ArtDetail::DESCRIPTIONS.sample,
+      x_value: rand(1..13),
+      y_value: rand(1..13)
     )
   end
 end
@@ -85,13 +98,15 @@ end
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(4..9).times do
+    month = rand(8..12)
+    day = rand(1..30)
     event = Event.new(
       user: artist,
       title: Event::TITLES.sample,
       description: Event::DESCRIPTIONS.sample,
       location: Event::CITIES.sample,
-      start_date: DateTime.now,
-      end_date: DateTime.now + 1,
+      start_date: DateTime.new(2023, month, day, rand(8..10), [0, 30].sample),
+      end_date: DateTime.new(2023, month, day, rand(11..18), [0, 30].sample),
       is_private: [true, false].sample
     )
     file = URI.open('https://source.unsplash.com/900x900/?art-gallery')
@@ -128,9 +143,10 @@ end
 
 puts '>Creating messages for each conversation...'
 Conversation.all.each do |conversation|
-  rand(1..5).times do
+  rand(2..7).times do
     Message.create!(
       conversation: conversation,
+      user: [conversation.buyer, conversation.artist].sample,
       content: Message::CONTENTS.sample
     )
   end

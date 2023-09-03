@@ -6,11 +6,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $white;
-  border: 1px solid #000000;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   width: 600px;
+  z-index: 1;
+}
+
+.detail-popup {
+  display: none;
+  background-color: $aubergine-dark;
+  color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
   z-index: 1;
 }
 
@@ -25,5 +35,9 @@
 
 /* Styles for showing the pop-up */
 .popup.active {
+  display: block;
+}
+
+.detail-popup.active {
   display: block;
 }

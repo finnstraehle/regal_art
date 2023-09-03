@@ -1,21 +1,21 @@
 <div class="container-l">
   <div class="dashboard-grid">
-    <%= link_to artist_dashboard_path, class: "dashboard-card dashboard-button" do %>
+    <%= link_to user_path(current_user), class: "dashboard-card dashboard-button" do %>
       <h4>Profile</h4>
     <% end %>
     <%= link_to subscriptions_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Followers</h4>
+      <h4>Subscribers</h4>
     <% end %>
-    <%= link_to my_events_path, class: "dashboard-card dashboard-button" do %>
-      <h4>My Events</h4>
+    <%= link_to artist_dashboard_path, class: "dashboard-card dashboard-button" do %>
+      <h4>Analytics</h4>
     <% end %>
     <%= link_to conversations_path, class: "dashboard-card dashboard-button" do %>
       <h4>Conversations</h4>
     <% end %> <!-- change to logged in user -->
-    <%= link_to artist_dashboard_path, class: "dashboard-card dashboard-button" do %>
-      <h4>Analytics</h4>
+    <%= link_to my_events_path, class: "dashboard-card dashboard-button" do %>
+      <h4>My Events</h4>
     <% end %>
-    <%= link_to artist_dashboard_path, class: "dashboard-card dashboard-button" do %>
+    <%= link_to edit_user_registration_path, class: "dashboard-card dashboard-button" do %>
       <h4>Settings</h4>
     <% end %>
   </div>

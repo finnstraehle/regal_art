@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_100354) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_223428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_100354) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "x_value"
+    t.integer "y_value"
     t.index ["artwork_id"], name: "index_art_details_on_artwork_id"
   end
 
@@ -58,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_100354) do
     t.string "style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "has_details"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
@@ -101,7 +104,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_100354) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -147,5 +152,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_100354) do
   add_foreign_key "event_attendances", "users"
   add_foreign_key "events", "users"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "preferences", "users"
 end

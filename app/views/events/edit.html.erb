@@ -1,0 +1,17 @@
+<div class="container-l">
+  <div class="container-m">
+  <h1 style="margin-bottom: 30px;">Edit your Event</h1>
+    <%= simple_form_for(@event) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :is_private %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <div class="form-group" style="display: flex;">
+      <%= f.button :submit, "Confirm", class: "button", style: "margin-top: 20px;" %>
+    </div>
+    <% end %>
+  </div>
+</div>
