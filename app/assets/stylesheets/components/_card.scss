@@ -237,3 +237,69 @@
     max-width: 400px;
   }
 }
+
+// Artist profile page
+.video-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 30px auto;
+  width: 100%;
+  height: 450px;
+  background-color: $gray;
+  padding: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-card {
+  z-index: 1;
+  border-radius: 2px;
+  background-color: $white;
+  width: 92%;
+  height: 290px;
+  padding: 40px;
+  h2 {
+    margin-bottom: 30px;
+  }
+  p {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+.carousel-box {
+  display: flex;
+  height: 650px;
+  background-color: #000;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
+
+.carousel {
+  width: 100%;
+  object-fit: contain;
+}
+
+// .carousel-inner {
+//   display: flex;
+//   width: 100%;
+//   height: 100%;
+//   transition: 0.5s ease;
+// }
+
+// .carousel-img {
+//   object-fit: contain;
+// }

@@ -76,6 +76,33 @@
   }
 }
 
+// On artist's profile page
+.artist-btn-box {
+  width: 100%;
+  margin-top: 0;
+  background-color: $light-warm-gray;
+  color: $dark-gray;
+  height: 40px;
+  display: flex;
+  justify-content: right;
+  padding: 5px 70px 0 70px;
+  cursor: pointer;
+}
+
+.artist-btn {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 5px 35px;
+  width: fit-content;
+  // border: $light-warm-gray 1px solid;
+  margin-left: 5px;
+  &:hover {
+    background: #0000006d;
+    color: #fff;
+  }
+}
+
 .white-marker {
   width: 15px;
   height: 15px;
