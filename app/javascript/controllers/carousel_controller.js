@@ -3,32 +3,38 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="carousel"
 export default class extends Controller {
   static targets = ['container', 'slide'];
-  currentIndex = 0;
 
   connect() {
-    console.log("Hello, Stimulus!", this.element)
+    this.currentIndex = 0;
   }
 
   next() {
-    this.currentIndex += 1;
+    if (this.currentIndex < this.slideTargets.length - 1) {
+      this.currentIndex += 1;
+    } else {
+      this.currentIndex = 0;
+    }
     this.showSlide(this.currentIndex);
   }
 
   previous() {
-    this.currentIndex -= 1;
+    if (this.currentIndex <= 0) {
+      this.currentIndex = (this.slideTargets.length - 1);
+    } else {
+      this.currentIndex -= 1;
+    }
     this.showSlide(this.currentIndex);
   }
 
   showSlide(index) {
-    const slides = this.containerTargets;
-    if (index < 0) {
-      index = slides.length - 1;
-    } else if (index >= slides.length) {
-      index = 0;
-    }
+    const slides = this.slideTargets;
 
     slides.forEach((slide, i) => {
-      slide.style.display = i === index ? 'block' : 'none';
+      if (i === index ) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
     });
 
     this.currentIndex = index;
