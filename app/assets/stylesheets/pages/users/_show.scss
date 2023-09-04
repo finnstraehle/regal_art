@@ -31,18 +31,31 @@
   justify-content: right;
   padding-right: 70px;
   cursor: pointer;
-  height: 40px;
 }
 
 .artist-btn {
   background: #fff;
   color: #000;
   text-align: center;
-  padding: 2px 35px;
+  padding: 3px 35px;
+  width: fit-content;
+  min-width: 165px;
+  border-radius: 5px;
+  margin: 10px 0 5px 10px;
+  &:hover {
+    background: #0000006d;
+    color: #fff;
+  }
+}
+
+.artist-btn-message {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 3px 10px;
   width: fit-content;
   border-radius: 5px;
-  // border: $light-warm-gray 1px solid;
-  margin: 5px 0 5px 5px;
+  margin: 10px 0 5px 10px;
   &:hover {
     background: #0000006d;
     color: #fff;

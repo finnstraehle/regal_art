@@ -6,13 +6,15 @@
     <% end %>
   </div>
   <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex" } do |f| %>
-    <div style="display: flex">
-      <%= f.input :content,
-        label: false,
-        placeholder: "type ...",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-      <%= f.button :submit, "SEND", class: "button", style: "margin-top: 20px;"%>
+    <div class="container-m">
+      <div class="container-message-field">
+        <%= f.input :content,
+          label: false,
+          placeholder: "type ...",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+        <%= f.button :submit, "SEND", class: "button", style: "margin: auto 0 aut0 10px;"%>
+      </div>
     </div>
   <% end %>
 </div>

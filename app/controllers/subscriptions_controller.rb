@@ -15,7 +15,9 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription = Subscription.find(params[:id])
-    @subscription.destroy
+    @subscription&.destroy
+    @conversation = Conversation.find_by(buyer: current_user, artist: @subscription.artist)
+    @conversation&.destroy # maybe not needed
     redirect_to user_path(@subscription.artist)
   end
 end
