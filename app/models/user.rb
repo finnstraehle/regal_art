@@ -20,6 +20,9 @@ class User < ApplicationRecord
   validates :location, if: :is_artist?, presence: true
   validates :short_bio, if: :is_artist?, presence: true
   validates :long_bio, if: :is_artist?, presence: true
+  #adeed when creating sign up create user
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_password, presence: true
 
   has_one_attached :avatar
   has_many_attached :banners

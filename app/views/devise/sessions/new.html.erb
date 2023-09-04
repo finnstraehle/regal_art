@@ -1,9 +1,10 @@
-<div class="background-gradient devise-flex">
-  <div class="navbar-logo margin-left">
-    <%= image_tag "logo_white.png" %>
-    <%# <p>captivating narratives<br>that lie behind each <br>art piece</p> %>
+<div class="devise-flex">
+  <div>
+    <%= link_to root_path, class: "homepage-logo" do %>
+      <%= image_tag "logo_white.png" %>
+    <% end %>
   </div>
-  <div class="container-s container-devise">
+  <div class="warm-gray-container-600">
     <h2>Log in</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs devise-inputs">
