@@ -1,5 +1,28 @@
-.container-message-field {
+.container-conversation {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+  padding-bottom: 30px;
+}
+
+.card-message-field {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: sticky;
+  bottom: 0;
   padding: 10px;
-  border-top: 1px solid #ccc;
-  text-align: right;
+  form {
+    width: 100%;
+  }
+}
+
+.card-message-field textarea {
+  border: none;
+  resize: none;
+  height: 100%;
+  &:active, &:focus { // fuck you bootstrap
+    outline: none !important;
+  }
 }
