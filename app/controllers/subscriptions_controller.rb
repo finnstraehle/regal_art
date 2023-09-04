@@ -4,22 +4,18 @@ class SubscriptionsController < ApplicationController
     @title = "Subscriptions"
   end
 
-  def new
-    @artist = User.find(params[:artist_id])
-    @subscription = Subscription.new
-  end
-
   def create
     @subscription = Subscription.new
-    @artist = User.find(params[:artist_id])
+    @artist = User.find(params[:user_id])
     @subscription.artist = @artist
     @subscription.buyer = current_user
     @subscription.save!
-    redirect_to dashboard_path
+    redirect_to user_path(@artist)
   end
 
   def destroy
     @subscription = Subscription.find(params[:id])
     @subscription.destroy
+    redirect_to user_path(@subscription.artist)
   end
 end

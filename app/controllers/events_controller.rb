@@ -3,6 +3,20 @@ class EventsController < ApplicationController
     @events = Event.all.shuffle
     @banner = "user1_avatar.jpg"
     @title = "Events"
+    start_date = DateTime.parse(params[:start_date]) if params[:start_date].present?
+
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        events.title ILIKE :query
+        OR users.first_name ILIKE :query
+        OR users.last_name ILIKE :query
+      SQL
+      @events = Event.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
+    @events = Event.where(location: params[:location]) if params[:location].present?
+
+    @events = Event.where(start_date: start_date.beginning_of_day..start_date.end_of_day) if params[:start_date].present?
+
   end
 
   def show
@@ -11,7 +25,6 @@ class EventsController < ApplicationController
     @events = Event.all
     @banner = "user1_avatar.jpg"
     @event_attendance = EventAttendance.new
-
     @markers = [
       {
         lat: @event.latitude,
