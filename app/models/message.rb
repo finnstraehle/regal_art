@@ -5,6 +5,10 @@ class Message < ApplicationRecord
   validates :content, presence: true
   validates :conversation, presence: true
 
+  def sender?(a_user)
+    user.id == a_user.id
+  end
+
   CONTENTS = [
     "Hi, I love your work! Can you tell me more about the painting 'Ethereal Dreams'?",
     "Thank you! 'Ethereal Dreams' is a serene landscape inspired by my love for nature. It captures the play of light on water at dawn.",
