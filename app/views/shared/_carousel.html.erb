@@ -1,0 +1,16 @@
+<div class="carousel-box" data-controller="carousel">
+  <div class="carousel-container-nb" data-carousel-target="container">
+    <% @artist.artworks.each_with_index do |artwork, index| %>
+      <%= cl_image_tag artwork.photo.key, data: { carousel_target: "slide" }, class: "slide-nb #{"active" if index.zero?}" %>
+    <% end %>
+  </div>
+
+  <div class="carousel-btns">
+    <button data-action="click->carousel#previous">
+      <i class="fa-solid fa-angle-down fa-rotate-90 fa-2xl"></i>
+    </button>
+    <button data-action="click->carousel#next">
+      <i class="fa-solid fa-angle-down fa-rotate-270 fa-2xl"></i>
+    </button>
+  </div>
+</div>

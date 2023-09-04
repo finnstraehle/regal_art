@@ -50,7 +50,7 @@
 
 //Artwork cards
 .artwork-card {
-  width: 550px;
+  width: 575px;
   height: 300px;
   border-radius: 5px;
   display: flex;
@@ -171,7 +171,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 .video-card {
@@ -189,30 +189,3 @@
     column-gap: 20px;
   }
 }
-
-.carousel-box {
-  display: flex;
-  height: 650px;
-  background-color: #000;
-  overflow: hidden;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  justify-content: center;
-}
-
-.carousel {
-  width: 100%;
-  object-fit: contain;
-}
-
-// .carousel-inner {
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   transition: 0.5s ease;
-// }
-
-// .carousel-img {
-//   object-fit: contain;
-// }

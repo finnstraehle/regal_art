@@ -31,17 +31,18 @@
   justify-content: right;
   padding-right: 70px;
   cursor: pointer;
+  height: 40px;
 }
 
 .artist-btn {
   background: #fff;
   color: #000;
   text-align: center;
-  padding: 5px 35px;
+  padding: 2px 35px;
   width: fit-content;
   border-radius: 5px;
   // border: $light-warm-gray 1px solid;
-  margin: 10px 0 10px 5px;
+  margin: 5px 0 5px 5px;
   &:hover {
     background: #0000006d;
     color: #fff;
@@ -65,8 +66,10 @@
 
 .artworks-grid {
   display: grid;
+  justify-content: space-between;
   grid-template-columns: 1fr 1fr;
-  row-gap: 50px;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 
 .artwork-map-container {
