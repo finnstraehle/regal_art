@@ -12,11 +12,11 @@ class EventsController < ApplicationController
         OR users.last_name ILIKE :query
       SQL
       @events = Event.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
-    elsif params[:location].present?
-      @events = Event.where(location: params[:location])
-    elsif params[:start_date].present?
-      @events = Event.where(start_date: start_date.beginning_of_day..start_date.end_of_day)
     end
+    @events = Event.where(location: params[:location]) if params[:location].present?
+
+    @events = Event.where(start_date: start_date.beginning_of_day..start_date.end_of_day) if params[:start_date].present?
+
   end
 
   def show
