@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   get "/subscribers", to: "pages#subscribers", as: :subscribers
   get "/edit_portfolio", to: "pages#edit_portfolio", as: :edit_portfolio
   get "/my_events", to: "events#my_events", as: :my_events
+  get "/buyer_events", to: "events#buyer_events", as: :buyer_events
 
   resources :events do
     resources :event_attendances, only: %i[new create]
   end
-  resources :event_attendances, only: %i[index show]
+  resources :event_attendances, only: %i[index show destroy]
   resources :subscriptions, only: %i[index]
   resources :users, only: %i[index show] do
     resources :subscriptions, only: %i[create]
