@@ -1,0 +1,15 @@
+<div class="event-card">
+  <%= link_to event_path(event) do %>
+    <%= cl_image_tag event.photos.first.key %>
+    <div class="text">
+      <h4><%= event.title %></h4>
+      <div class="my-artist-name">
+        <p>By</p>
+        <p><%= event.user.first_name %></p>
+        <p><%= event.user.last_name %></p>
+      </div>
+      <% date_str = Time.parse((event.start_date).to_s) %>
+      <p class="event-date"><%= date_str.strftime("%A, %B %d, %Y") %></p>
+    </div>
+  <% end %>
+</div>
