@@ -30,14 +30,7 @@
   </div>
 </div>
 
-<!-- make this a shared component? -->
-<div class="video-box">
-  <%= video_tag("video_1.mp4", id: "video-background", controls: false, autoplay: true, muted: true, loop: true) %>
-  <div class="video-card">
-    <h2>Transcendence: Exploring the Boundaries of Reality</h2>
-    <p>In this captivating artist project, the artist's unique vision comes to life with a compelling blend of creativity and skill. Drawing from personal experiences and a deep well of inspiration, the artist delves into the intricacies of human emotion and the human condition. Through a masterful use of color, texture, and form, the project immerses viewers in a world of raw and unfiltered expression. It's a testament to the artist's ability to distill complex ideas into visual storytelling, offering a profound and thought-provoking experience that lingers long after one has encountered their work.</p>
-  </div>
-</div>
+<%= render "shared/video_card" %>
 
 <div class="container-l">
   <h2>Discover the Artist's Latest Artistic Endeavors</h2>
@@ -45,7 +38,8 @@
 </div>
 
 <%= render "users/banner_aubergine", artworks: @artist.artworks.where(has_details: false) %>
-<div class="container-l">
+
+<div class="container-l mt-5">
   <h2>Explore an Artwork</h2>
 </div>
 <div class="container-m" style="padding: 0 0 120px 0;">

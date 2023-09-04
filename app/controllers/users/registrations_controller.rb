@@ -11,9 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(user_params)
+    super
+    redirect_to dashboard_path
+  end
 
   def new_artist
   end
@@ -42,7 +44,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :encrypted_password)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

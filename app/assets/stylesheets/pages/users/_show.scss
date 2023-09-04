@@ -78,10 +78,9 @@
 }
 
 .artworks-grid {
+  width: 100%;
   display: grid;
-  justify-content: space-between;
-  grid-template-columns: 1fr 1fr;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 50px;
 }
 
