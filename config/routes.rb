@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :subscriptions, only: %i[index]
   resources :users, only: %i[index show] do
     resources :subscriptions, only: %i[create]
+    resources :conversations, only: %i[create]
   end
   resources :subscriptions, only: %i[destroy]
   resources :conversations, only: %i[index show create] do

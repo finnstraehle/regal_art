@@ -2,7 +2,12 @@
   <div class="artist-btn-box">
     <div class="artist-btn">Artist Journey</div>
     <% if @subscription %>
-      <%= link_to "Connected <i class='fa-solid fa-check'></i>".html_safe, subscription_path(@subscription), data: { turbo_method: :delete }, class: "artist-btn" %>
+      <%= link_to "Connected <i class='fa-regular fa-check'></i>".html_safe, subscription_path(@subscription), data: { turbo_method: :delete }, class: "artist-btn" %>
+      <% if @conversation %>
+        <%= link_to "<i class='fa-regular fa-message'></i>".html_safe, conversation_path(@conversation), class: "artist-btn-message" %>
+      <% else %>
+        <%= link_to "<i class='fa-regular fa-message'></i>".html_safe, user_conversations_path(@artist), data: { turbo_method: :post }, class: "artist-btn-message" %>
+      <% end %>
     <% else %>
     <%= link_to "Connect", user_subscriptions_path(@artist), data: { turbo_method: :post }, class: "artist-btn" %>
     <% end %>
