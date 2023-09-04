@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @artist = User.find(params[:id])
-    @subscription = Subscription.new
-    @title = "#{@artist.first_name} #{@artist.last_name}"
+    @subscription = Subscription.find_by(buyer: current_user, artist: @artist)
     @banner = @artist.banners
     @hide_artist_buttons = true if current_user == @artist
   end

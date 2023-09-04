@@ -27,4 +27,9 @@ class PagesController < ApplicationController
     @title = "Subscribers"
     @received_subscriptions = current_user.received_subscriptions
   end
+
+  def edit_portfolio
+    @artist = current_user
+    @title = "Edit Portfolio"
+  end
 end

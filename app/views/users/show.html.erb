@@ -1,13 +1,10 @@
 <% unless @hide_artist_buttons %>
   <div class="artist-btn-box">
     <div class="artist-btn">Artist Journey</div>
-    <% if Subscription.find_by(buyer: current_user, artist: @artist) %>
-      <%= link_to "Connected <i class='fa-solid fa-check'></i>".html_safe, root_path, class: "artist-btn" %>
+    <% if @subscription %>
+      <%= link_to "Connected <i class='fa-solid fa-check'></i>".html_safe, subscription_path(@subscription), data: { turbo_method: :delete }, class: "artist-btn" %>
     <% else %>
-      <!-- does not work, check on monday -->
-      <%= simple_form_for @subscription, url: user_subscriptions_path(@artist), method: :post do |f| %>
-        <%= f.button :submit, "Connect", class: "artist-btn" %>
-      <% end %>
+    <%= link_to "Connect", user_subscriptions_path(@artist), data: { turbo_method: :post }, class: "artist-btn" %>
     <% end %>
   </div>
 <% end %>
