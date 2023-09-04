@@ -8,7 +8,15 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.find(params[:id])
     @messages = @conversation.messages.order("created_at ASC")
-    @title = "Conversation"
     @message = Message.new
+    @title = "Conversation"
+  end
+
+  def create
+    @conversation = Conversation.new
+    @conversation.artist = User.find(params[:user_id])
+    @conversation.buyer = current_user
+    @conversation.save
+    redirect_to conversation_path(@conversation)
   end
 end

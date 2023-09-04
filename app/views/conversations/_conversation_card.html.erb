@@ -1,11 +1,13 @@
-<%= link_to conversation_path(conversation), class: "conv-box" do %>
-  <div class="conv-avatar">
-    <% if current_user.is_artist? %><h2><%= "#{conversation.buyer.first_name[0]}.#{conversation.buyer.last_name[0]}." %></h2><% end %>
-    <% if current_user.is_artist == false %><%= cl_image_tag conversation.artist.avatar.key %><% end %>
-  </div>
-  <div class="conv-text">
-    <% if current_user.is_artist? %><h5><%= "#{conversation.buyer.first_name} #{conversation.buyer.last_name}" %></h5><% end %>
-    <% if current_user.is_artist == false %><h5><%= "#{conversation.artist.first_name} #{conversation.artist.last_name}" %></h5><% end %>
-    <p><%= conversation.messages.last.content %></p>
-  </div>
+<% unless conversation.messages.empty? %>
+  <%= link_to conversation_path(conversation), class: "conv-box" do %>
+    <div class="conv-avatar">
+      <% if current_user.is_artist? %><h2><%= "#{conversation.buyer.first_name[0]}.#{conversation.buyer.last_name[0]}." %></h2><% end %>
+      <% if current_user.is_artist == false %><%= cl_image_tag conversation.artist.avatar.key %><% end %>
+    </div>
+    <div class="conv-text">
+      <% if current_user.is_artist? %><h5><%= "#{conversation.buyer.first_name} #{conversation.buyer.last_name}" %></h5><% end %>
+      <% if current_user.is_artist == false %><h5><%= "#{conversation.artist.first_name} #{conversation.artist.last_name}" %></h5><% end %>
+      <p><%= conversation.messages.last.content %></p>
+    </div>
+  <% end %>
 <% end %>
