@@ -3,6 +3,7 @@ class EventsController < ApplicationController
     @events = Event.all.shuffle
     @banner = "user1_avatar.jpg"
     @title = "Events"
+    start_date = DateTime.parse(params[:start_date]) if params[:start_date].present?
 
     if params[:query].present?
       sql_subquery = <<~SQL
@@ -14,7 +15,7 @@ class EventsController < ApplicationController
     elsif params[:location].present?
       @events = Event.where(location: params[:location])
     elsif params[:start_date].present?
-      @events = Event.where(start_date: params[:start_date])
+      @events = Event.where(start_date: start_date.beginning_of_day..start_date.end_of_day)
     end
   end
 
