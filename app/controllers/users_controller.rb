@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def discover
+    @title = "Discover"
+    @banner = "user3_avatar.jpg"
+    @artists = User.where(is_artist: true).shuffle
+  end
+
   def index
     @artists = User.where(is_artist: true)
     @title = "Find Artists"
@@ -10,6 +16,6 @@ class UsersController < ApplicationController
     @subscription = Subscription.find_by(buyer: current_user, artist: @artist)
     @conversation = Conversation.find_by(buyer: current_user, artist: @artist)
     @banner = @artist.banners
-    @hide_artist_buttons = true if current_user == @artist
+    @hide_artist_buttons = true if current_user.is_artist?
   end
 end

@@ -17,7 +17,7 @@ export default class extends Controller {
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message1, data.message2)
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
-    this.messagesTarget.scrollTo(3, this.messagesTarget.scrollHeight)
+    this.element.scrollTo(0, this.element.scrollHeight)
   }
   #buildMessageElement(currentUserIsSender, message1, message2) {
     return currentUserIsSender ? message2 : message1

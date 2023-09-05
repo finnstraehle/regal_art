@@ -2,9 +2,62 @@
   <%= link_to "View Profile", user_path(@artist), class: "artist-btn" %>
 </div>
 <div class="container-m">
-  <h2>Avatar</h2>
-  <h2>Banners</h2>
-  <h2>Description</h2>
-  <h2>Artworks</h2>
-  <h2>Artwork-Maps</h2>
+  <div class="card-portfolio">
+    <div>
+      <h2>Profile</h2>
+      <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+    </div>
+    <div class="profile">
+      <div style="margin-right: 20px;">
+        <h4><%= "#{@artist.first_name} #{@artist.last_name}" %></h4>
+        <p><%= @artist.short_bio %></p>
+      </div>
+      <%= cl_image_tag @artist.avatar.key %>
+    </div>
+  </div>
+  <div class="card-portfolio">
+    <div>
+      <h2>Description</h2>
+      <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+    </div>
+    <div class="text">
+      <p><%= @artist.long_bio %></p>
+    </div>
+  </div>
+  <div class="card-portfolio">
+    <div>
+      <h2>Banners</h2>
+      <%= link_to "Add <i class='fa-regular fa-plus'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+    </div>
+    <div class="artworks">
+      <% @artist.banners.each do |banner| %>
+        <div class="banner">
+          <%= cl_image_tag banner.key %>
+          <%= link_to "<i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "delete-icon" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-portfolio">
+    <div>
+      <h2>Artworks</h2>
+      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "portfolio-button" %>
+    </div>
+    <div class="artworks">
+      <% @artist.artworks.where(has_details: false).each do |artwork| %>
+        <%= cl_image_tag artwork.photo.key %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-portfolio">
+    <div>
+      <h2>Canvas</h2>
+      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, canvas_path, class: "portfolio-button" %>
+    </div>
+    <div class="artworks">
+      <% @artist.artworks.where(has_details: true).each do |artwork| %>
+        <%= cl_image_tag artwork.photo.key %>
+      <% end %>
+    </div>
+  </div>
 </div>

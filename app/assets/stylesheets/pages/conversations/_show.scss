@@ -22,7 +22,7 @@
   border: none;
   resize: none;
   height: 100%;
-  &:active, &:focus { // fuck you bootstrap
-    outline: none !important;
+  &:focus {
+    box-shadow: none;
   }
 }

@@ -1,0 +1,5 @@
+<div class="container-l">
+  <% @artworks.each do |artwork| %>
+    <%= cl_image_tag artwork.photo.key %>
+  <% end %>
+</div>
