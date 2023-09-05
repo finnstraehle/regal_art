@@ -4,7 +4,12 @@
 <div class="container-m">
   <div class ="grid-artworks">
     <% @banners.each do |banner| %>
-      <%= render "artworks/card_artwork", artwork: banner %>
+      <div class="card-artwork">
+        <%= cl_image_tag banner.key, class: "card-artwork-photo" %>
+        <div class="card-artwork-buttons">
+          <%= link_to "Delete", banners_path, class: "button" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

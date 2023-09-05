@@ -11,8 +11,6 @@ export default class extends Controller {
 
   showPopup(event) {
     event.preventDefault();
-    console.log("showPopup");
-    console.log(this.boxTarget);
     this.boxTarget.classList.add("active");
   }
 
