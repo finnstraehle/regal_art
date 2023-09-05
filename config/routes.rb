@@ -6,18 +6,20 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   get "/artist_dashboard", to: "pages#artist_dashboard", as: :artist_dashboard
-  get "/discover", to: "pages#discover", as: :discover
+  get "/discover", to: "users#discover", as: :discover
   get "/analytics", to: "pages#analytics", as: :analytics
-  get "/subscribers", to: "pages#subscribers", as: :subscribers
+  get "/subscribers", to: "subscriptions#subscribers", as: :subscribers
   get "/edit_portfolio", to: "pages#edit_portfolio", as: :edit_portfolio
   get "/my_events", to: "events#my_events", as: :my_events
-  get "/buyer_events", to: "events#buyer_events", as: :buyer_events
+  get "/buyer_events", to: "events#buyer_events", as: :buyer_events # I think we should not call that "buyer", the user sees it
+  get "/canvas", to: "artworks#canvas", as: :canvas
 
   resources :events do
     resources :event_attendances, only: %i[new create]
   end
   resources :event_attendances, only: %i[index show destroy]
   resources :subscriptions, only: %i[index]
+  resources :artworks, only: %i[index new create edit update destroy]
   resources :users, only: %i[index show] do
     resources :subscriptions, only: %i[create]
     resources :conversations, only: %i[create]

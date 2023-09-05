@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def discover
+    @title = "Discover"
+    @banner = "user3_avatar.jpg"
+    @artists = User.where(is_artist: true).shuffle
+  end
+
   def index
     @artists = User.where(is_artist: true)
     @title = "Find Artists"

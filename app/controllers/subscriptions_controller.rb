@@ -4,6 +4,11 @@ class SubscriptionsController < ApplicationController
     @title = "Subscriptions"
   end
 
+  def subscribers
+    @received_subscriptions = current_user.received_subscriptions
+    @title = "Subscribers"
+  end
+
   def create
     @subscription = Subscription.new
     @artist = User.find(params[:user_id])
