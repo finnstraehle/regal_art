@@ -1,0 +1,53 @@
+<div class="container-l">
+  <div class="analytics-intro">
+    <%# <h1>Analytics</h1>
+    <p>Here you can find all the data you need to make informed decisions about your events and your audience.</p> %>
+    <div>
+      <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+      <%# <%= cl_image_tag @user.avatar.key %>
+      <p><%= @user.short_bio %></p>
+    </div>
+    <div class="interactions-container">
+      <div class="analytics-box">
+        <p>Connections</p>
+        <h4><%= @subscribers %></h4>
+      </div>
+      <div class="analytics-box">
+        <p>Events</p>
+        <h4><%= @events %></h4>
+      </div>
+      <div class="analytics-box">
+        <p>Conversations</p>
+        <h4><%= @conversations %></h4>
+      </div>
+    </div>
+  </div>
+  <div class="growth-rate-box">
+    <div class="growth-rate">
+      <p><i class="fa-solid fa-chart-line"></i></p>
+      <h3>3.80%</h3>
+      <p>Connections Growth Rate (90 days)</p>
+    </div>
+    <div class="growth-rate">
+      <p><i class="fa-solid fa-chart-line"></i></p>
+      <h3>7.80%</h3>
+      <p>Conversations Growth Rate (90 days)</p>
+    </div>
+  </div>
+
+  <div class="chart">
+    <h4>Gained Subscriptions Per Week</h4>
+    <br>
+    <%= line_chart Subscription.group_by_week(:created_at).count%>
+  </div>
+  <div class="chart">
+    <h4>Average number of attendees per</h4>
+    <br>
+    <%= line_chart Subscription.group_by_week(:created_at).count%>
+  </div>
+
+  <h3>percentage of connections turned into conversations</h3>
+  <%= pie_chart User.group(:location).count %>
+  <%= column_chart Event.group_by_day_of_week(:created_at, format: "%a").count %>
+  <h2>Views</h2>
+</div>

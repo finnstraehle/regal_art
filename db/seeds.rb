@@ -127,15 +127,19 @@ end
 
 puts 'Creating subscriptions...'
 20.times do
+  month = rand(8..12)
+  day = rand(1..30)
   Subscription.create!(
     buyer: User.where(is_artist: false).sample,
-    artist: User.where(is_artist: true).sample
+    artist: User.where(is_artist: true).sample,
+    created_at: DateTime.new(2023, month, day, rand(8..10), [0, 30].sample)
   )
 end
 
 puts 'Creating conversations...'
 Subscription.all.each do |subscription|
   Conversation.create!(
+
     buyer: subscription.buyer,
     artist: subscription.artist
   )

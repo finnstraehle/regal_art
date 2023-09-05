@@ -54,6 +54,12 @@ gem "cloudinary"
 # Use geocoder for geocoding
 gem "geocoder"
 
+# Use chartkick for charts
+gem "chartkick"
+
+# Use groupdate for grouping dates
+gem "groupdate"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

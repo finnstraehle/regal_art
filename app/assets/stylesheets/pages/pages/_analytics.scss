@@ -1,0 +1,55 @@
+.analytics-intro {
+  display: flex;
+  background-color: $warm-gray;
+  padding: 50px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.interactions-container {
+  display:flex;
+  gap: 50px;
+  margin-right: 60px;
+}
+
+.analytics-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  background-color: $white;
+}
+
+.chart {
+  border: 1px solid $warm-gray;
+  padding: 50px;
+  margin-bottom: 30px;
+}
+
+.growth-rate-box {
+  display: flex;
+  gap: 30px;
+}
+
+.growth-rate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 30px;
+  width: 50%;
+  margin-bottom: 30px;
+
+  i {
+    font-size: 25px;
+    background-color: $warm-gray;
+    padding: 10px;
+    border-radius: 50%;
+  }
+}

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/subscribers", to: "subscriptions#subscribers", as: :subscribers
   get "/edit_portfolio", to: "pages#edit_portfolio", as: :edit_portfolio
   get "/my_events", to: "events#my_events", as: :my_events
-  get "/buyer_events", to: "events#buyer_events", as: :buyer_events # I think we should not call that "buyer", the user sees it
+  get "/joined_events", to: "events#joined_events", as: :joined_events
   get "/canvas", to: "artworks#canvas", as: :canvas
 
   resources :events do
