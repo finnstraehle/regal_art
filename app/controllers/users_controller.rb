@@ -18,4 +18,10 @@ class UsersController < ApplicationController
     @banner = @artist.banners
     @hide_artist_buttons = true if current_user.is_artist?
   end
+
+  def delete_banner
+    @banner = Banner.find(params[:id])
+    @banner.purge
+    redirect_to edit_portfolio_path
+  end
 end
