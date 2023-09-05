@@ -31,7 +31,10 @@
     </div>
     <div class="artworks">
       <% @artist.banners.each do |banner| %>
-        <%= cl_image_tag banner.key %>
+        <div class="banner">
+          <%= cl_image_tag banner.key %>
+          <%= link_to "<i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "delete-icon" %>
+        </div>
       <% end %>
     </div>
   </div>

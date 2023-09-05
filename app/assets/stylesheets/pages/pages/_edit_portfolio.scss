@@ -6,6 +6,14 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   padding: 20px;
+  img {
+    height:  150px;
+    width:  150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 10px;
+    position: relative;
+  }
   .portfolio-button {
     width: fit-content;
     border-radius: 5px;
@@ -41,17 +49,34 @@
     flex-direction: row-reverse;
     overflow-x: scroll;
   }
+  &:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    .portfolio-button {
+      opacity: 1;
+    }
+  }
+}
+
+.card-portfolio .banner {
   img {
     height:  150px;
     width:  150px;
     object-fit: cover;
     border-radius: 5px;
     margin-left: 10px;
+    position: relative;
   }
-  &:hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    .portfolio-button {
-      opacity: 1;
+  .delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    background: $lavander-light;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.5s ease;
+    &:hover {
+      background: $lavander-extra-light;
     }
   }
 }

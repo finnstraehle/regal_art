@@ -1,0 +1,5 @@
+<div class="container-l">
+  <% @canvas.each do |canva| %>
+    <%= cl_image_tag canva.photo.key %>
+  <% end %>
+</div>
