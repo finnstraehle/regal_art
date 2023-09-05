@@ -1,24 +1,82 @@
 .card-portfolio {
   display: flex;
   justify-content: space-between;
-  height: 150px;
   border-radius: 5px;
   transition: 0.5s ease;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-
-  p {
-    color: white;
-  }
-  h2 {
-    padding: 10px;
-  }
+  margin-bottom: 20px;
+  padding: 20px;
   img {
-    height: 100%;
+    height:  150px;
+    width:  150px;
     object-fit: cover;
+    border-radius: 5px;
+    margin-left: 10px;
+    position: relative;
   }
-
+  .portfolio-button {
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px 40px;
+    min-width: 200px;
+    text-align: center;
+    background: $lavander-light;
+    transition: 0.5s ease;
+    opacity: 0;
+    &:hover {
+      background: $lavander-extra-light;
+    }
+  }
+  .profile {
+    width: 70%;
+    padding-left: 20px;
+    border-left: 1px solid $aubergine;
+    display: flex;
+    justify-content: space-between;
+  }
+  .text {
+    width: 70%;
+    padding-left: 20px;
+    border-left: 1px solid $aubergine;
+    max-height:  150px;
+    overflow-y: scroll;
+  }
+  .artworks {
+    width: 70%;
+    padding-left: 20px;
+    border-left: 1px solid $aubergine;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow-x: scroll;
+  }
   &:hover {
-    transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    .portfolio-button {
+      opacity: 1;
+    }
+  }
+}
+
+.card-portfolio .banner {
+  img {
+    height:  150px;
+    width:  150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-left: 10px;
+    position: relative;
+  }
+  .delete-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    background: $lavander-light;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.5s ease;
+    &:hover {
+      background: $lavander-extra-light;
+    }
   }
 }

@@ -8,7 +8,7 @@ class Artwork < ApplicationRecord
   validates :has_details, inclusion: { in: [true, false] }
 
   has_one_attached :photo
-  has_many_attached :details_photos
+  has_many_attached :details_photos # probably remove this (move to artdetails)
 
   STYLES = ['Painting', 'Sculpture'] # add more
 
