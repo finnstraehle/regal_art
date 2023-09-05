@@ -155,4 +155,3 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_223428) do
   add_foreign_key "messages", "users"
   add_foreign_key "preferences", "users"
 end
-
