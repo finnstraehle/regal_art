@@ -60,22 +60,9 @@
 }
 
 .unjoin-event {
-  position: absolute;
-  color: $aubergine;
-  width: 375px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px;
-  margin-top: 450px;
-  font-size: 20px;
-
-  a{
-    color: $aubergine;
-    &:hover
-    {
-      color: $dark-gray;
-    }
-  }
+  font-size: 25px;
+  margin-left: 675px;
+  margin-top: 50px;
 }
 
 // Artist cards
@@ -270,4 +257,3 @@
 }
 
 // Dashboard
-
