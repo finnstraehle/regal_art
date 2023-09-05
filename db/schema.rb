@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_02_223428) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_105415) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -136,7 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_223428) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_artist"
+    t.boolean "is_artist", default: false
     t.string "location"
     t.text "short_bio"
     t.text "long_bio"

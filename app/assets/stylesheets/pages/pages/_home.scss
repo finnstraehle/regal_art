@@ -89,8 +89,12 @@
   cursor: pointer;
   h1 {
     margin-bottom: 30px;
+    color: #fff;
   }
   &:hover {
+    h1 {
+      color: #fff;
+    }
     text-shadow: #c2bca9 0px 0px 6px;
     transform: translateY(-3px);
     transform: scale(1.03);
@@ -110,7 +114,13 @@
   transition: top 1s ease;
   a {
     color: #fff !important;
+    h2 {
+      color: #fff !important;
+    }
     &:hover{
+      h2 {
+        color: #fff !important;
+      }
       transform: translateY(-3px);
       transform: scale(1.03);
       transition: transform 1s ease-in-out;
