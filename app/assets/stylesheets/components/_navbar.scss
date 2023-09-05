@@ -65,16 +65,15 @@
     font-size: 16px;
     text-decoration: none;
       &:hover {
-        color: $lavander;
+        color: $lavander-light;
         text-decoration: none;
       }
   }
 }
 
 .dropdown a {
-  color: $gold;
     &:hover {
-      color: $lavander;
+      color: $lavander-light;
       text-decoration: none;
     }
 }
@@ -87,11 +86,12 @@
   min-width: 100px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   border-radius: 5px;
+  margin-left: -50px;
   a {
     color: #fff;
     text-decoration: none;
     &:hover {
-      color: $gold;
+      color: $lavander-light;
       text-decoration: none;
     }
   }

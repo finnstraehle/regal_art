@@ -26,11 +26,14 @@
             <%= link_to "My Events", my_events_path %>
           </li>
           <li class="nav-item dropdown" data-controller="reveal" data-action="mouseout->reveal#hide">
-            <%= link_to "#", "#", data: {action: "mouseover->reveal#display"} %>
+            <a data-action="mouseover->reveal#display" href="#"><i class="fa-solid fa-circle-user"></i></a>
             <div class="dropdown-m" data-reveal-target="item" >
-              <%= link_to "My Events", "#" %><br>
-              <%= link_to "Conversations", conversations_path %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "font-weight-bold" %>
+              <%= link_to "Portfolio", "#" %><br>
+              <%= link_to "Subscribers", "#" %><br>
+              <%= link_to "Analytics", "#" %><br>
+              <%= link_to "Settings", "#" %><br>
+              <%#= link_to "Conversations", conversations_path %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
             </div>
           </li>
       </ul>
