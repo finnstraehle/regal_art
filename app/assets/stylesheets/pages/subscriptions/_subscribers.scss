@@ -1,0 +1,17 @@
+.card-subscribers-group {
+  display: flex;
+  padding: 50px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  border-radius: 5px;
+  border: 3px solid $warm-gray;
+}
+
+.card-all-subscribers-group {
+  display: flex;
+  background-color: $warm-gray;
+  padding: 50px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  border-radius: 5px;
+}

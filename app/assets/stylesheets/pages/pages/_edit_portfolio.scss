@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-between;
   }
-  .text {
+  .portfolio-text {
     width: 70%;
     padding-left: 20px;
     border-left: 1px solid $aubergine;
@@ -57,22 +57,20 @@
   }
 }
 
-.card-portfolio .banner {
-  height: 150px;
-  width: 150px;
-  margin-left: 10px;
-  position: relative;
-  img {
-    margin: 0;
+.card-portfolio textarea {
+  height: 300px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  &:valid:focus {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
-  .delete-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 8px;
-    opacity: 0;
-  }
-  &:hover .delete-icon {
-      opacity: 1;
+}
+
+.card-portfolio input {
+  height: 30px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  &:valid:focus {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
 }

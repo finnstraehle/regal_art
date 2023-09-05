@@ -19,8 +19,35 @@ class ArtworksController < ApplicationController
     @title = "New Artwork"
   end
 
+  def create
+    @artwork = Artwork.new(params[:artwork])
+    @artwork.user = current_user
+    @artwork.has_details = false
+    @artwork.save
+  end
+
   def new_canvas
     @canvas = Artwork.new
     @title = "New Canvas"
+  end
+
+  def create_canvas
+    @canvas = Artwork.new(params[:canvas])
+    @canvas.user = current_user
+    @canvas.has_details = true
+    @canvas.save
+  end
+
+  def create_banner
+  end
+
+  private
+
+  def artwork_params
+    params.require(:artwork).permit(:title, :description, :photo)
+  end
+
+  def canvas_params
+    params.require(:canvas).permit(:title, :description, :photo)
   end
 end

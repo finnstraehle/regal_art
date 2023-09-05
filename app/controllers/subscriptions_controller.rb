@@ -6,6 +6,7 @@ class SubscriptionsController < ApplicationController
 
   def subscribers
     @received_subscriptions = current_user.received_subscriptions
+    @subscribers_last_month = current_user.received_subscriptions.where(created_at: 1.month.ago..Time.now).count
     @title = "Subscribers"
   end
 

@@ -39,3 +39,16 @@
   width: 100%;
   padding: 1rem;
 }
+
+.card-artwork .card-artwork-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  z-index: -1;
+  .button {
+    width: 120px;
+    margin: 0 10px
+  }
+}
