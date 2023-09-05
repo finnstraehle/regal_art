@@ -1,20 +1,23 @@
-<div class="container conversation" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>">
-  <div class="container-m" data-conversation-subscription-target="messages">
-    <% @messages.each do |message| %>
-      <% if message.user != current_user %><%= render "conversations/message-1", message: message %><% end %>
-      <% if message.user == current_user %><%= render "conversations/message-2", message: message %><% end %>
-    <% end %>
-  </div>
-  <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex" } do |f| %>
-    <div class="container-m">
-      <div class="container-message-field">
-        <%= f.input :content,
-          label: false,
-          placeholder: "type ...",
-          wrapper_html: {class: "flex-grow-1"}
-        %>
-        <%= f.button :submit, "SEND", class: "button", style: "margin: auto 0 aut0 10px;"%>
-      </div>
+<div class="container-conversation" data-controller="conversation-subscription" data-conversation-subscription-conversation-id-value="<%= @conversation.id %>" data-conversation-subscription-current-user-id-value="<%= current_user.id %>">
+  <div class="container-m">
+    <div data-conversation-subscription-target="messages" style="display: flex; flex-direction: column;">
+      <% @messages.each do |message| %>
+        <% if message.user != current_user %><%= render "conversations/message-1", message: message %><% end %>
+        <% if message.user == current_user %><%= render "conversations/message-2", message: message %><% end %>
+      <% end %>
     </div>
-  <% end %>
+    <div class="card-message-field">
+      <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }}, class: "card-message-form mb-0" do |f| %>
+        <div class="d-flex">
+          <%= f.input :content,
+            label: false,
+            placeholder: "type ...",
+            input_html: {class: "content-input"},
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <%= f.button :submit, "SEND", class: "button", style: "margin: auto 0 auto 20px;" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
