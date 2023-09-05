@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show] do
     resources :subscriptions, only: %i[create]
     resources :conversations, only: %i[create]
+    resources :preferences, only: %i[create]
+    member do
+      get :preferences
+    end
   end
   resources :subscriptions, only: %i[destroy]
   resources :conversations, only: %i[index show create] do

@@ -1,8 +1,8 @@
 .warm-gray-container-600 {
-  padding: 10px 100px;
+  padding: 10px 85px;
   background-color: $warm-gray;
   border-radius: 5px 5px 0 0;
-  margin: 10px 200px 0 0;
+  margin: 70px 200px 0 0;
   height: 90vh;
   width: 600px;
   bottom: 0;
@@ -14,12 +14,23 @@
   }
 }
 
-.move-up {
-  align-self: flex-end;
+.style-box {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-between;
+  height: 240px;
+  width: 435px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+// .move-up {
+//   align-self: flex-end;
   // animation-name: move-up;
   // animation-duration: 4s;
   // animation-fill-mode: forwards;
-}
+// }
 
 // @keyframes move-up {
 //   from {

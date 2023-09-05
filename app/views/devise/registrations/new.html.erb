@@ -4,7 +4,7 @@
       <%= image_tag "logo_white.png" %>
     <% end %>
   </div>
-  <div class="move-up">
+  <%# <div class="move-up"> %>
     <div class="warm-gray-container-600">
       <h2>Create an Account</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,27 +13,28 @@
           <div class="form-inputs devise-inputs">
             <%= f.input :first_name,
                         placeholder: "First Name",
-                        required: true,
+                        required: false,
                         autofocus: true,
                         input_html: { autocomplete: "first name" }%>
             <%= f.input :last_name,
                         placeholder: "Last Name",
-                        required: true,
+                        required: false,
                         autofocus: true,
                         input_html: { autocomplete: "last name" }%>
             <%= f.input :email,
-                        required: true,
+                        required: false,
                         placeholder: "Email",
                         autofocus: true,
                         input_html: { autocomplete: "email" }%>
             <%= f.input :password,
                         placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        required: true,
+                        required: false,
                         # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
                         placeholder: "Confirm Password",
-                        required: true,
+                        label: false,
+                        required: false,
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :is_artist, as: :boolean, label: "I'm an artist" %>
           </div>
