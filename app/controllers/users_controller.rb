@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     @hide_artist_buttons = true if current_user.is_artist?
   end
 
+
+  def preferences
+    @hide_nav_footer = true
+    # @user = User.find(params[:id])
+    @preference = Preference.new
+  end
+  
   def delete_banner
     @banner = Banner.find(params[:id])
     @banner.purge

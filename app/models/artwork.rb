@@ -10,7 +10,16 @@ class Artwork < ApplicationRecord
   has_one_attached :photo
   has_many_attached :details_photos # probably remove this (move to artdetails)
 
-  STYLES = ['Painting', 'Sculpture'] # add more
+  STYLES = [
+    'Expressionism',
+    'Cubism',
+    'Dadaism',
+    'Impressionism',
+    'Minimalism',
+    'Pointillism',
+    'Pop',
+    'Surrealism',
+    'Symbolism']
 
   TITLES = [
     "Ethereal Dreams",

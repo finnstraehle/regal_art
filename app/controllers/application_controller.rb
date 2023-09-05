@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_)
-    current_user.is_artist? ? artist_dashboard_path : discover_path
+    current_user.is_artist? ? artist_dashboard_path : preferences_user_path(current_user)
   end
 end
