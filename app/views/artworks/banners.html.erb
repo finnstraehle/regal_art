@@ -1,0 +1,10 @@
+<div class="artist-btn-box">
+  <%= link_to "Add Banner", banners_path, class: "artist-btn" %>
+</div>
+<div class="container-m">
+  <div class ="grid-artworks">
+    <% @banners.each do |banner| %>
+      <%= render "artworks/card_artwork", artwork: banner %>
+    <% end %>
+  </div>
+</div>

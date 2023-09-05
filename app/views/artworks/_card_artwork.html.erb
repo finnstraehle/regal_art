@@ -1,0 +1,7 @@
+<div class="card-artwork">
+  <div class="card-artwork-info">
+    <h2><%= artwork.title %></h2>
+    <p><%= artwork.description %></p>
+  </div>
+  <%= cl_image_tag artwork.photo.key, class: "card-artwork-photo" %>
+</div>

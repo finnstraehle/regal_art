@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/my_events", to: "events#my_events", as: :my_events
   get "/joined_events", to: "events#joined_events", as: :joined_events
   get "/canvas", to: "artworks#canvas", as: :canvas
+  get "/canvas/new", to: "artworks#new_canvas", as: :new_canvas
+  get "/banners", to: "artworks#banners", as: :banners
 
   resources :events do
     resources :event_attendances, only: %i[new create]

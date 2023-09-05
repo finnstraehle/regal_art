@@ -1,6 +1,7 @@
 .card-portfolio {
   display: flex;
   justify-content: space-between;
+  height: 190px;
   border-radius: 5px;
   transition: 0.5s ease;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +13,6 @@
     object-fit: cover;
     border-radius: 5px;
     margin-left: 10px;
-    position: relative;
   }
   .portfolio-button {
     width: fit-content;
@@ -58,25 +58,21 @@
 }
 
 .card-portfolio .banner {
+  height: 150px;
+  width: 150px;
+  margin-left: 10px;
+  position: relative;
   img {
-    height:  150px;
-    width:  150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-left: 10px;
-    position: relative;
+    margin: 0;
   }
   .delete-icon {
     position: absolute;
     top: 0;
     right: 0;
-    margin: 5px;
-    background: $lavander-light;
-    border-radius: 50%;
-    padding: 5px;
-    transition: 0.5s ease;
-    &:hover {
-      background: $lavander-extra-light;
-    }
+    margin: 8px;
+    opacity: 0;
+  }
+  &:hover .delete-icon {
+      opacity: 1;
   }
 }

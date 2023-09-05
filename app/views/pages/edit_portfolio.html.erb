@@ -27,13 +27,13 @@
   <div class="card-portfolio">
     <div>
       <h2>Banners</h2>
-      <%= link_to "Add <i class='fa-regular fa-plus'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, banners_path, class: "portfolio-button" %>
     </div>
     <div class="artworks">
       <% @artist.banners.each do |banner| %>
         <div class="banner">
           <%= cl_image_tag banner.key %>
-          <%= link_to "<i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "delete-icon" %>
+          <%= link_to "<i class='fa-regular fa-xmark'></i>".html_safe, edit_portfolio_path, class: "delete-icon" %>
         </div>
       <% end %>
     </div>
