@@ -1,0 +1,11 @@
+<div class="card-artwork">
+  <div class="card-artwork-info">
+    <h2><%= artwork.title %></h2>
+    <p><%= artwork.description %></p>
+  </div>
+  <%= cl_image_tag artwork.photo.key, class: "card-artwork-photo" %>
+  <div class="card-artwork-buttons">
+    <%= link_to "Edit", banners_path, class: "button" %>
+    <%= link_to "Delete", banners_path, class: "button" %>
+  </div>
+</div>

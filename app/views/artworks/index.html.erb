@@ -1,5 +1,10 @@
-<div class="container-l">
-  <% @artworks.each do |artwork| %>
-    <%= cl_image_tag artwork.photo.key %>
-  <% end %>
+<div class="artist-btn-box">
+  <%= link_to "Add Artwork", new_artwork_path, class: "artist-btn" %>
+</div>
+<div class="container-m">
+  <div class ="grid-artworks">
+    <% @artworks.each do |artwork| %>
+      <%= render "artworks/card_artwork", artwork: artwork %>
+    <% end %>
+  </div>
 </div>

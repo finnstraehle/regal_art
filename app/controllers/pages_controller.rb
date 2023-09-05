@@ -69,10 +69,11 @@ class PagesController < ApplicationController
       month_name = month_mapping[month_number]
       @renamed_hash[month_name] = value
     end
+
   end
 
   def edit_portfolio
     @artist = current_user
-    @title = "Edit Portfolio"
+    @title = "Portfolio"
   end
 end

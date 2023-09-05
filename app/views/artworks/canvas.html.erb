@@ -1,5 +1,10 @@
-<div class="container-l">
-  <% @canvas.each do |canva| %>
-    <%= cl_image_tag canva.photo.key %>
-  <% end %>
+<div class="artist-btn-box">
+  <%= link_to "Add Canvas", new_canvas_path, class: "artist-btn" %>
+</div>
+<div class="container-m">
+  <div class ="grid-artworks">
+    <% @canvas.each do |canvas| %>
+      <%= render "artworks/card_artwork", artwork: canvas %>
+    <% end %>
+  </div>
 </div>
