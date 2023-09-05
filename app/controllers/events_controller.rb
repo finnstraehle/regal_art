@@ -54,6 +54,11 @@ class EventsController < ApplicationController
     @title = "My Events"
   end
 
+  def buyer_events
+    @events = Event.joins(:event_attendances).where(event_attendances: { user: current_user })
+    @title = "My Events"
+  end
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy

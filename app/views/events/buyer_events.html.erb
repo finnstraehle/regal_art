@@ -1,0 +1,26 @@
+<div class="container-l">
+  <div class="events-box">
+    <% @events.each do |event| %>
+      <div class="buyer-event-card">
+        <%= link_to event_path(event) do %>
+        <%= cl_image_tag event.photos.first.key %>
+      <div class="text">
+        <h4><%= event.title %></h4>
+        <div class="my-artist-name">
+          <p>By</p>
+          <p><%= event.user.first_name %></p>
+          <p><%= event.user.last_name %></p>
+        </div>
+        <% date_str = Time.parse((event.start_date).to_s) %>
+          <div class="buyer-event-info">
+            <p><i class="fa-solid fa-location-dot">&nbsp&nbsp</i><%= event.location %></p>
+            <p><i class="fa-solid fa-clock">&nbsp&nbsp</i><%= event.start_date.strftime("%I:%M %p") %> - <%= event.end_date.strftime("%I:%M %p") %></p>
+          </div>
+          <h6 class="buyer-event-date"><%= date_str.strftime("%A, %B %d, %Y") %></h6>
+      </div>
+      <% end %>
+       <%= link_to "<i class='fa-regular fa-trash-can'></i>".html_safe, event_attendance_path(EventAttendance.find_by(user: current_user, event: event)), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to can unsubscribe from this event?"}, class: "unjoin-event" %>
+      </div>
+  <% end %>
+  </div>
+</div>

@@ -21,6 +21,12 @@ class EventAttendancesController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def destroy
+    @event_attendance = EventAttendance.find(params[:id])
+    @event_attendance.destroy
+    redirect_to buyer_events_path
+  end
+
   private
 
   def event_attendance_params
