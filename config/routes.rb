@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
-  devise_scope :user do
-    get 'users/artist_sign_up', to: 'devise/registrations#new_artist'
-  end
+  devise_for :users, controllers: { sessions: "users/sessions" }
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard", as: :dashboard
   get "/artist_dashboard", to: "pages#artist_dashboard", as: :artist_dashboard
