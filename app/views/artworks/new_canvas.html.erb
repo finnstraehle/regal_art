@@ -1,0 +1,6 @@
+<div class="container-m">
+  <h2>Please first provide an artwork</h2>
+  <%= simple_form_for(@canvas) do |f| %>
+    <%= f.input :photo, as: :file %>
+  <% end %>
+</div>

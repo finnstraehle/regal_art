@@ -1,0 +1,15 @@
+<div class="artist-btn-box">
+  <%= link_to "Add Banner", banners_path, class: "artist-btn" %>
+</div>
+<div class="container-m">
+  <div class ="grid-artworks">
+    <% @banners.each do |banner| %>
+      <div class="card-artwork">
+        <%= cl_image_tag banner.key, class: "card-artwork-photo" %>
+        <div class="card-artwork-buttons">
+          <%= link_to "Delete", banners_path, class: "button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

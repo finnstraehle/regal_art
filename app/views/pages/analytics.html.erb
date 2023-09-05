@@ -25,29 +25,30 @@
   <div class="growth-rate-box">
     <div class="growth-rate">
       <p><i class="fa-solid fa-chart-line"></i></p>
-      <h3>3.80%</h3>
+      <h3><%= @subscriber_growth_rate %>%</h3>
       <p>Connections Growth Rate (90 days)</p>
     </div>
     <div class="growth-rate">
       <p><i class="fa-solid fa-chart-line"></i></p>
-      <h3>7.80%</h3>
+      <h3><%= @conversations_growth_rate %>%</h3>
       <p>Conversations Growth Rate (90 days)</p>
     </div>
   </div>
 
-  <div class="chart">
+  <div class="chart container-m">
     <h4>Gained Subscriptions Per Week</h4>
     <br>
     <%= line_chart Subscription.group_by_week(:created_at).count%>
   </div>
-  <div class="chart">
-    <h4>Average number of attendees per</h4>
+  <div class="chart container-m">
+    <h4>Average Number of Attendees per Event</h4>
     <br>
-    <%= line_chart Subscription.group_by_week(:created_at).count%>
+    <%= column_chart @renamed_hash, library: { title: 'Monthly Data' } %>
   </div>
-
-  <h3>percentage of connections turned into conversations</h3>
-  <%= pie_chart User.group(:location).count %>
-  <%= column_chart Event.group_by_day_of_week(:created_at, format: "%a").count %>
+  <div class="chart container-m">
+    <h3>Percentage of Connections turned into Conversations</h3>
+    <br>
+    <%= pie_chart User.group(:location).count %>
+  </div>
   <h2>Views</h2>
 </div>

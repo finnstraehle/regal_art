@@ -1,7 +1,7 @@
 <% unless conversation.messages.empty? %>
   <%= link_to conversation_path(conversation), class: "conv-box" do %>
     <div class="conv-avatar">
-      <% if current_user.is_artist? %><h2><%= "#{conversation.buyer.first_name[0]}.#{conversation.buyer.last_name[0]}." %></h2><% end %>
+      <% if current_user.is_artist? %><h3><%= "#{conversation.buyer.first_name[0]}.#{conversation.buyer.last_name[0]}." %></h3><% end %>
       <% if current_user.is_artist == false %><%= cl_image_tag conversation.artist.avatar.key %><% end %>
     </div>
     <div class="conv-text">

@@ -1,6 +1,7 @@
 .card-portfolio {
   display: flex;
   justify-content: space-between;
+  height: 190px;
   border-radius: 5px;
   transition: 0.5s ease;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +13,6 @@
     object-fit: cover;
     border-radius: 5px;
     margin-left: 10px;
-    position: relative;
   }
   .portfolio-button {
     width: fit-content;
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-between;
   }
-  .text {
+  .portfolio-text {
     width: 70%;
     padding-left: 20px;
     border-left: 1px solid $aubergine;
@@ -57,26 +57,20 @@
   }
 }
 
-.card-portfolio .banner {
-  img {
-    height:  150px;
-    width:  150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-left: 10px;
-    position: relative;
+.card-portfolio textarea {
+  height: 300px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  &:valid:focus {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
-  .delete-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px;
-    background: $lavander-light;
-    border-radius: 50%;
-    padding: 5px;
-    transition: 0.5s ease;
-    &:hover {
-      background: $lavander-extra-light;
-    }
+}
+
+.card-portfolio input {
+  height: 30px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  &:valid:focus {
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
 }

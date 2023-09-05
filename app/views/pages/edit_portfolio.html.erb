@@ -5,7 +5,35 @@
   <div class="card-portfolio">
     <div>
       <h2>Profile</h2>
-      <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+      <div data-controller="pop-up">
+        <div data-action="click->pop-up#showPopup">
+          <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+        </div>
+        <div class="popup" data-pop-up-target="box">
+          <div style="text-align: center; padding: 25px 0;">
+            <h4>Profile</h4>
+          </div>
+          <div>
+            <%= simple_form_for [@artist] do |f| %>
+              <div style="display: flex; flex-direction: column;">
+                <div class="d-flex justify-content-between">
+                  <%= f.input :first_name %>
+                  <%= f.input :last_name %>
+                </div>
+                <%= f.input :short_bio,
+                input_html: {style: "height: 50px;"},
+                wrapper_html: {style: "width: 100%;"}
+                %>
+                <%= f.input :avatar, as: :file %>
+              </div>
+            <div class="form-group" style="display: flex; margin: 25px 0;">
+              <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
+            </div>
+            <% end %>
+          </div>
+          <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+        </div>
+      </div>
     </div>
     <div class="profile">
       <div style="margin-right: 20px;">
@@ -18,23 +46,43 @@
   <div class="card-portfolio">
     <div>
       <h2>Description</h2>
-      <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+      <div data-controller="pop-up">
+        <div data-action="click->pop-up#showPopup">
+          <%= link_to "Edit <i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+        </div>
+        <div class="popup" data-pop-up-target="box">
+          <div style="text-align: center; padding: 25px 0;">
+            <h4>Description</h4>
+          </div>
+          <div>
+            <%= simple_form_for [@artist] do |f| %>
+              <div class="d-flex">
+                <%= f.input :long_bio,
+                label: false,
+                wrapper_html: {style: "width: 100%;"}
+                %>
+              </div>
+            <div class="form-group" style="display: flex; margin: 25px 0;">
+              <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
+            </div>
+            <% end %>
+          </div>
+          <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+        </div>
+      </div>
     </div>
-    <div class="text">
+    <div class="portfolio-text">
       <p><%= @artist.long_bio %></p>
     </div>
   </div>
   <div class="card-portfolio">
     <div>
       <h2>Banners</h2>
-      <%= link_to "Add <i class='fa-regular fa-plus'></i>".html_safe, edit_portfolio_path, class: "portfolio-button" %>
+      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, banners_path, class: "portfolio-button" %>
     </div>
     <div class="artworks">
       <% @artist.banners.each do |banner| %>
-        <div class="banner">
-          <%= cl_image_tag banner.key %>
-          <%= link_to "<i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "delete-icon" %>
-        </div>
+        <%= cl_image_tag banner.key %>
       <% end %>
     </div>
   </div>

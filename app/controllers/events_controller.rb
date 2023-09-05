@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all.shuffle
-    @banner = "user1_avatar.jpg"
     @title = "Events"
     start_date = DateTime.parse(params[:start_date]) if params[:start_date].present?
 
@@ -23,7 +22,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @title = @event.title
     @events = Event.all
-    @banner = "user1_avatar.jpg"
     @event_attendance = EventAttendance.new
     @markers = [
       {
