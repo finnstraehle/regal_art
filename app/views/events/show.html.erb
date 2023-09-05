@@ -28,31 +28,33 @@
         <p><i class="fa-regular fa-calendar-days">&nbsp&nbsp</i><%= date_str.strftime("%A, %B %d, %Y") %></p>
         <p><i class="fa-solid fa-clock">&nbsp&nbsp</i><%= @event.start_date.strftime("%I:%M %p") %> - <%= @event.end_date.strftime("%I:%M %p") %></p>
 
-        <div data-controller="pop-up">
-          <div data-action="click->pop-up#showPopup" >
-            <% if EventAttendance.find_by(user: current_user, event: @event) %>
-              <%= link_to "Joined <i class='fa-solid fa-check'></i>".html_safe, event_path(@event), style: "text-decoration:none;", class: "join-btn" %>
-            <% else %>
-              <%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;", class: "white-button" %>
-            <% end %>
-          </div>
-          <div class="popup" data-pop-up-target="box">
-            <div style="text-align: center; padding: 25px 0;">
-              <h4>Reservation</h4>
-              <p>Thank you for your interest in this event. Please fill out the form below to register.</p>
-            </div>
-            <div>
-              <%= simple_form_for [@event, @event_attendance] do |f| %>
-                <%= f.input :message %>
-                <%= f.input :attendees %>
-              <div class="form-group" style="display: flex; margin: 25px 0;">
-                <%= f.button :submit, "Confirm Reservation", class: "button", style: "margin: 20px auto 0 auto;"%>
-              </div>
+        <% unless @hide_join_button %>
+          <div data-controller="pop-up">
+            <div data-action="click->pop-up#showPopup" >
+              <% if EventAttendance.find_by(user: current_user, event: @event) %>
+                <%= link_to "Joined <i class='fa-solid fa-check'></i>".html_safe, event_path(@event), style: "text-decoration:none;", class: "join-btn" %>
+              <% else %>
+                <%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;", class: "white-button" %>
               <% end %>
             </div>
-            <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+            <div class="popup" data-pop-up-target="box">
+              <div style="text-align: center; padding: 25px 0;">
+                <h4>Reservation</h4>
+                <p>Thank you for your interest in this event. Please fill out the form below to register.</p>
+              </div>
+              <div>
+                <%= simple_form_for [@event, @event_attendance] do |f| %>
+                  <%= f.input :message %>
+                  <%= f.input :attendees %>
+                <div class="form-group" style="display: flex; margin: 25px 0;">
+                  <%= f.button :submit, "Confirm Reservation", class: "button", style: "margin: 20px auto 0 auto;"%>
+                </div>
+                <% end %>
+              </div>
+              <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+            </div>
           </div>
-        </div>
+        <% end %>
 
     </div>
     <div style="width: 100%; height: 100%; border-radius: 5px"

@@ -32,6 +32,7 @@ class EventsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     ]
+    @hide_join_button = true if current_user.is_artist?
   end
 
   def new
@@ -54,7 +55,7 @@ class EventsController < ApplicationController
     @title = "My Events"
   end
 
-  def buyer_events
+  def joined_events
     @events = Event.joins(:event_attendances).where(event_attendances: { user: current_user })
     @title = "My Events"
   end
