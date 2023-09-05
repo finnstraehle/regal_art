@@ -1,0 +1,24 @@
+.card-portfolio {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+  border-radius: 5px;
+  transition: 0.5s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+  p {
+    color: white;
+  }
+  h2 {
+    padding: 10px;
+  }
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}

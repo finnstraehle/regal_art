@@ -2,7 +2,10 @@
   <%= link_to "View Profile", user_path(@artist), class: "artist-btn" %>
 </div>
 <div class="container-m">
-  <h2>Avatar</h2>
+  <div class="card-portfolio">
+    <h2>Avatar</h2>
+    <%= cl_image_tag @artist.avatar.key %>
+  </div>
   <h2>Banners</h2>
   <h2>Description</h2>
   <h2>Artworks</h2>
