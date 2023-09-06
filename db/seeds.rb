@@ -98,7 +98,7 @@ end
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(4..9).times do
-    month = rand(8..12)
+    month = rand(1..9)
     day = rand(1..30)
     event = Event.new(
       user: artist,
@@ -116,12 +116,12 @@ User.where(is_artist: true).each do |artist|
 end
 
 puts '>>Creating event attendances...'
-20.times do
+60.times do
   EventAttendance.create!(
     user: User.where(is_artist: false).sample,
     event: Event.all.sample,
     message: EventAttendance::MESSAGES.sample,
-    attendees: rand(1..10)
+    attendees: rand(5..20)
   )
 end
 

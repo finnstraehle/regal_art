@@ -31,18 +31,11 @@ class PagesController < ApplicationController
     end
 
     @events = @user.events.count
-    event_attendances = EventAttendance.where(event: @user.events)
-    @total_attendees = event_attendances.count
-    # @events_per_month = @user.events.group_by {|event| event.start_date.month}.transform_values{|events| events.count}
-    # @events_per_month = @user.events.group_by_month {|event| event.start_date}.transform_values{|events| events.count}
-    @events_per_month = @user.events.group_by_month(&:start_date).transform_values { |events| events.count }
-
-    # @event_attendances_per_month = event_attendances.group_by {|event_attendance| event_attendance.event.start_date.month}.transform_values{|event_attendances| event_attendances.count}
-
-    @event_attendances_per_month = event_attendances.group_by_month {|event_attendance| event_attendance.event.start_date}.transform_values{|event_attendances| event_attendances.count}
+    @event_attendances = EventAttendance.joins(:event).where(event: @user.events, events: { start_date: 6.months.ago..Time.now })
+    @events_per_month = @user.events.where(start_date: 6.months.ago..Time.now).group_by_month(&:start_date).transform_values { |events| events.count }
+    @event_attendances_per_month = @event_attendances.group_by_month { |event_attendance| event_attendance.event.start_date }.transform_values{|events_attendances| events_attendances.count}
 
     @average_attendances_per_month = {}
-
     @events_per_month.each do |key, value|
       if @event_attendances_per_month.key?(key)
         @average_attendances_per_month[key] = @event_attendances_per_month[key].fdiv(value).ceil
@@ -50,30 +43,6 @@ class PagesController < ApplicationController
         @average_attendances_per_month[key] = 0
       end
     end
-
-    # @sorted_hash = @average_attendances_per_month.sort.to_h
-
-    # month_mapping = {
-    #   1 => 'January',
-    #   2 => 'February',
-    #   3 => 'March',
-    #   4 => 'April',
-    #   5 => 'May',
-    #   6 => 'June',
-    #   7 => 'July',
-    #   8 => 'August',
-    #   9 => 'September',
-    #   10 => 'October',
-    #   11 => 'November',
-    #   12 => 'December'
-    # }
-
-    # @renamed_hash = {}
-
-    # @sorted_hash.each do |month_number, value|
-    #   month_name = month_mapping[month_number]
-    #   @renamed_hash[month_name] = value
-    # end
 
     percentage_converted_conversations = (@conversations.to_f / @subscribers) * 100
 
