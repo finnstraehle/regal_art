@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
   def preferences
     @hide_nav_footer = true
-    # @user = User.find(params[:id])
     @preference = Preference.new
   end
 end
