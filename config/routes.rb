@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get "/joined_events", to: "events#joined_events", as: :joined_events
   get "/canvas", to: "artworks#canvas", as: :canvas
   get "/canvas/new", to: "artworks#new_canvas", as: :new_canvas
-  get "/canvas/:id/edit", to: "artworks#edit_canvas", as: :edit_canvas
   get "/banners", to: "artworks#banners", as: :banners
   post "/add_banner", to: "users#add_banner", as: :add_banner
   delete "/delete_banner/:id", to: "users#delete_banner", as: :delete_banner

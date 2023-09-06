@@ -1,6 +1,12 @@
-<div class="container-m">
-  <h2>Please first provide an artwork</h2>
+<div class="container-s px-1" style="height: calc(100vh - 300px);">
   <%= simple_form_for(@canvas) do |f| %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :style, include_blank: "Select", collection: Artwork::STYLES %>
+    <%= f.input :photo, as: :file, label: "Canvas" %>
+    <%= f.hidden_field :has_details, value: true %>
+    <div style="display: flex; margin: 25px 0;">
+      <%= f.button :submit, "Start", class: "button", style: "margin: 20px auto 0 auto;"%>
+    </div>
   <% end %>
 </div>

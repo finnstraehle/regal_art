@@ -1,3 +1,6 @@
+<div class="artist-btn-box">
+  <%= link_to "Add Conversation", conversations_path, class: "artist-btn" %>
+</div>
 <div class="container-m">
   <% @conversations.each do |conversation| %>
     <%= render "conversations/conversation_card", conversation: conversation %>

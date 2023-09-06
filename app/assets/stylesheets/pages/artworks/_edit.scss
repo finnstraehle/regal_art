@@ -16,12 +16,16 @@
 
 .container-edit-artwork .artwork-photo-placeholder {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 60vh;
   background-color: $warm-gray;
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  p {
+    opacity: 0;
+  }
   i {
     font-size: 30px;
     border: 1px solid $light-gray;
@@ -34,7 +38,7 @@
     opacity: 0;
   }
   &:hover {
-    i {
+    i, p {
       opacity: 1;
     }
   }

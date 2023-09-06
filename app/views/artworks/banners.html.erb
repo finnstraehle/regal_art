@@ -10,7 +10,7 @@
       <div>
         <%= simple_form_for @artist, url: add_banner_path, method: :post do |f| %>
           <div class="d-flex">
-            <%= f.input :banners, as: :file, input_html: { multiple: true },
+            <%= f.input :banners, as: :file,
             label: false,
             wrapper_html: {style: "width: 100%;"}
             %>
@@ -26,8 +26,11 @@
 </div>
 <div class="container-m">
   <div class ="grid-artworks">
-    <% @banners.each do |banner| %>
+    <% @banners.each_with_index do |banner, index| %>
       <div class="card-artwork">
+        <div class="card-artwork-info">
+          <h2><%= "Banner #{index + 1}" %></h2>
+        </div>
         <%= cl_image_tag banner.key, class: "card-artwork-photo" %>
         <div class="card-artwork-buttons">
           <%= link_to "Delete", delete_banner_path(banner), data: { turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this banner?"}, class: "button" %>
