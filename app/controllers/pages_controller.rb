@@ -33,43 +33,54 @@ class PagesController < ApplicationController
     @events = @user.events.count
     event_attendances = EventAttendance.where(event: @user.events)
     @total_attendees = event_attendances.count
-    @events_per_month = @user.events.group_by {|event| event.start_date.month}.transform_values{|events| events.count}
-    @event_attendances_per_month = event_attendances.group_by {|event_attendance| event_attendance.event.start_date.month}.transform_values{|event_attendances| event_attendances.count}
+    # @events_per_month = @user.events.group_by {|event| event.start_date.month}.transform_values{|events| events.count}
+    # @events_per_month = @user.events.group_by_month {|event| event.start_date}.transform_values{|events| events.count}
+    @events_per_month = @user.events.group_by_month(&:start_date).transform_values { |events| events.count }
+
+    # @event_attendances_per_month = event_attendances.group_by {|event_attendance| event_attendance.event.start_date.month}.transform_values{|event_attendances| event_attendances.count}
+
+    @event_attendances_per_month = event_attendances.group_by_month {|event_attendance| event_attendance.event.start_date}.transform_values{|event_attendances| event_attendances.count}
 
     @average_attendances_per_month = {}
 
     @events_per_month.each do |key, value|
       if @event_attendances_per_month.key?(key)
-        @average_attendances_per_month[key] = (@event_attendances_per_month[key].fdiv(value)).ceil
+        @average_attendances_per_month[key] = @event_attendances_per_month[key].fdiv(value).ceil
       else
         @average_attendances_per_month[key] = 0
       end
     end
 
-    @sorted_hash = @average_attendances_per_month.sort.to_h
+    # @sorted_hash = @average_attendances_per_month.sort.to_h
 
-    month_mapping = {
-      1 => 'January',
-      2 => 'February',
-      3 => 'March',
-      4 => 'April',
-      5 => 'May',
-      6 => 'June',
-      7 => 'July',
-      8 => 'August',
-      9 => 'September',
-      10 => 'October',
-      11 => 'November',
-      12 => 'December'
+    # month_mapping = {
+    #   1 => 'January',
+    #   2 => 'February',
+    #   3 => 'March',
+    #   4 => 'April',
+    #   5 => 'May',
+    #   6 => 'June',
+    #   7 => 'July',
+    #   8 => 'August',
+    #   9 => 'September',
+    #   10 => 'October',
+    #   11 => 'November',
+    #   12 => 'December'
+    # }
+
+    # @renamed_hash = {}
+
+    # @sorted_hash.each do |month_number, value|
+    #   month_name = month_mapping[month_number]
+    #   @renamed_hash[month_name] = value
+    # end
+
+    percentage_converted_conversations = (@conversations.to_f / @subscribers) * 100
+
+    @pie_chart_data = {
+      "Connections Turned into Conversations" => percentage_converted_conversations,
+      "Remaining Connections" => 100 - percentage_converted_conversations
     }
-
-    @renamed_hash = {}
-
-    @sorted_hash.each do |month_number, value|
-      month_name = month_mapping[month_number]
-      @renamed_hash[month_name] = value
-    end
-
   end
 
   def edit_portfolio

@@ -4,17 +4,17 @@
       <%= link_to "<i class='fa-regular fa-pen-to-square'></i>".html_safe, edit_event_path(event), class:"edit-btn" %>
     </div>
     <%= link_to event_path(event) do %>
-    <%= cl_image_tag event.photos.first.key %>
-    <div class="text">
-      <h4><%= event.title %></h4>
-      <div class="my-artist-name">
-        <p>By</p>
-        <p><%= event.user.first_name %></p>
-        <p><%= event.user.last_name %></p>
+      <%= image_tag(url_for(event.photos.first)) %>
+      <div class="text">
+        <h4><%= event.title %></h4>
+        <div class="my-artist-name">
+          <p>By</p>
+          <p><%= event.user.first_name %></p>
+          <p><%= event.user.last_name %></p>
+        </div>
+        <% date_str = Time.parse((event.start_date).to_s) %>
+        <p class="event-date"><%= date_str.strftime("%A %d %B, %Y") %></p>
       </div>
-      <% date_str = Time.parse((event.start_date).to_s) %>
-      <p class="event-date"><%= date_str.strftime("%A %d %B, %Y") %></p>
-    </div>
-    <div class="attendance-icon"><p><%= event.event_attendances.count %></p><i class="fa-solid fa-user"></i></div>
+      <div class="attendance-icon"><p><%= event.event_attendances.count %></p><i class="fa-solid fa-user"></i></div>
   <% end %>
 </div>

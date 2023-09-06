@@ -1,6 +1,6 @@
 <div class="event-card">
   <%= link_to event_path(event) do %>
-    <%= cl_image_tag event.photos.first.key %>
+    <%= image_tag(url_for(event.photos.first)) %>
     <div class="text">
       <h4><%= event.title %></h4>
       <div class="my-artist-name">

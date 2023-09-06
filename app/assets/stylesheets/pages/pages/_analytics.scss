@@ -27,7 +27,6 @@
 .chart {
   padding: 50px;
   margin-bottom: 30px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 5px;
 }
 
@@ -42,7 +41,7 @@
   align-items: center;
   border-radius: 5px;
   background-color: $white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   padding: 30px;
   width: 50%;
   margin-bottom: 30px;
@@ -52,5 +51,14 @@
     background-color: $warm-gray;
     padding: 10px;
     border-radius: 50%;
+  }
+}
+
+.chart-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .chart {
+    width: 100%;
   }
 }
