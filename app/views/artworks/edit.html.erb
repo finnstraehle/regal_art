@@ -22,7 +22,18 @@
 <% if @artwork.has_details? %>
   <div class="container-m pb-0 text-center">
     <h2><%= @artwork.title %></h2>
-    <%= cl_image_tag @artwork.photo.key, style: "position: relative", class: "artwork-map" %>
+    <div class="artwork-map-container">
+      <%= cl_image_tag @artwork.photo.key, style: "position: relative", class: "artwork-map" %>
+      <% ArtDetail::COORDINATE_COUNT.times do |x| %>
+        <% ArtDetail::COORDINATE_COUNT.times do |y| %>
+          <%= render "users/empty_art_detail_marker", artwork: @artwork, x_index: x, y_index: y %>
+        <% end %>
+      <% end %>
+      <% @artwork.art_details.each do |art_detail| %>
+        <%= render "users/art_detail_marker", art_detail: art_detail %>
+      <% end %>
+    </div>
+
   </div>
   <div class="container-m px-1">
     <%= simple_form_for(@artwork) do |f| %>

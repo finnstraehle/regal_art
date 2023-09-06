@@ -28,6 +28,7 @@ class ArtworksController < ApplicationController
 
   def edit
     @artwork = Artwork.find(params[:id])
+    @art_detail = ArtDetail.new
     @title = @artwork.has_details? ? "Edit Canvas" : "Edit Artwork"
   end
 

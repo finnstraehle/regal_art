@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   end
   resources :event_attendances, only: %i[index show destroy]
   resources :subscriptions, only: %i[index]
-  resources :artworks, only: %i[index new create edit update destroy]
+  resources :artworks, only: %i[index new create update destroy]
+  resources :artworks, only: %i[edit] do
+    resources :art_details, only: %i[update create destroy]
+  end
   resources :users, only: %i[index show update] do
     resources :subscriptions, only: %i[create]
     resources :conversations, only: %i[create]

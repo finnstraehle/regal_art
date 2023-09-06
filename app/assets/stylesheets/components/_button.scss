@@ -77,6 +77,20 @@
   }
 }
 
+.empty-marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.6);
+  opacity: 0.1;
+  &:hover {
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
 
 // buttons in bar
 .artist-btn-box {
