@@ -1,10 +1,7 @@
 <div class="container-l">
   <div class="analytics-intro">
-    <%# <h1>Analytics</h1>
-    <p>Here you can find all the data you need to make informed decisions about your events and your audience.</p> %>
     <div>
       <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
-      <%# <%= cl_image_tag @user.avatar.key %>
       <p><%= @user.short_bio %></p>
     </div>
     <div class="interactions-container">
@@ -35,20 +32,26 @@
     </div>
   </div>
 
-  <div class="chart container-m">
-    <h4>Gained Subscriptions Per Week</h4>
+  <h4 class="mt-4">Gained Connections Per Week</h4>
+  <div class="chart container-l">
     <br>
-    <%= line_chart Subscription.group_by_week(:created_at).count%>
+    <%= line_chart Subscription.group_by_week(:created_at).count, download: {background: "#ffffff", filename: "Gained Connections per Week" } %>
   </div>
-  <div class="chart container-m">
-    <h4>Average Number of Attendees per Event</h4>
-    <br>
-    <%= column_chart @renamed_hash, library: { title: 'Monthly Data' } %>
-  </div>
-  <div class="chart container-m">
-    <h3>Percentage of Connections turned into Conversations</h3>
-    <br>
-    <%= pie_chart User.group(:location).count %>
+  <div class="chart-box container-l">
+    <div>
+      <h4>Average Number of Attendees per Event</h4>
+      <div class="chart">
+        <br>
+        <%= column_chart @average_attendances_per_month, download: {background: "#ffffff", filename: "Average Number of Attendees per Event"} %>
+      </div>
+    </div>
+    <div>
+      <h4>Connections Turned into Conversations</h4>
+      <div class="chart">
+        <br>
+        <%= pie_chart @pie_chart_data, download: {background: "#ffffff", filename: "Connections turned into Conversations"} %>
+      </div>
+    </div>
   </div>
   <h2>Views</h2>
 </div>

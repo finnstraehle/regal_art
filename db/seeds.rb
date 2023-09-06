@@ -121,7 +121,7 @@ puts '>>Creating event attendances...'
     user: User.where(is_artist: false).sample,
     event: Event.all.sample,
     message: EventAttendance::MESSAGES.sample,
-    attendees: rand(1..5)
+    attendees: rand(1..10)
   )
 end
 
