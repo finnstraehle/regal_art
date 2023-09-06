@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_create :send_welcome_email
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -43,4 +44,10 @@ class User < ApplicationRecord
     "With a background in architecture, my art is marked by geometric precision and an exploration of spatial relationships. My fascination lies in the interplay of shapes, colors, and forms within a given space. I use my art to invite viewers to reconsider their perception of the physical world around them. My compositions are carefully crafted to evoke a sense of harmony and balance, drawing from the principles of architectural design. Each piece is a testament to my passion for creating art that challenges the viewer's spatial awareness and invites them to explore the intricate dance between geometry and aesthetics.",
     "I am a versatile multimedia artist who thrives on the boundless possibilities of creative experimentation. My portfolio encompasses a wide range of mediums, from traditional painting and sculpture to cutting-edge digital art and immersive mixed-media installations. My work is a testament to my commitment to pushing the boundaries of what art can be and how it can engage with its audience. I believe that art is a dynamic and evolving force that transcends traditional categorizations, and I invite viewers to journey with me through the ever-expanding landscape of artistic expression."
   ]
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
 end
