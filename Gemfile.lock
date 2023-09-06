@@ -145,6 +145,11 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.3)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -182,6 +187,11 @@ GEM
     orm_adapter (0.5.0)
     pg (1.5.3)
     popper_js (2.11.8)
+    postmark (1.24.0)
+      json
+    postmark-rails (0.22.1)
+      actionmailer (>= 3.0.0)
+      postmark (>= 1.21.3, < 2.0)
     public_suffix (5.0.3)
     puma (5.6.7)
       nio4r (~> 2.0)
@@ -305,7 +315,9 @@ DEPENDENCIES
   groupdate
   importmap-rails
   jbuilder
+  letter_opener
   pg (~> 1.1)
+  postmark-rails
   puma (~> 5.0)
   rails (~> 7.0.7)
   redis (~> 4.0)
