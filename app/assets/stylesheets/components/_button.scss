@@ -66,14 +66,18 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);;
+  background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.6);
+  mix-blend-mode: difference;
   border: 1px solid $white;
   transition: 0.5s ease;
+  opacity: 0.8;
   &:hover {
-    background-color: rgba($aubergine-dark, 0.6);
     box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
-    transform: scale(1.2);
+    transform: scale(1.4);
+    mix-blend-mode: none;
+    border: 2px solid $aubergine-dark;
+    background-color: white;
   }
 }
 
@@ -81,13 +85,16 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.6);
-  opacity: 0.1;
+  mix-blend-mode: difference;
+  opacity: 0.08;
   &:hover {
     box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
-    transform: scale(1.2);
-    opacity: 1;
+    transform: scale(1.4);
+    mix-blend-mode: none;
+    border: 1px solid $aubergine-dark;
+    opacity: 0.8;
   }
 }
 

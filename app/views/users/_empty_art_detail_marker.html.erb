@@ -8,7 +8,7 @@
         <%= f.input :title, label: false, wrapper_html: {style: "width: 100%;"} %>
         <%= f.input :description, label: false, wrapper_html: {style: "width: 100%;"} %>
         <%= f.hidden_field :x_value, value: x_index %>
-        <%= f.hidden_field :x_value, value: y_index %>
+        <%= f.hidden_field :y_value, value: y_index %>
       <div class="form-group" style="display: flex; margin: 25px 0;">
         <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
       </div>
