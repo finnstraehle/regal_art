@@ -31,8 +31,7 @@
       <p>Conversations Growth Rate (90 days)</p>
     </div>
   </div>
-
-  <h4 class="mt-4">Gained Connections Per Week</h4>
+  <h4 class="mt-4">New Connections Per Week</h4>
   <div class="chart container-l">
     <br>
     <%= line_chart Subscription.group_by_week(:created_at).count, download: {background: "#ffffff", filename: "Gained Connections per Week" } %>
@@ -53,5 +52,5 @@
       </div>
     </div>
   </div>
-  <h2>Views</h2>
+  <%# <h2>Views</h2> %>
 </div>
