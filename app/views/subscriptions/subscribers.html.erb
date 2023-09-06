@@ -1,5 +1,29 @@
+<div class="artist-btn-box">
+  <%= link_to "Add Subscriber Group", subscribers_path, class: "artist-btn" %>
+</div>
 <div class="container-m">
-  <% @received_subscriptions.each do |subscription| %>
-    <li><%= "#{subscription.buyer.first_name} #{subscription.buyer.last_name}" %></li>
-  <% end %>
+  <div class="growth-rate-box">
+    <div class="growth-rate">
+      <p><i class="fa-regular fa-user"></i></p>
+      <h3><%= @received_subscriptions.count %></h3>
+      <p>All Subscribers</p>
+    </div>
+    <div class="growth-rate">
+      <p><i class="fa-solid fa-chart-line"></i></p>
+      <h3><%= @subscribers_last_month %></h3>
+      <p>New Subscribers (30 days)</p>
+    </div>
+  </div>
+  <div class="card-all-subscribers-group">
+    <h2>All Subscribers</h2>
+  </div>
+  <div class="card-subscribers-group">
+    <h2>Event Attendees</h2>
+  </div>
+  <div class="card-subscribers-group">
+    <h2>All Subscribers</h2>
+  </div>
+  <div class="card-subscribers-group">
+    <h2>All Subscribers</h2>
+  </div>
 </div>
