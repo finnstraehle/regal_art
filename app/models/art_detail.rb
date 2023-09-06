@@ -5,6 +5,8 @@ class ArtDetail < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  COORDINATE_COUNT = 30
+
   TITLES = [
     "Aqua",
     "Tactility",

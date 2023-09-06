@@ -37,7 +37,10 @@ class UsersController < ApplicationController
   end
 
   def add_banner
-    raise
+    @artist = current_user
+    @banner = params[:user][:banners]
+    @artist.banners.attach(@banner)
+    redirect_to banners_path
   end
 
   private

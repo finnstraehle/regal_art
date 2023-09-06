@@ -1,39 +1,18 @@
 <div class="container-l">
   <div class="container-edit-artwork">
     <div class="artwork-photo">
-      <div>
-        <div data-controller="pop-up">
-          <div data-action="click->pop-up#showPopup">
-            <div class="artwork-photo-placeholder"><i class='fa-regular fa-plus'></i></div>
-          </div>
-          <div class="popup" data-pop-up-target="box">
-            <div style="text-align: center; padding: 25px 0;">
-              <h4>Add Photo</h4>
-            </div>
-            <div>
-              <%= simple_form_for(@artwork) do |f| %>
-                <div class="d-flex">
-                  <%= f.input :photo, as: :file,
-                  label: false,
-                  wrapper_html: {style: "width: 100%;"}
-                  %>
-                </div>
-                <div class="form-group" style="display: flex; margin: 25px 0;">
-                  <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
-                </div>
-              <% end %>
-            </div>
-            <span class="close" data-action="click->pop-up#closePopup">&times;</span>
-          </div>
-        </div>
+      <div class="artwork-photo-placeholder">
+        <i class='fa-regular fa-plus'></i>
+        <p>add an image file</p>
       </div>
     </div>
     <div class="artwork-infos">
-      <h2><%= @artwork.title %></h2>
       <%= simple_form_for(@artwork) do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
         <%= f.input :style, include_blank: "Select", collection: Artwork::STYLES %>
+        <%= f.input :photo, as: :file, label: "Artwork" %>
+        <%= f.hidden_field :has_details, value: false %>
         <div style="display: flex; margin: 25px 0;">
           <%= f.button :submit, class: "button", style: "margin: 20px auto 0 auto;"%>
         </div>

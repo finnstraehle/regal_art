@@ -1,5 +1,7 @@
+<div class="artist-btn-box">
+  <%= link_to "Add Event", new_event_path, class: "artist-btn" %>
+</div>
 <div class="container-l">
-  <div class="white-button"><%= link_to "+ add event", new_event_path, style: "text-decoration: none;"%></div>
   <div class="events-box">
   <% @events.each do |event| %>
         <%= render "events/editable_event_card", event: event %>

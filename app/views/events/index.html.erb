@@ -21,7 +21,7 @@
       <%= submit_tag "Search", name: "", class: "white-button" %>
     <% end %>
   </div>
-  <div class="events-box">
+  <div class="events-box mt-5">
     <% @events.each_with_index do |event, index| %>
         <% if index % 3 == 0 %><%= render "events/event_card", event: event %>
         <% else %><%= render "events/event_card_sm", event: event %><% end %>

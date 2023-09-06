@@ -62,3 +62,11 @@
 .card-artwork:hover .card-artwork-photo {
   display: none;
 }
+
+
+.container-canvas-first-step {
+  display: flex;
+  height: calc(100vh - 300px);
+  flex-direction: column;
+  justify-content: space-around;
+}

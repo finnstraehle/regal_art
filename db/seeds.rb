@@ -89,8 +89,8 @@ User.where(is_artist: true).each do |artist|
       artwork: artwork,
       title: ArtDetail::TITLES.sample,
       description: ArtDetail::DESCRIPTIONS.sample,
-      x_value: rand(1..13),
-      y_value: rand(1..13)
+      x_value: rand(0..ArtDetail::COORDINATE_COUNT),
+      y_value: rand(0..ArtDetail::COORDINATE_COUNT)
     )
   end
 end
