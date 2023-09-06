@@ -19,16 +19,31 @@ class UsersController < ApplicationController
     @hide_artist_buttons = true if current_user.is_artist?
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to edit_portfolio_path
+  end
 
   def preferences
     @hide_nav_footer = true
     # @user = User.find(params[:id])
     @preference = Preference.new
   end
-  
+
   def delete_banner
-    @banner = Banner.find(params[:id])
+    @banner = ActiveStorage::Attachment.find(params[:id])
     @banner.purge
-    redirect_to edit_portfolio_path
+    redirect_to banners_path
+  end
+
+  def add_banner
+    raise
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :short_bio, :long_bio, :avatar)
   end
 end

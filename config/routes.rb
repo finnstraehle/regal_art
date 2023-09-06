@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   get "/joined_events", to: "events#joined_events", as: :joined_events
   get "/canvas", to: "artworks#canvas", as: :canvas
   get "/canvas/new", to: "artworks#new_canvas", as: :new_canvas
+  get "/canvas/:id/edit", to: "artworks#edit_canvas", as: :edit_canvas
   get "/banners", to: "artworks#banners", as: :banners
+  post "/add_banner", to: "users#add_banner", as: :add_banner
+  delete "/delete_banner/:id", to: "users#delete_banner", as: :delete_banner
 
   resources :events do
     resources :event_attendances, only: %i[new create]
@@ -19,7 +22,7 @@ Rails.application.routes.draw do
   resources :event_attendances, only: %i[index show destroy]
   resources :subscriptions, only: %i[index]
   resources :artworks, only: %i[index new create edit update destroy]
-  resources :users, only: %i[index show] do
+  resources :users, only: %i[index show update] do
     resources :subscriptions, only: %i[create]
     resources :conversations, only: %i[create]
     resources :preferences, only: %i[create]

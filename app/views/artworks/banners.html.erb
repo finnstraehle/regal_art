@@ -1,5 +1,28 @@
 <div class="artist-btn-box">
-  <%= link_to "Add Banner", banners_path, class: "artist-btn" %>
+  <div data-controller="pop-up">
+    <div data-action="click->pop-up#showPopup">
+      <%= link_to "Add Banner", banners_path, class: "artist-btn" %>
+    </div>
+    <div class="popup" data-pop-up-target="box">
+      <div style="text-align: center; padding: 25px 0;">
+        <h4>Add Banner</h4>
+      </div>
+      <div>
+        <%= simple_form_for @artist, url: add_banner_path, method: :post do |f| %>
+          <div class="d-flex">
+            <%= f.input :banners, as: :file, input_html: { multiple: true },
+            label: false,
+            wrapper_html: {style: "width: 100%;"}
+            %>
+          </div>
+          <div class="form-group" style="display: flex; margin: 25px 0;">
+            <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
+          </div>
+        <% end %>
+      </div>
+      <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+    </div>
+  </div>
 </div>
 <div class="container-m">
   <div class ="grid-artworks">
@@ -7,7 +30,7 @@
       <div class="card-artwork">
         <%= cl_image_tag banner.key, class: "card-artwork-photo" %>
         <div class="card-artwork-buttons">
-          <%= link_to "Delete", banners_path, class: "button" %>
+          <%= link_to "Delete", delete_banner_path(banner), data: { turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this banner?"}, class: "button" %>
         </div>
       </div>
     <% end %>

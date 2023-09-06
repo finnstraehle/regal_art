@@ -56,21 +56,3 @@
     }
   }
 }
-
-.card-portfolio textarea {
-  height: 300px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  &:valid:focus {
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  }
-}
-
-.card-portfolio input {
-  height: 30px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  &:valid:focus {
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  }
-}
