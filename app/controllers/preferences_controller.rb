@@ -1,8 +1,8 @@
 class PreferencesController < ApplicationController
   def create
-    @preference = Preference.new(params[:preference][:style].reject(&:empty?))
-    @preference.user = current_user
-    @preference.save
+    params[:preference][:style].reject(&:empty?).each do |style|
+      Preference.create(style: style, user: current_user)
+    end
     redirect_to discover_path(current_user)
   end
 end

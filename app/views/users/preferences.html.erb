@@ -7,23 +7,32 @@
   <div class="warm-gray-container-600">
     <h2>Welcome to Regal Art.</h2>
     <p>Please tell us more about your favourite art styles, this will help us introduce you to the artists who might be more relevant to you.</p>
-    <div class="style-box">
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Realism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Impressionism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Expressionism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Cubism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Surrealism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Abstract</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Realism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Impressionism</button>
-      <button class="style-button" data-controller="toggle-button" data-toggle-button-target="button" data-action="click->toggle-button#toggle">Expressionism</button>
-    </div>
-    <div class="devise-center mt-5">
-      <%= link_to "Look at Artists",  discover_path, class: "button" %>
-    </div>
 
-    <%= simple_form_for [current_user, @preference] do |f| %>
-      <%= f.input :style, as: :check_boxes, collection: Preference::STYLES, label: "Select" %>
-      <%= f.button :submit %>
+    <% if false %>
+      <%= simple_form_for [current_user, @preference], label: false do |f| %>
+        <div class="style-box">
+          <% Preference::STYLES.each_with_index do |style, index| %>
+            <input type="checkbox" id="style_<%= index %>" class="style">
+            <label for="style_<%= index %>"><%= style %></label>
+          <% end %>
+        </div>
+        <div class="devise-center mt-5">
+          <%= f.button :submit, value: "Explore your artists", class: "button" %>
+        </div>
+      <% end %>
     <% end %>
+
+    <%= simple_form_for [current_user, @preference], label: false, legend: false do |f| %>
+      <div class="style-box">
+      <%= f.input :style, as: :check_boxes,
+                  collection: Preference::STYLES,
+                  label: false,
+                  wrapper: false,
+                  input_html: { class: 'style' } %>
+      </div>
+      <div class="devise-center mt-5">
+      <%= f.button :submit, value: "Explore your artists", class: "button" %>
+      </div>
+    <% end %>
+  </div>
 </div>
