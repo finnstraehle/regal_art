@@ -14,7 +14,7 @@
             <h4>Profile</h4>
           </div>
           <div>
-            <%= simple_form_for [@artist] do |f| %>
+            <%= simple_form_for(@artist) do |f| %>
               <div style="display: flex; flex-direction: column;">
                 <div class="d-flex justify-content-between">
                   <%= f.input :first_name %>
@@ -55,7 +55,7 @@
             <h4>Description</h4>
           </div>
           <div>
-            <%= simple_form_for [@artist] do |f| %>
+            <%= simple_form_for(@artist) do |f| %>
               <div class="d-flex">
                 <%= f.input :long_bio,
                 label: false,

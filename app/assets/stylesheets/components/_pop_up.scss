@@ -1,4 +1,4 @@
-/* Styles for the pop-up container */
+// Styles for the pop-up container
 .popup {
   display: none;
   position: fixed;
@@ -13,6 +13,30 @@
   z-index: 1;
 }
 
+.popup textarea {
+  height: 200px;
+  border: 3px solid $warm-gray;
+  &:valid:focus {
+    border: 3px solid $warm-gray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+}
+
+.popup input {
+  border: 3px solid $warm-gray;
+  &:valid:focus {
+    border: 3px solid $warm-gray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+}
+
+.popup label {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+// for canvas
 .detail-popup {
   display: none;
   background-color: $aubergine-dark;
@@ -24,7 +48,7 @@
   z-index: 1;
 }
 
-/* Styles for the close button */
+// Styles for the close button
 .close {
   position: absolute;
   top: 0;
@@ -35,7 +59,7 @@
   cursor: pointer;
 }
 
-/* Styles for showing the pop-up */
+// Styles for showing the pop-up
 .popup.active {
   display: block;
 }
