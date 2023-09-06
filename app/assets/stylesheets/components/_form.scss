@@ -1,4 +1,44 @@
-.form-control {
-  margin-bottom: 10px !important;
-  border-radius: 5px !important;
+// Form with checkboxes
+.style {
+  position: absolute;
+  display: none;
+}
+
+.style + label {
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background: #fff;
+  color: $aubergine;
+  text-align: center;
+  width: 132.5px;
+  height: 50px;
+  display: inline-block;
+  transition: 0.5s ease;
+  margin: 0 5px 5px 0;
+}
+
+.style:checked + label {
+  background: $lavander;
+  color: #fff;
+}
+
+.style-box {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-between;
+  height: 210px;
+  width: 435px;
+  margin: 20px auto;
+  padding: 0;
+}
+
+.form-check {
+  padding-left: 0 !important;
+}
+
+.col-form-label {
+  display: none !important;
 }
