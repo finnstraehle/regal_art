@@ -4,12 +4,6 @@ class SubscriptionsController < ApplicationController
     @title = "Subscriptions"
   end
 
-  def subscribers
-    @received_subscriptions = current_user.received_subscriptions
-    @subscribers_last_month = current_user.received_subscriptions.where(created_at: 1.month.ago..Time.now).count
-    @title = "Subscribers"
-  end
-
   def create
     @subscription = Subscription.new
     @artist = User.find(params[:user_id])

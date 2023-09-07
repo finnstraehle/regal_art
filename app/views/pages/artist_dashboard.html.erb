@@ -4,9 +4,9 @@
       <h4>Portfolio</h4>
       <p>Edit content on your profile</p>
     <% end %>
-    <%= link_to subscribers_path, class: "dashboard-card dashboard-button" do %>
+    <%= link_to subscriber_groups_path, class: "dashboard-card dashboard-button" do %>
       <h4>Subscribers</h4>
-      <p>Manage the potential buyers subscribed to you</p>
+      <p>Manage the users subscribed to you</p>
     <% end %>
     <%= link_to analytics_path, class: "dashboard-card dashboard-button" do %>
       <h4>Analytics</h4>
@@ -18,7 +18,7 @@
     <% end %> <!-- change to logged in user -->
     <%= link_to my_events_path, class: "dashboard-card dashboard-button" do %>
       <h4>My Events</h4>
-      <p>Manage you events</p>
+      <p>Manage your events</p>
     <% end %>
     <%= link_to edit_user_registration_path, class: "dashboard-card dashboard-button" do %>
       <h4>Settings</h4>

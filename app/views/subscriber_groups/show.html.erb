@@ -1,0 +1,53 @@
+<div class="artist-btn-box">
+  <div data-controller="pop-up">
+    <div data-action="click->pop-up#showPopup">
+      <%= link_to "New Broadcast", subscriber_groups_path, class: "artist-btn" %>
+    </div>
+    <div class="popup" data-pop-up-target="box">
+      <div style="text-align: center; padding: 25px 0;">
+        <h4>New Broadcast</h4>
+      </div>
+      <div>
+
+      <%= simple_form_for @message, url: subscriber_group_new_broadcast_path(@group), method: :post do |f| %>
+        <div class="d-flex">
+          <%= f.input :content,
+          label: false,
+          wrapper_html: {style: "width: 100%;"}
+          %>
+        </div>
+        <div class="form-group" style="display: flex; margin: 25px 0;">
+          <%= f.button :submit, "Save", class: "button", style: "margin: 20px auto 0 auto;"%>
+        </div>
+      <% end %>
+
+
+      </div>
+      <span class="close" data-action="click->pop-up#closePopup">&times;</span>
+    </div>
+  </div>
+</div>
+<div class="container-m">
+  <div class="growth-rate-box">
+    <div class="growth-rate">
+      <p><i class="fa-regular fa-user"></i></p>
+      <h3><%= @group.group_attendances.count %></h3>
+      <p>User Count</p>
+    </div>
+    <div class="growth-rate">
+      <p><i class="fa-solid fa-chart-line"></i></p>
+      <h3><%= @broadcast_messages.count %></h3>
+      <p>Broadcasts Sent</p>
+    </div>
+  </div>
+  <h3>Broadcasts</h3>
+  <% @broadcast_messages.each do |message| %>
+    <%= render "subscriber_groups/broadcast_card", message: message %>
+  <% end %>
+  <hr>
+  <h3>Users</h3>
+  <% @group.group_attendances.each do |attendance| %>
+    <%= "#{attendance.user.first_name} #{attendance.user.last_name} – " %>
+  <% end %>
+  <hr>
+</div>

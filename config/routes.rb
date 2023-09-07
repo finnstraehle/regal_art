@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get "/artist_dashboard", to: "pages#artist_dashboard", as: :artist_dashboard
   get "/discover", to: "users#discover", as: :discover
   get "/analytics", to: "pages#analytics", as: :analytics
-  get "/subscribers", to: "subscriptions#subscribers", as: :subscribers
   get "/edit_portfolio", to: "pages#edit_portfolio", as: :edit_portfolio
   get "/my_events", to: "events#my_events", as: :my_events
   get "/joined_events", to: "events#joined_events", as: :joined_events
@@ -20,6 +19,9 @@ Rails.application.routes.draw do
   end
   resources :event_attendances, only: %i[index show destroy]
   resources :subscriptions, only: %i[index]
+  resources :subscriber_groups, only: %i[index show create destroy] do
+    post "/new_broadcast", to: "subscriber_groups#new_broadcast", as: :new_broadcast
+  end
   resources :artworks, only: %i[index new create update destroy]
   resources :artworks, only: %i[edit] do
     resources :art_details, only: %i[update create destroy]
