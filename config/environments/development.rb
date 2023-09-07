@@ -3,9 +3,6 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # Mailer
-  # config.action_mailer.delivery_method     = :postmark
-  # config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
-  # config.action_mailer.default_url_options = { host: "www.regal-art.com" }  # In the development environment your application's code is reloaded any time
   config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
