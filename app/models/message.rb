@@ -1,13 +1,23 @@
 class Message < ApplicationRecord
-  belongs_to :conversation
-  belongs_to :user
+  belongs_to :conversation, optional: true
+  belongs_to :user, optional: true
+  belongs_to :subscriber_group, optional: true
 
   validates :content, presence: true
-  validates :conversation, presence: true
 
-  def sender?(a_user)
-    user.id == a_user.id
-  end
+  INVITATIONS = [
+    "I am thrilled to invite you to my upcoming art exhibition on September 15th at the Downtown Art Gallery. Your presence would mean the world to me!",
+    "I hope this message finds you well. I'm excited to extend a personal invitation to my art show happening on October 8th. I'd love to have you there to share this moment with me.",
+    "Hi there, I have some exciting news! I'm hosting a special event showcasing my latest artworks on November 20th. I'd be honored if you could join me and experience the beauty of art together.",
+    "I'm delighted to invite you to an exclusive art event I'm hosting on December 5th. It promises to be an evening filled with creativity, culture, and conversation. I hope you can make it!",
+    "You've been a wonderful supporter of my art, and I'd like to express my gratitude by inviting you to my upcoming art show on November 3rd. Your presence would make the event even more special.",
+    "I'm thrilled to announce an art event that I've been working on for months. It's happening on December 8th at The Art House, and I would be honored if you could attend. Let's celebrate art together!",
+    "I hope this message finds you in good health. I'm excited to invite you to a private viewing of my latest art collection on October 19th. It's an event you won't want to miss!",
+    "I'm hosting an art event on November 14th, and I would love for you to be my guest. It's a wonderful opportunity to connect with fellow art enthusiasts and appreciate creativity in all its forms.",
+    "I'm delighted to invite you to an evening of art and inspiration on October 25th. Join me at The Gallery at Sunset for an unforgettable experience. Your presence would mean a lot to me.",
+    "Join us for an art-filled evening on December 10th at the Grand Art Space. We look forward to sharing this creative journey with you."
+  ]
+
 
   CONTENTS = [
     "Hi, I love your work! Can you tell me more about the painting 'Ethereal Dreams'?",

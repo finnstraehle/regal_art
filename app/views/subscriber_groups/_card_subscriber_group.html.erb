@@ -1,0 +1,10 @@
+<%= link_to subscriber_group_path(group) do %>
+  <% if group.title == "All Subscribers" %><div class="card-all-subscriber-group"><% end %>
+  <% unless group.title == "All Subscribers" %><div class="card-subscriber-group"><% end %>
+    <h2><%= group.title %></h2>
+    <div class="stats">
+      <p><%= group.title == "All Subscribers" ? group.user.received_subscriptions.count : group.group_attendances.count %> <i class="fa-solid fa-user"></i></p>
+      <p><%= group.messages.uniq(&:content).count %> <i class='fa-solid fa-message'></i></p>
+    </div>
+  </div>
+<% end %>

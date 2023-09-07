@@ -11,9 +11,11 @@ Preference.destroy_all
 Subscription.destroy_all
 Conversation.destroy_all
 Message.destroy_all
+SubscriberGroup.destroy_all
+GroupAttendance.destroy_all
 
-puts 'Creating 10 buyers...'
-10.times do |i|
+puts 'Creating 15 buyers...'
+15.times do |i|
   letter = ('a'..'z').to_a[i]
   User.create!(
     email: "#{letter}@duck.com",
@@ -98,7 +100,7 @@ end
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(4..9).times do
-    month = rand(3..12)
+    month = rand(3..9)
     day = rand(1..30)
     event = Event.new(
       user: artist,
@@ -139,7 +141,6 @@ end
 puts 'Creating conversations...'
 Subscription.all.each do |subscription|
   Conversation.create!(
-
     buyer: subscription.buyer,
     artist: subscription.artist
   )
@@ -153,6 +154,40 @@ Conversation.all.each do |conversation|
       user: [conversation.buyer, conversation.artist].sample,
       content: Message::CONTENTS.sample
     )
+  end
+end
+
+puts 'Creating subscriber groups...'
+User.where(is_artist: true).each do |artist|
+  rand(2..4).times do |i|
+    SubscriberGroup.create!(
+      user: artist,
+      title: SubscriberGroup::NAMES[i]
+    )
+  end
+end
+
+puts '>Creating group attendances...'
+SubscriberGroup.all.each do |group|
+  rand(5...group.user.received_subscriptions.count).times do |i|
+    GroupAttendance.create!(
+      user: User.where(is_artist: false)[i],
+      subscriber_group: group
+    )
+  end
+end
+
+puts 'Creating messages for each subscriber group...'
+SubscriberGroup.all.each do |group|
+  rand(0..3).times do |i|
+    group.group_attendances.each do |attendance|
+      Message.create!(
+        conversation: Conversation.find_by(buyer: attendance.user, artist: group.user).nil? ? Conversation.create!(buyer: attendance.user, artist: group.user) :  Conversation.find_by(buyer: attendance.user, artist: group.user),
+        subscriber_group: group,
+        user: group.user,
+        content: Message::INVITATIONS[i]
+      )
+    end
   end
 end
 

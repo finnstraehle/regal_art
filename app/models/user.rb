@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :conversations, foreign_key: :buyer_id, class_name: 'Conversation', dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :received_conversations, foreign_key: :artist_id, class_name: 'Conversation', dependent: :destroy
+  has_many :subscriber_groups, dependent: :destroy
+  has_many :group_attendances, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
