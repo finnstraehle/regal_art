@@ -48,7 +48,7 @@ class ArtworksController < ApplicationController
   def destroy
     @artwork = Artwork.find(params[:id])
     @artwork.destroy
-    redirect_to artworks_path
+    redirect_to @artwork.has_details? ? canvas_path : artworks_path
   end
 
   private
