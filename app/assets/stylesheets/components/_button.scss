@@ -118,6 +118,7 @@
   width: fit-content;
   min-width: 165px;
   border-radius: 5px;
+  border: none;
   &:hover {
     background: #0000006d;
     color: #fff;
@@ -152,4 +153,21 @@
       background: $aubergine;
     }
   }
+}
+
+.warm-gray-btn {
+  width: fit-content !important;
+  height: 35px;
+  border-radius: 50px;
+  background: $warm-gray;
+  color: $aubergine !important;
+  text-align: center;
+  padding: 5px 35px;
+  border: none !important;
+  transition: 0.5s ease;
+  &:hover {
+    background: $white;
+    border: 1px solid $dark-warm-gray !important;
+  }
+
 }

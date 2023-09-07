@@ -1,5 +1,5 @@
 <div class="artist-btn-box">
-  <%= link_to "Add Subscriber Group", subscribers_path, class: "artist-btn" %>
+  <%= link_to "Add Subscriber Group", subscriber_groups_path, class: "artist-btn" %>
 </div>
 <div class="container-m">
   <div class="growth-rate-box">
@@ -14,16 +14,7 @@
       <p>New Subscribers (30 days)</p>
     </div>
   </div>
-  <div class="card-all-subscribers-group">
-    <h2>All Subscribers</h2>
-  </div>
-  <div class="card-subscribers-group">
-    <h2>Event Attendees</h2>
-  </div>
-  <div class="card-subscribers-group">
-    <h2>All Subscribers</h2>
-  </div>
-  <div class="card-subscribers-group">
-    <h2>All Subscribers</h2>
-  </div>
+  <% @groups.each do |group| %>
+    <%= render "subscriber_groups/card_subscriber_group", group: group %>
+  <% end %>
 </div>

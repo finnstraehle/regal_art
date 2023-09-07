@@ -6,18 +6,20 @@
         <% if message.user == current_user %><%= render "conversations/message-2", message: message %><% end %>
       <% end %>
     </div>
+    <div class="card-message-field-box">
     <div class="card-message-field">
       <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }}, class: "card-message-form mb-0" do |f| %>
         <div class="d-flex">
           <%= f.input :content,
             label: false,
-            placeholder: "type ...",
+            placeholder: "Type your message here...",
             input_html: {class: "content-input"},
             wrapper_html: {class: "flex-grow-1"}
           %>
           <%= f.button :submit, "SEND", class: "button", style: "margin: auto 0 auto 20px;" %>
         </div>
       <% end %>
+    </div>
     </div>
   </div>
 </div>

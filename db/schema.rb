@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_105415) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_100151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,13 +99,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_105415) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "group_attendances", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "subscriber_group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscriber_group_id"], name: "index_group_attendances_on_subscriber_group_id"
+    t.index ["user_id"], name: "index_group_attendances_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "conversation_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "subscriber_group_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["subscriber_group_id"], name: "index_messages_on_subscriber_group_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -115,6 +126,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_105415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
+  create_table "subscriber_groups", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriber_groups_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -151,7 +170,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_105415) do
   add_foreign_key "event_attendances", "events"
   add_foreign_key "event_attendances", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "group_attendances", "subscriber_groups"
+  add_foreign_key "group_attendances", "users"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "subscriber_groups"
   add_foreign_key "messages", "users"
   add_foreign_key "preferences", "users"
+  add_foreign_key "subscriber_groups", "users"
 end
