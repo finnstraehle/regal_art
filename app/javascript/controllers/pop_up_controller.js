@@ -7,11 +7,11 @@ export default class extends Controller {
 
   connect() {
     console.log("connected");
-
+    console.log(this.hasButtonTarget);
   }
 
   showPopup(event) {
-    if (this.hasDisabledAttribute()) {
+    if (this.hasButtonTarget && this.hasDisabledAttribute()) {
       return;
     }
     else{
