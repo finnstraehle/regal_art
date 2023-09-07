@@ -126,7 +126,7 @@ puts '>>Creating event attendances...'
 end
 
 puts 'Creating subscriptions...'
-20.times do
+60.times do
   month = rand(8..12)
   day = rand(1..30)
   Subscription.create!(
