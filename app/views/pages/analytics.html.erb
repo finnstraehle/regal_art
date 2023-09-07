@@ -36,6 +36,7 @@
     <br>
     <%= line_chart Subscription.group_by_week(:created_at).count, download: {background: "#ffffff", filename: "Gained Connections per Week" } %>
   </div>
+  <hr>
   <div class="chart-box container-l">
     <div>
       <h4>Average Number of Attendees per Event</h4>
@@ -52,5 +53,4 @@
       </div>
     </div>
   </div>
-  <%# <h2>Views</h2> %>
 </div>

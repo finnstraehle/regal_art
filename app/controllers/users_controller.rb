@@ -2,13 +2,24 @@ class UsersController < ApplicationController
   def discover
     @title = "Discover"
     @banner = "user3_avatar.jpg"
-    @artists = User.where(is_artist: true).shuffle
+    @preferences = Preference.where(user: current_user).pluck(:style)
+    if @preferences.empty?
+      @artists = User.where(is_artist: true).shuffle
+    else
+      @artists = User.joins(:artworks).where(artworks: { style: @preferences })
+    end
   end
 
   def index
     @artists = User.where(is_artist: true)
-    @title = "Find Artists"
+    @title = "Your Artists"
     @banner = "user1_avatar.jpg"
+
+    if params[:query].present?
+      # @artists = @artists.where("first_name ILIKE ?", "%#{params[:query]}%")
+      sql_subquery = "first_name ILIKE :query OR last_name ILIKE :query"
+      @artists = @artists.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show

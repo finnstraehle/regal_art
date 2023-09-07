@@ -7,14 +7,25 @@ export default class extends Controller {
 
   connect() {
     console.log("connected");
+
   }
 
   showPopup(event) {
-    event.preventDefault();
-    this.boxTarget.classList.add("active");
+    if (this.hasDisabledAttribute()) {
+      return;
+    }
+    else{
+      event.preventDefault();
+      this.boxTarget.classList.add("active");
+    }
   }
 
   closePopup() {
     this.boxTarget.classList.remove("active");
    }
+
+   hasDisabledAttribute() {
+    return this.buttonTarget.hasAttribute("disabled");
+   }
+
 }
