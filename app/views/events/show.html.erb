@@ -32,9 +32,9 @@
           <div data-controller="pop-up">
             <div data-action="click->pop-up#showPopup" >
               <% if EventAttendance.find_by(user: current_user, event: @event) %>
-                <%= link_to "Joined <i class='fa-solid fa-check'></i>".html_safe, event_path(@event), style: "text-decoration:none;", class: "join-btn" %>
+                <button style="text-decoration:none;" class= "join-btn" data-pop-up-target="button" disabled >Joined <i class='fa-solid fa-check'></i></button>
               <% else %>
-                <%= link_to "Join the Event", event_path(@event), style: "text-decoration:none;", class: "white-button" %>
+                <button class="white-button" data-pop-up-target="button" style="text-decoration:none;">Join the Event</button>
               <% end %>
             </div>
             <div class="popup" data-pop-up-target="box">
