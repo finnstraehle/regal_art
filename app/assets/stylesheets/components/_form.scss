@@ -42,3 +42,18 @@
 .col-form-label {
   display: none !important;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 30px auto;
+}
+
+.space-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px auto 30px auto;
+}

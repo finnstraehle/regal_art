@@ -167,7 +167,7 @@
   transition: 0.5s ease;
   &:hover {
     background: $white;
-    border: 1px solid $dark-warm-gray !important;
+    outline: 1px solid $dark-warm-gray !important;
   }
 
 }
