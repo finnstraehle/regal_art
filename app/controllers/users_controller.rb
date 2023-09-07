@@ -7,8 +7,14 @@ class UsersController < ApplicationController
 
   def index
     @artists = User.where(is_artist: true)
-    @title = "Find Artists"
+    @title = "Your Artists"
     @banner = "user1_avatar.jpg"
+
+    if params[:query].present?
+      # @artists = @artists.where("first_name ILIKE ?", "%#{params[:query]}%")
+      sql_subquery = "first_name ILIKE :query OR last_name ILIKE :query"
+      @artists = @artists.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show

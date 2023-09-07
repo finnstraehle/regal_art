@@ -20,11 +20,16 @@ class PagesController < ApplicationController
     @subscribers_last_90_days = @user.received_subscriptions.where(created_at: 90.days.ago..Time.now).count
     @subscribers_before_90_days = @subscribers - @subscribers_last_90_days
     @subscriber_growth_rate = (@subscribers_last_90_days / @subscribers_before_90_days) * 100
+    if @subscribers_before_90_days.zero?
+      @subscriber_growth_rate = @subscribers_last_90_days * 100
+    else
+      @subscriber_growth_rate = (@subscribers_last_90_days / @subscribers_before_90_days) * 100
+    end
 
     @conversations = Conversation.where(artist: @user).count
     @conversations_last_90_days = Conversation.where(artist: @user).where(created_at: 90.days.ago..Time.now).count
     @conversations_before_90_days = @conversations - @conversations_last_90_days
-    if @conversations_before_90_days == 0
+    if @conversations_before_90_days.zero?
       @conversations_growth_rate = @conversations_last_90_days * 100
     else
       @conversations_growth_rate = (@conversations_last_90_days / @conversations_before_90_days) * 100

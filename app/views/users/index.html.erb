@@ -1,4 +1,16 @@
 <div class="container-l">
+  <div class="event-search-box">
+    <div class="form-row">
+      <%= form_with url: users_path, method: :get, class: "d-flex gap-2" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find an Artist..."
+            %>
+        <%= submit_tag "Search", name: "", class: "warm-gray-btn" %>
+      <% end %>
+    </div>
+  </div>
   <% @artists.each_with_index do |artist, index| %>
     <% if index.even? %><%= render "users/artist_card", artist: artist %><% end %>
     <% if index.odd? %><%= render "users/artist_card_flip", artist: artist %><% end %>
