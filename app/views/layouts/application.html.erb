@@ -15,7 +15,7 @@
   <body>
     <div class="body-container">
       <div>
-        <% unless @hide_nav_footer || params[:controller].match(/devise/) %>
+        <% unless @hide_nav_footer || (params[:controller].match(/devise/) && action_name != "edit") %>
           <% if current_user.is_artist? %>
             <%= render "shared/navbar_artist", title: @title, banner: @banner %>
           <% end %>
@@ -27,7 +27,7 @@
         <%= render "shared/flashes" %>
       </div>
       <%= yield %>
-      <% unless @hide_nav_footer || params[:controller].match(/devise/) %>
+      <% unless @hide_nav_footer || (params[:controller].match(/devise/) && action_name != "edit") %>
         <%= render "shared/footer" %>
       <% end %>
     </div>

@@ -20,8 +20,10 @@
 <% end %>
 
 <% if @artwork.has_details? %>
-  <div class="container-m pb-0 text-center">
-    <h2><%= @artwork.title %></h2>
+  <div class="container-m pb-0">
+    <div class="text-center mb-2">
+      <h2><%= @artwork.title %></h2>
+    </div>
     <div class="artwork-map-container">
       <%= cl_image_tag @artwork.photo.key, style: "position: relative", class: "artwork-map" %>
       <% ArtDetail::COORDINATE_COUNT.times do |x| %>

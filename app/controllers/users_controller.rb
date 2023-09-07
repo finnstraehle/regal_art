@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   def discover
     @title = "Discover"
     @banner = "user3_avatar.jpg"
-    @artists = User.where(is_artist: true).shuffle
+    @preferences = Preference.where(user: current_user).pluck(:style)
+    if @preferences.empty?
+      @artists = User.where(is_artist: true).shuffle
+    else
+      @artists = User.joins(:artworks).where(artworks: { style: @preferences })
+    end
   end
 
   def index
