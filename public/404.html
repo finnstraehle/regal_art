@@ -3,8 +3,11 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Headland+One&family=Jost&display=swap" rel="stylesheet">
   <style>
-  .rails-default-error-page {
+  /* .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
@@ -50,18 +53,127 @@
     border-top-color: #DADADA;
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  } */
+
+  .card {
+  width: 97%;
+  height: 350px;
+  color: #fff;
+  background-color: #2D2639;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.container {
+  position: relative;
+  z-index: -1;
+  margin: 0 auto;
+  padding-left: 5px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(to top, #000, #fff);
+  /* overflow: hidden; */
+}
+
+.col {
+  position: relative;
+  z-index: 1;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-20 {
+  top: -20px;
+}
+
+.top-120 {
+  top: -120px;
+}
+
+.top-200 {
+  top: -200px;
+}
+
+.top-150 {
+  top: -150px;
+}
+
+.top-90 {
+  top: -90px;
+}
+
+.purple-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 105vw;
+  height: 100vh;
+  background: linear-gradient(to top, #000, #16003dae, #16003d48);
+}
+
+body {
+  color: #fff;
+  background-color: #000;
+  background: linear-gradient(to top, #000000, #16003d);
+  font-family: 'Jost', sans-serif;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none !important;
+  color: #998DAE;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: #fff;
+}
+
+.title {
+  font-size: 64px;
+  font-family:  'Headland One', serif;
+}
+
+.content {
+  margin: 300px 200px;
+}
+
+.text{
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+  <div class="content">
+    <div class="title">Regal Art.</div>
+    <div class="text"></div>
+      <h1>404 Oops, this page doesn't exist</h1>
+      <p>The page you are looking for doesn't exist. <a href="/">Would you like to go to the homepage?</a></p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
-</body>
+
+  </body>
 </html>

@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "info@regal-art.com"
-  
+  default from: "ourteam.regalart@gmail.com"
+
   layout "mailer"
 end

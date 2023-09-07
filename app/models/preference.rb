@@ -19,5 +19,4 @@ class Preference < ApplicationRecord
   def new
     @preference = Preference.new
   end
-
 end
