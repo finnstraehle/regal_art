@@ -98,7 +98,7 @@ end
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
   rand(4..9).times do
-    month = rand(1..9)
+    month = rand(3..12)
     day = rand(1..30)
     event = Event.new(
       user: artist,
