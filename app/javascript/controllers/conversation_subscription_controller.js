@@ -13,6 +13,11 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
   }
+
+  initialize() {
+    this.scrollToBottom()
+  }
+
   #insertMessageAndScrollDown(data) {
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message1, data.message2)
@@ -28,5 +33,8 @@ export default class extends Controller {
   disconnect() {
     console.log("Disconnected from conversation subscription controller!")
     this.channel.unsubscribe()
+  }
+  scrollToBottom() {
+    this.element.scrollTop = this.element.scrollHeight
   }
 }

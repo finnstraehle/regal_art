@@ -78,7 +78,7 @@
   <div class="card-portfolio">
     <div>
       <h2>Banners</h2>
-      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, banners_path, class: "portfolio-button" %>
+      <%= link_to "Manage <i class='fa-solid fa-list'></i>".html_safe, banners_path, class: "portfolio-button" %>
     </div>
     <div class="artworks">
       <% @artist.banners.each do |banner| %>
@@ -89,7 +89,7 @@
   <div class="card-portfolio">
     <div>
       <h2>Artworks</h2>
-      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, artworks_path, class: "portfolio-button" %>
+      <%= link_to "Manage <i class='fa-solid fa-list'></i>".html_safe, artworks_path, class: "portfolio-button" %>
     </div>
     <div class="artworks">
       <% @artist.artworks.where(has_details: false).each do |artwork| %>
@@ -100,7 +100,7 @@
   <div class="card-portfolio">
     <div>
       <h2>Canvas</h2>
-      <%= link_to "Manage <i class='fa-regular fa-list'></i>".html_safe, canvas_path, class: "portfolio-button" %>
+      <%= link_to "Manage <i class='fa-solid fa-list'></i>".html_safe, canvas_path, class: "portfolio-button" %>
     </div>
     <div class="artworks">
       <% @artist.artworks.where(has_details: true).each do |artwork| %>
