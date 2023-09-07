@@ -61,7 +61,6 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    # redirect_to my_events_path, status: :see_other
   end
 
   def edit
@@ -71,13 +70,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
-
     redirect_to event_path(@event)
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :is_private)
+    params.require(:event).permit(:title, :description, :location, :start_date, :end_date, :is_private, photos: [])
   end
 end

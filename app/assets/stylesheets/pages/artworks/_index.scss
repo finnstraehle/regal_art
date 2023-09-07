@@ -30,25 +30,43 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  &:hover {
-    opacity: 0;
-  }
+  object-fit: cover;
 }
 
 .card-artwork .card-artwork-info {
+  display: none;
   width: 100%;
   padding: 1rem;
 }
 
 .card-artwork .card-artwork-buttons {
-  display: flex;
+  display: none;
   width: 100%;
   justify-content: center;
   position: absolute;
   bottom: 10px;
-  z-index: -1;
   .button {
     width: 120px;
     margin: 0 10px
   }
+}
+
+.card-artwork:hover .card-artwork-info {
+  display: block;
+}
+
+.card-artwork:hover .card-artwork-buttons {
+  display: flex;
+}
+
+.card-artwork:hover .card-artwork-photo {
+  display: none;
+}
+
+
+.container-canvas-first-step {
+  display: flex;
+  height: calc(100vh - 300px);
+  flex-direction: column;
+  justify-content: space-around;
 }

@@ -1,0 +1,11 @@
+<div class="card-artwork">
+  <div class="card-artwork-info">
+    <h2><%= canvas.title %></h2>
+    <p><%= canvas.description %></p>
+  </div>
+  <%= cl_image_tag canvas.photo.key, class: "card-artwork-photo" %>
+  <div class="card-artwork-buttons">
+    <%= link_to "Edit", edit_artwork_path(canvas), class: "button" %>
+    <%= link_to "Delete", artwork_path(canvas), data: { turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this canvas?"}, class: "button" %>
+  </div>
+</div>

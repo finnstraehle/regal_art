@@ -10,6 +10,7 @@ class ArtworksController < ApplicationController
   end
 
   def banners
+    @artist = current_user
     @banners = current_user.banners
     @title = "My Banners"
   end
@@ -19,35 +20,40 @@ class ArtworksController < ApplicationController
     @title = "New Artwork"
   end
 
-  def create
-    @artwork = Artwork.new(params[:artwork])
-    @artwork.user = current_user
-    @artwork.has_details = false
-    @artwork.save
-  end
-
   def new_canvas
     @canvas = Artwork.new
+    @canvas.has_details = true
     @title = "New Canvas"
   end
 
-  def create_canvas
-    @canvas = Artwork.new(params[:canvas])
-    @canvas.user = current_user
-    @canvas.has_details = true
-    @canvas.save
+  def edit
+    @artwork = Artwork.find(params[:id])
+    @art_detail = ArtDetail.new
+    @title = @artwork.has_details? ? "Edit Canvas" : "Edit Artwork"
   end
 
-  def create_banner
+  def update
+    @artwork = Artwork.find(params[:id])
+    @artwork.update(artwork_params)
+    redirect_to @artwork.has_details? ? canvas_path : artworks_path
+  end
+
+  def create
+    @artwork = Artwork.new(artwork_params)
+    @artwork.user = current_user
+    @artwork.save!
+    redirect_to @artwork.has_details? ? edit_artwork_path(@artwork) : artworks_path
+  end
+
+  def destroy
+    @artwork = Artwork.find(params[:id])
+    @artwork.destroy
+    redirect_to artworks_path
   end
 
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :photo)
-  end
-
-  def canvas_params
-    params.require(:canvas).permit(:title, :description, :photo)
+    params.require(:artwork).permit(:title, :description, :style, :has_details, :photo)
   end
 end

@@ -9,6 +9,7 @@
   text-align: center;
   padding: 5px 35px;
   transition: 0.5s ease;
+  border: none !important;
   &:hover {
     background: $lavander;
   }
@@ -73,5 +74,76 @@
     background-color: rgba($aubergine-dark, 0.6);
     box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
     transform: scale(1.2);
+  }
+}
+
+.empty-marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.6);
+  opacity: 0.1;
+  &:hover {
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+
+// buttons in bar
+.artist-btn-box {
+  background-color: $light-warm-gray;
+  color: $dark-gray;
+  display: flex;
+  justify-content: right;
+  padding-right: 70px;
+  height: 45px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.artist-btn {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 4px 35px !important;
+  width: fit-content;
+  min-width: 165px;
+  border-radius: 5px;
+  &:hover {
+    background: #0000006d;
+    color: #fff;
+  }
+}
+
+.artist-btn-message {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  padding: 3px 10px;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 10px 0 5px 10px;
+  &:hover {
+    background: #0000006d;
+    color: #fff;
+  }
+}
+
+// do we need that?
+.artist-buttons {
+  display: flex;
+  position: absolute;
+  right: 70px; // same margin as navbar and title
+  top: 15px;
+  .btn-artist {
+    margin-left: 20px;
+    width: 180px;
+    background: $lavander;
+    &:hover {
+      background: $aubergine;
+    }
   }
 }

@@ -1,0 +1,22 @@
+<div class="container-l">
+  <div class="container-edit-artwork">
+    <div class="artwork-photo">
+      <div class="artwork-photo-placeholder">
+        <i class='fa-regular fa-plus'></i>
+        <p>add an image file</p>
+      </div>
+    </div>
+    <div class="artwork-infos">
+      <%= simple_form_for(@artwork) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :style, include_blank: "Select", collection: Artwork::STYLES %>
+        <%= f.input :photo, as: :file, label: "Artwork" %>
+        <%= f.hidden_field :has_details, value: false %>
+        <div style="display: flex; margin: 25px 0;">
+          <%= f.button :submit, class: "button", style: "margin: 20px auto 0 auto;"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
