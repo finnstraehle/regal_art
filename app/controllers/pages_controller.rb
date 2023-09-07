@@ -19,15 +19,19 @@ class PagesController < ApplicationController
     @subscribers = @user.received_subscriptions.count
     @subscribers_last_90_days = @user.received_subscriptions.where(created_at: 90.days.ago..Time.now).count
     @subscribers_before_90_days = @subscribers - @subscribers_last_90_days
-    @subscriber_growth_rate = (@subscribers_last_90_days / @subscribers_before_90_days) * 100
+    if @subscribers_before_90_days.zero?
+      @subscriber_growth_rate = @subscribers_last_90_days * 100
+    else
+      @subscriber_growth_rate = (@subscribers_last_90_days.fdiv(@subscribers_before_90_days) * 100).round(2)
+    end
 
     @conversations = Conversation.where(artist: @user).count
     @conversations_last_90_days = Conversation.where(artist: @user).where(created_at: 90.days.ago..Time.now).count
     @conversations_before_90_days = @conversations - @conversations_last_90_days
-    if @conversations_before_90_days == 0
-      @conversations_growth_rate = @conversations_last_90_days * 100
+    if @conversations_before_90_days.zero?
+      @conversations_growth_rate = (@conversations_last_90_days * 100).to_f
     else
-      @conversations_growth_rate = (@conversations_last_90_days / @conversations_before_90_days) * 100
+      @conversations_growth_rate = (@conversations_last_90_days.fdiv(@conversations_before_90_days) * 100).round(2)
     end
 
     @events = @user.events.count
@@ -44,11 +48,9 @@ class PagesController < ApplicationController
       end
     end
 
-    percentage_converted_conversations = (@conversations.to_f / @subscribers) * 100
-
     @pie_chart_data = {
-      "Connections Turned into Conversations" => percentage_converted_conversations,
-      "Remaining Connections" => 100 - percentage_converted_conversations
+      "Connections Turned into Conversations" => @conversations,
+      "Remaining Connections" => @subscribers - @conversations
     }
   end
 
