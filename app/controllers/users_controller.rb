@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if @preferences.empty?
       @artists = User.where(is_artist: true).shuffle
     else
-      @artists = User.joins(:artworks).where(artworks: { style: @preferences })
+      @artists = User.joins(:artworks).where(artworks: { style: @preferences }).distinct
     end
   end
 
