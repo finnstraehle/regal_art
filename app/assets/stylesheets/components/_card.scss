@@ -159,11 +159,13 @@
 
 .conv-avatar {
   width: 120px;
+  height: 120px;
   object-fit: cover;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-right: 5px;
   h3 {
     margin-right: 10px;
     color: $lavander;
@@ -183,6 +185,9 @@
     font-weight: 500;
     font-family: $body-font;
     margin-bottom: 5px;
+  }
+  &:hover {
+    background-color: $lavander-extra-light;
   }
 }
 
