@@ -2,7 +2,7 @@
   <div class="artist-btn-box">
     <div class="artist-btn">Artist Journey</div>
     <% if @subscription %>
-      <%= link_to "Connected <i class='fa-regular fa-check'></i>".html_safe, subscription_path(@subscription), data: { turbo_method: :delete }, class: "artist-btn" %>
+      <%= link_to "Connected <i class='fa-solid fa-check'></i>".html_safe, subscription_path(@subscription), data: { turbo_method: :delete }, class: "artist-btn" %>
       <% if @conversation %>
         <%= link_to "<i class='fa-regular fa-message'></i>".html_safe, conversation_path(@conversation), class: "artist-btn-message" %>
       <% else %>
@@ -33,10 +33,10 @@
 
 <%= render "users/banner_aubergine", artworks: @artist.artworks.where(has_details: false) %>
 
-<div class="container-l">
+<div class="container-l mt-4">
   <h2>Explore an Artwork</h2>
-</div>
-<div class="container-m" style="padding: 0 0 120px 0;">
+<%# </div> %>
+<%# <div class="container-m" style="padding: 0 0 120px 0;"> %>
   <div class="artwork-map-container">
     <%= cl_image_tag @artist.artworks.where(has_details: true).first.photo.key, style: "position: relative", class: "artwork-map" %>
     <% @artist.artworks.where(has_details: true).first.art_details.each do |art_detail| %>
