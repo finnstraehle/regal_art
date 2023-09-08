@@ -160,12 +160,13 @@
 .conv-avatar {
   width: 120px;
   object-fit: cover;
-  text-align: right;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   h3 {
     margin-right: 10px;
+    color: $lavander;
   }
   img {
     border-radius: 5px;
