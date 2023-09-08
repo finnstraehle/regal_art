@@ -91,8 +91,8 @@ User.where(is_artist: true).each do |artist|
       artwork: artwork,
       title: ArtDetail::TITLES.sample,
       description: ArtDetail::DESCRIPTIONS.sample,
-      x_value: rand(0..ArtDetail::COORDINATE_COUNT),
-      y_value: rand(0..ArtDetail::COORDINATE_COUNT)
+      x_value: rand(0..(ArtDetail::COORDINATE_COUNT - 1)),
+      y_value: rand(0..(ArtDetail::COORDINATE_COUNT - 1)),
     )
   end
 end
@@ -169,7 +169,7 @@ end
 
 puts '>Creating group attendances...'
 SubscriberGroup.all.each do |group|
-  rand(5...group.user.received_subscriptions.count).times do |i|
+  rand(5...(group.user.received_subscriptions.count - 1)).times do |i|
     GroupAttendance.create!(
       user: User.where(is_artist: false)[i],
       subscriber_group: group
