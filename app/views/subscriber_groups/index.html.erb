@@ -14,7 +14,8 @@
       <p>New Subscribers (30 days)</p>
     </div>
   </div>
+  <%= render "subscriber_groups/card_subscriber_group", group: @groups.find_by(title: "All Subscribers") %>
   <% @groups.each do |group| %>
-    <%= render "subscriber_groups/card_subscriber_group", group: group %>
+    <% unless group.title == "All Subscribers" %><%= render "subscriber_groups/card_subscriber_group", group: group %><% end %>
   <% end %>
 </div>
