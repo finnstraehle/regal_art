@@ -144,7 +144,6 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { class: 'form-text' }
   end
 
-
   # horizontal forms
   #
   # horizontal default_wrapper
@@ -288,7 +287,6 @@ SimpleForm.setup do |config|
     end
   end
 
-
   # bootstrap custom forms
   #
   # custom input switch for boolean
@@ -352,7 +350,6 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { class: 'form-text' }
   end
 
-
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :vertical_form
 
@@ -370,14 +367,3 @@ SimpleForm.setup do |config|
     select:        :vertical_select
   }
 end
-
-# For mailer
-ActionMailer::Base.smtp_settings = {
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: 'gmail.com',
-  user_name: 'ourteam.regalart@gmail.com',
-  password: 'bcfvhqhtfzdbtgll',
-  authentication: :login,
-  enable_starttls_auto: true
-}
