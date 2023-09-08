@@ -72,7 +72,7 @@
 }
 
 .container {
-  position: relative;
+  position: absolute;
   z-index: -1;
   margin: 0 auto;
   padding-left: 5px;
@@ -80,7 +80,7 @@
   height: 100vh;
   display: flex;
   background: linear-gradient(to top, #000, #fff);
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .col {
@@ -149,6 +149,8 @@ a:hover {
 }
 
 .content {
+  z-index: 10;
+  position: absolute;
   margin: 300px 200px;
 }
 
@@ -167,6 +169,63 @@ h1 {
 
 <body>
   <!-- This file lives in public/404.html -->
+  <div class="container">
+    <div class="col top-20">
+      <div class="card">
+        <img src="/images/404-Munch.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_2.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_3b.jpg" alt="Munch scream">
+      </div>
+    </div>
+    <div class="col top-120">
+      <div class="card">
+        <img src="/images/404_6b.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_5.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_3b.jpg" alt="Munch scream">
+      </div>
+    </div>
+    <div class="col top-200">
+      <div class="card">
+        <img src="/images/404_5.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_7.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404-Munch.jpg" alt="Munch scream">
+      </div>
+    </div>
+    <div class="col top-150">
+      <div class="card">
+        <img src="/images/404-Munch.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_3b.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_2.jpg" alt="Munch scream">
+      </div>
+    </div>
+    <div class="col top-90">
+      <div class="card">
+        <img src="/images/404_2.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_6b.jpg" alt="Munch scream">
+      </div>
+      <div class="card">
+        <img src="/images/404_5.jpg" alt="Munch scream">
+      </div>
+    </div>
+  </div>
   <div class="content">
     <div class="title">Regal Art.</div>
     <div class="text"></div>
@@ -174,6 +233,6 @@ h1 {
       <p>The page you are looking for doesn't exist. <a href="/">Would you like to go to the homepage?</a></p>
     </div>
   </div>
-
+  <div class="purple-veil"></div>
   </body>
 </html>
