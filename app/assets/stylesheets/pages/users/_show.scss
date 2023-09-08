@@ -33,7 +33,9 @@
 
 .artwork-map-container {
   position: relative;
-  display: flex;
+  width: 62vw;
+  margin-top: 50px;
+  align-self: center;
   .artwork-map {
     width: 100%;
   }
