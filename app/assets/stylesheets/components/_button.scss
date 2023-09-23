@@ -191,3 +191,15 @@
   }
 
 }
+
+// Responsive
+@media (max-width: 960px) {
+  
+}
+
+@media (max-width: 540px) {
+  .artist-btn-box {
+    align-items: center;
+    padding-right: 10px;
+  }
+}

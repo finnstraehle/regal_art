@@ -137,11 +137,11 @@
   .navbar {
     width: 100%;
     height: 140px;
-    padding: 20px;
+    padding: 25px;
   }
 
   .navbar-top {
-    height: 80px;
+    height: 70px;
   }
 
   .navbar-logo {
@@ -150,22 +150,26 @@
     }
   }
 
-  // .navbar-bar {
-  //   width: 60%;
-  //   height: 20px;
-  // }
-
-  // .nav-item {
-  //   a {
-  //     font-size: 12px;
-  //   }
-  // }
-
   .navbar-bar {
-    display: none;
+    visibility: hidden;
+    width: 320px;
+    text-align: right;
+    ul {
+      padding: 0;
+    }
   }
 
-  .nav-item .dropdown {
-    display: block;
+  .dropdown {
+    visibility: visible !important;
+    i {
+      font-size: 24px;
+    }
+  }
+
+  .dropdown-m {
+    padding: 10px;
+    min-width: 80px;
+    margin-left: -80px;
+    font-size: 14px;
   }
 }
