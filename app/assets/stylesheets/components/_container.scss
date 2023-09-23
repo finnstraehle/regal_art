@@ -46,3 +46,17 @@
   min-height: 100vh;
   width: 100%;
 }
+
+// Responsive
+@media (max-width: 540px) {
+  .container-l {
+    padding: 25px 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .container-l {
+    padding: 35px 0;
+    width: 86vw;
+  }
+}

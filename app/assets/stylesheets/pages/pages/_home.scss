@@ -187,3 +187,74 @@
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+
+// Responsive
+@media (max-width: 800px) {
+  .homepage-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .homepage-col {
+    width: 33.33%;
+  }
+
+  .homepage-card {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 540px) {
+  .homepage-container {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .homepage-col {
+    width: 50%;
+  }
+
+  .homepage-card {
+    height: 250px;
+    margin-top: 6px;
+    img {
+      height: 250px;
+    }
+  }
+
+  .homepage-logo {
+    margin: 20px 0 0 20px;
+    img {
+      width: 100px;
+    }
+  }
+
+  .login-signup-box {
+    top: 50px;
+    width: 220px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .signup-btn{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    gap: 70px;
+    h2{
+      rotate: 90deg;
+    }
+  }
+
+  .login-btn{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    h2{
+      rotate: 270deg;
+    }
+  }
+}

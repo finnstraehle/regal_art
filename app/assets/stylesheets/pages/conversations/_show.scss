@@ -2,27 +2,27 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 400px);
-  overflow-y: scroll;
-  padding-bottom: 20px;
+  overflow-y: scroll;;
+  // padding-bottom: 20px;
 }
 
 .card-message-field {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  // box-shadow: 0 0 10px rgba(0,0,0,0.1);
   // position: sticky;
   // bottom: 0;
   padding: 10px;
-  margin: 10 0;
+  // margin: 10 0;
   form {
     width: 100%;
-    height: 80px;
+    height: fit-content;
   }
 }
 
 .card-message-field-box {
   width: 100%;
-  height: 100px;
+  height: fit-content;
   bottom: 0;
   position: sticky;
   background-color: white;
@@ -30,9 +30,10 @@
 }
 
 .card-message-field textarea {
-  border: none !important;
+  border: 1px solid #f4f4f4;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   resize: none;
-  height: 100%;
+  height: fit-content;
   &:focus {
     box-shadow: none;
   }
@@ -42,11 +43,9 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   bottom: 0;
-  padding: 10px;
+  // padding: 10px;
   form {
     width: 100%;
   }
 }
-

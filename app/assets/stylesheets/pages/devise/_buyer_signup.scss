@@ -12,6 +12,10 @@
     margin-top: 60px;
     text-align: center;
   }
+
+  .form-check {
+    padding-left: 25px;
+  }
 }
 
 // .move-up {
@@ -62,4 +66,23 @@
 
 .margin-left {
   margin-left: 70px;
+}
+
+
+// Responsive
+@media (max-width: 800px) {
+  .warm-gray-container-600 {
+    width: 90%;
+    margin: 0 auto;
+    height: 90vh;
+  }
+}
+
+@media (max-width: 540px) {
+  .warm-gray-container-600 {
+    width: 95%;
+    padding: 10px 25px;
+    margin: 0 auto;
+    height: 90vh;
+  }
 }
