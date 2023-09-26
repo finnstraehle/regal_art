@@ -56,3 +56,38 @@
     }
   }
 }
+
+// Responsive
+@media (max-width: 960px) {
+
+}
+
+@media (max-width: 720px) {
+
+}
+
+@media (max-width: 540px) {
+  .card-portfolio {
+    h2 {
+      rotate: 270deg;
+      transform-origin: top left;
+      font-size: 21px;
+      margin-top: 150px;
+    }
+    .profile {
+      width: 90%;
+      margin-left: -80px;
+      img {
+        width: 95px;
+      }
+    }
+    .portfolio-text {
+      width: 90%;
+      margin-left: -85px;
+    }
+    .artworks {
+      width: 90%;
+      margin-left: -105px;
+    }
+  }
+}
