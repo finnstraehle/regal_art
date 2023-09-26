@@ -5,7 +5,7 @@
 
 .carousel-container-nb {
   height: 600px;
-  width: 1000px;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -52,6 +52,17 @@
 
 
 // Responsive
+@media (max-width: 960px) {
+  .carousel-container-nb {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+  }
+  .carousel-btns {
+    top: -250px;
+  }
+}
+
 @media (max-width: 540px) {
   .carousel-container-nb {
     width: 100%;
@@ -59,15 +70,5 @@
   }
   .carousel-btns {
     top: -200px;
-  }
-}
-
-@media (max-width: 960px) {
-  .carousel-container-nb {
-    width: 100%;
-    height: 500px;
-  }
-  .carousel-btns {
-    top: -250px;
   }
 }

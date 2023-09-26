@@ -49,3 +49,18 @@
     width: 100%;
   }
 }
+
+// Responsive
+@media (max-width: 960px) {
+  .container-conversation {
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 540px) {
+  .container-conversation {
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+  }
+}

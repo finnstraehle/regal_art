@@ -61,7 +61,7 @@
 
 .unjoin-event {
   font-size: 25px;
-  margin-left: 675px;
+  text-align: center;
   margin-top: 50px;
 }
 
@@ -73,7 +73,8 @@
   border-radius: 5px;
   background: $warm-gray;
   color: $dark-gray;
-  margin: auto auto 60px 0;
+  margin-bottom: 30px;
+  align-self: flex-start;
   text-decoration: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   transition: 0.5s ease;
@@ -96,6 +97,10 @@
   .text {
     text-align: right;
   }
+}
+
+.flip {
+  align-self: flex-end;
 }
 
 .artist-card-img {
@@ -150,7 +155,8 @@
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  height: 120px;
+  min-height: 120px;
+  height: fit-content;
   margin-bottom: 30px;
 }
 
@@ -178,6 +184,7 @@
   width: 100%;
   border-radius: 5px;
   background-color: $light-lavander;
+  height: fit-content;
   h5 {
     font-weight: 500;
     font-family: $body-font;
@@ -259,7 +266,6 @@
 }
 
 // Responsive
-
 @media (max-width: 960px) {
   .artist-card {
     width: 100%;
@@ -291,6 +297,34 @@
       margin: 25px;
     }
   }
+
+  .video-box {
+    height: fit-content;
+  }
+
+  .video-card {
+    width: 98%;
+    height: fit-content;
+    padding: 20px;
+    p {
+      column-count: 2;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .video-box {
+    height: fit-content;
+  }
+
+  .video-card {
+    width: 98%;
+    height: fit-content;
+    padding: 20px;
+    p {
+      column-count: 1;
+    }
+  }
 }
 
 @media (max-width: 540px) {
@@ -301,7 +335,6 @@
     margin: 0 auto 20px auto;
     .text {
       width: 250px;
-      margin: 10px;
       transform: rotate(270deg);
       transform-origin: top left;
       h2{
