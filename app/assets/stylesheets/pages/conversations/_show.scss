@@ -2,18 +2,17 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 400px);
-  overflow-y: scroll;;
-  // padding-bottom: 20px;
+  overflow-y: scroll;
 }
 
 .card-message-field {
   background-color: white;
   border-radius: 10px;
-  // box-shadow: 0 0 10px rgba(0,0,0,0.1);
   // position: sticky;
   // bottom: 0;
-  padding: 10px;
   // margin: 10 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 10px;
   form {
     width: 100%;
     height: fit-content;
