@@ -31,3 +31,42 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 }
+
+// Responsive
+@media (max-width: 960px) {
+
+}
+
+@media (max-width: 720px) {
+
+}
+
+@media (max-width: 540px) {
+  .card-all-subscriber-group {
+    padding: 25px;
+    h2 {
+      width: 80%
+    }
+    .stats {
+      width: 20%;
+      i {
+        width: 15px;
+        text-align: right;
+      }
+    }
+  }
+
+  .card-subscriber-group {
+    padding: 25px;
+    h2 {
+      width: 80%
+    }
+    .stats {
+      width: 20%;
+      i {
+        width: 15px;
+        text-align: right;
+      }
+    }
+  }
+}

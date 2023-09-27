@@ -1,4 +1,5 @@
-<%= link_to user_path(artist), class: "artist-card flip", style: "margin: auto 0 60px auto;" do %>
+<%= link_to user_path(artist), class: "artist-card flip" do %>
+<%# style: "margin: auto 0 60px auto;"  %>
   <div class="text">
     <h2><%= artist.first_name %></h2>
     <p><%= artist.long_bio.truncate(300) %></p>

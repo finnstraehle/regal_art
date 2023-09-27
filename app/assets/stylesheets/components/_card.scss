@@ -61,7 +61,7 @@
 
 .unjoin-event {
   font-size: 25px;
-  margin-left: 675px;
+  text-align: center;
   margin-top: 50px;
 }
 
@@ -73,7 +73,8 @@
   border-radius: 5px;
   background: $warm-gray;
   color: $dark-gray;
-  margin: auto auto 60px 0;
+  margin-bottom: 30px;
+  align-self: flex-start;
   text-decoration: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   transition: 0.5s ease;
@@ -95,7 +96,11 @@
 .artist-card .flip {
   .text {
     text-align: right;
+  }
 }
+
+.flip {
+  align-self: flex-end;
 }
 
 .artist-card-img {
@@ -150,7 +155,8 @@
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  height: 120px;
+  min-height: 120px;
+  height: fit-content;
   margin-bottom: 30px;
 }
 
@@ -178,6 +184,7 @@
   width: 100%;
   border-radius: 5px;
   background-color: $light-lavander;
+  height: fit-content;
   h5 {
     font-weight: 500;
     font-family: $body-font;
@@ -255,5 +262,135 @@
   p {
     column-count: 2;
     column-gap: 20px;
+  }
+}
+
+// Responsive
+@media (max-width: 960px) {
+  .artist-card {
+    width: 100%;
+    margin: 0 auto 30px auto;
+    .text {
+      margin: 25px;
+    }
+  }
+  .artist-card-img {
+    width: 230px;
+    height: 100%;
+    img {
+      width: 230px;
+    }
+  }
+
+  .artwork-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    // height: 360px;
+    margin: 0;
+    img {
+      width: 50%;
+      // height: 360px;
+      border-radius: 5px 0 0 5px;
+    }
+    .text {
+      margin: 25px;
+    }
+  }
+
+  .video-box {
+    height: fit-content;
+  }
+
+  .video-card {
+    width: 98%;
+    height: fit-content;
+    padding: 20px;
+    p {
+      column-count: 2;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .video-box {
+    height: fit-content;
+  }
+
+  .video-card {
+    width: 98%;
+    height: fit-content;
+    padding: 20px;
+    p {
+      column-count: 1;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .artist-card {
+    width: 100%;
+    height: 250px;
+    flex-direction: row;
+    margin: 0 auto 20px auto;
+    .text {
+      width: 250px;
+      transform: rotate(270deg);
+      transform-origin: top left;
+      h2{
+        padding: 0;
+        margin-left: -200px;
+      }
+      p {
+        display: none;
+      }
+    }
+  }
+  .artist-card-img {
+    width: 250px;
+    height: 100%;
+    img {
+      width: 250px;
+    }
+  }
+  .flip{
+    .text {
+      text-align: right;
+      transform: rotate(90deg);
+      transform-origin: top right;
+      h2{
+        padding: 0;
+        margin-right: -85px;
+      }
+    }
+  }
+
+  .video-box {
+    height: fit-content;
+  }
+
+  .video-card {
+    width: 98%;
+    height: fit-content;
+    padding: 20px;
+    p {
+      column-count: 1;
+    }
+  }
+
+  .artwork-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 550px;
+    img {
+      width: 100%;
+      height: 300px;
+      border-radius: 5px 5px 0 0;
+    }
+    .text {
+      margin: 30px;
+    }
   }
 }
