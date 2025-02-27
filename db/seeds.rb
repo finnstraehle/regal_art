@@ -60,7 +60,7 @@ end
 
 puts '>Creating artworks for each artist...'
 User.where(is_artist: true).each do |artist|
-  rand(2..6).times do
+  rand(2..4).times do
     artwork = Artwork.new(
       user: artist,
       title: Artwork::TITLES.sample,
@@ -68,7 +68,16 @@ User.where(is_artist: true).each do |artist|
       style: Artwork::STYLES.sample,
       has_details: false,
     )
-    file = URI.open('https://source.unsplash.com/900x900/?abstract')
+    # file = URI.open('https://api.unsplash.com/photos/random/?client_id=sSwBGzed9r26j9RZq7ayRrc3i_PNR7LkzTM5t2VkZeQ')
+
+    # Fetch the Unsplash API response and parse it (DOES NOT WORK)
+    # response = URI.open('https://api.unsplash.com/photos/random/?client_id=sSwBGzed9r26j9RZq7ayRrc3i_PNR7LkzTM5t2VkZeQ').read
+    # image_url = JSON.parse(response)['urls']['regular']
+    # file = URI.open(image_url)
+
+    # work around
+    file = File.open("app/assets/images/user#{rand(1..5)}_1.png")
+
     artwork.photo.attach(io: file, filename: artwork.title, content_type: 'image/png')
     artwork.save!
   end
@@ -99,7 +108,7 @@ end
 
 puts '>Creating Events for each artist...'
 User.where(is_artist: true).each do |artist|
-  rand(4..9).times do
+  rand(2..5).times do
     month = rand(3..9)
     day = rand(1..30)
     event = Event.new(
@@ -111,9 +120,19 @@ User.where(is_artist: true).each do |artist|
       end_date: DateTime.new(2023, month, day, rand(11..18), [0, 30].sample),
       is_private: [true, false].sample
     )
-    file = URI.open('https://source.unsplash.com/900x900/?art-gallery')
+    # file = URI.open('https://source.unsplash.com/900x900/?art-gallery')
+
+    # Fetch the Unsplash API response and parse it (DOES NOT WORK)
+    # response = URI.open('https://api.unsplash.com/photos/random/?client_id=sSwBGzed9r26j9RZq7ayRrc3i_PNR7LkzTM5t2VkZeQ').read
+    # image_url = JSON.parse(response)['urls']['regular']
+    # file = URI.open(image_url)
+
+    # work around
+    file = File.open("app/assets/images/user#{rand(1..5)}_1.png")
+
     event.photos.attach(io: file, filename: event.title, content_type: 'image/png')
     event.save!
+    sleep(1) # To avoid rate limiting
   end
 end
 
@@ -148,7 +167,7 @@ end
 
 puts '>Creating messages for each conversation...'
 Conversation.all.each do |conversation|
-  rand(2..7).times do
+  rand(3..7).times do
     Message.create!(
       conversation: conversation,
       user: [conversation.buyer, conversation.artist].sample,
